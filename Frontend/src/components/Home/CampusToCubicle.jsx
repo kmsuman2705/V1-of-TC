@@ -126,7 +126,7 @@ export default function CampusToCubicle() {
               muted
               playsInline
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
-              src={"/src/assets/videos/d.mp4"} // Replace with the correct video path
+              src={dVideo} // Replace with the correct video path
               alt="Campus to Cubicle Video"
             />
           </AspectRatio>
