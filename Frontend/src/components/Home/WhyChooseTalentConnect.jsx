@@ -12,8 +12,17 @@ const rotate = keyframes`
   100% { transform: rotate(360deg); border-color: #63b3ed; }
 `;
 
+// Array of colors excluding yellow
+const colors = [ "green.400", "red.400", "purple.400", "teal.400", "orange.400", "pink.400"];
+
+const getRandomColor = () => {
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+};
+
 const Feature = ({ title, text, icon, link }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const randomBgColor = getRandomColor(); // Generate random color for icon background
 
   return (
     <Link to={link} style={{ textDecoration: 'none' }}>
@@ -45,7 +54,7 @@ const Feature = ({ title, text, icon, link }) => {
             align="center" justify="center"
             color={"white"}
             rounded={"full"}
-            bg={"blue.400"}
+            bg={randomBgColor} // Use random background color
           >
             {icon}
           </Flex>
@@ -63,7 +72,7 @@ const Feature = ({ title, text, icon, link }) => {
 
 export default function WhyChooseTalentConnect() {
   return (
-    <Box p={4} bg="blue.100">
+    <Box p={4} bg="yellow.100">
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}
         fontWeight={700}

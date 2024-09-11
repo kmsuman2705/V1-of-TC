@@ -1,5 +1,6 @@
-import { Box, Heading, Text, Button, Flex, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion'; // For animations
+import cimg from "../../assets/images/campusToCubicle.jpeg"
 
 const HeroPage = () => {
     return (
@@ -82,48 +83,35 @@ const HeroPage = () => {
                         <Text color="blue.500">CampusToCubicle:</Text>
                         Partnering for Future Success
                     </Heading>
-                                    {/* Image / Vector Section */}
-                <Box
-                    display={{ base: 'block', md: 'none' }} // Show image on mobile
-                    mt={8}  // Margin to separate from heading
-                    mb={8}  // Margin to separate from text
-                    textAlign="center"
-                    position="relative"
-                >
-                    <Image
-                        src="https://img.freepik.com/free-vector/virtual-graduation-ceremony_52683-39852.jpg?ga=GA1.2.733541098.1725531636&semt=ais_hybrid" // Replace with your vector URL
-                        alt="Hero Vector"
-                        w="80%" // Adjust size for mobile
-                        maxW="300px" // Max width for mobile
-                        h="auto" // Maintain aspect ratio
-                        borderRadius={40}
-                        mx="auto" // Center horizontally on mobile
-                    />
-                </Box>
+                    {/* Image / Vector Section */}
+                    <Box
+                        display={{ base: 'block', md: 'none' }} // Show image on mobile
+                        mt={8}  // Margin to separate from heading
+                        mb={8}  // Margin to separate from text
+                        textAlign="center"
+                        position="relative"
+                    >
+                        <Image
+                            src={cimg} // Replace with your vector URL
+                            alt="Hero Vector"
+                            w="80%" // Adjust size for mobile
+                            maxW="300px" // Max width for mobile
+                            h="auto" // Maintain aspect ratio
+                            borderRadius={40}
+                            mx="auto" // Center horizontally on mobile
+                        />
+                    </Box>
                     <Text
                         as={motion.p}
                         fontSize={{ base: 'md', md: 'lg' }}  // Adjusted for mobile
-                        mb={6}
+                        mt={6}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}
                     >
-                        TalentConnect revolutionizes the campus-to-cubicle journey for colleges and companies. Our tech platform integrates company needs with college engagement, ensuring efficient recruitment and personalized campaigns.
+                        TalentConnect revolutionizes the campus-to-cubicle journey for colleges and companies. Our tech platform integrates company needs with college engagement, ensuring efficient recruitment and personalized campaigns. We handle the entire hiring process and provide on-demand training for new hires, bridging the gap between campus and career.
                     </Text>
-                    <Button
-                        as={motion.button}
-                        size="lg"
-                        colorScheme="blue"
-                        borderRadius={40}
-                        initial={{ scale: 0.8 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 200 }}
-                    >
-                        Get Started
-                    </Button>
                 </Box>
-
-
 
                 <Box
                     display={{ base: 'none', md: 'block' }} // Hide image on mobile
@@ -157,7 +145,7 @@ const HeroPage = () => {
                         }}
                     />
                     <Image
-                        src="https://img.freepik.com/free-vector/virtual-graduation-ceremony_52683-39852.jpg?ga=GA1.2.733541098.1725531636&semt=ais_hybrid" // Replace with your vector URL
+                        src={cimg} // Replace with your vector URL
                         alt="Hero Vector"
                         w={{ base: '200px', md: '490px' }} // Adjusted for mobile
                         h="auto" // Maintain aspect ratio

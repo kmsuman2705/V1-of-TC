@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -31,12 +31,22 @@ const rotate = keyframes`
   100% { transform: rotate(360deg); border-color: #63b3ed; }
 `;
 
+const colors = ["yellow.400", "green.400", "red.400", "purple.400", "pink.400", "teal.400","orange.400"
+                  
+];
+
+const getRandomColor = () => {
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+};
+
 const Card = ({ heading, description, icon, link }) => {
-   const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [bgColor] = useState(getRandomColor); // Set random color on first render
 
   return (
     <Box
-      as={Link} // This makes the entire card clickable
+      as={Link}
       to={link}
       maxW={{ base: "full", md: "275px" }}
       w={"full"}
@@ -47,33 +57,32 @@ const Card = ({ heading, description, icon, link }) => {
       bg={useColorModeValue("white", "gray.800")}
       boxShadow="lg"
       transition="transform 0.3s, box-shadow 0.3s"
-      _hover={{ transform: "scale(1.05)", boxShadow: "2xl" }} // Only scale up the card
-      textDecoration="none" // Ensure link style is clean
+      _hover={{ transform: "scale(1.05)", boxShadow: "2xl" }}
+      textDecoration="none"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-
       <Flex direction="column" justify="space-between" h="100%">
         <Stack align={"center"} spacing={2}>
-                  <Flex
-          w={20} h={20}
-          align="center" justify="center"
-          mb={4}
-          borderRadius="full"
-          borderWidth="4px"
-          borderColor={isHovered ? "blue.400" : "transparent"}
-          animation={isHovered ? `${rotate} 4s infinite linear` : "none"} // Rotating effect
-        >
           <Flex
-            w={16} h={16}
+            w={20} h={20}
             align="center" justify="center"
-            color={"white"}
-            rounded={"full"}
-            bg={"blue.400"}
+            mb={4}
+            borderRadius="full"
+            borderWidth="4px"
+            borderColor={isHovered ? "blue.400" : "transparent"}
+            animation={isHovered ? `${rotate} 4s infinite linear` : "none"}
           >
-            {icon}
+            <Flex
+              w={16} h={16}
+              align="center" justify="center"
+              color={"white"}
+              rounded={"full"}
+              bg={bgColor} // Apply random background color
+            >
+              {icon}
+            </Flex>
           </Flex>
-        </Flex>
           <Box textAlign="center">
             <Heading size="md" color="#7877e6ff">
               {heading}

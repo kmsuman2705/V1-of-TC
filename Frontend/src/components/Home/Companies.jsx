@@ -1,26 +1,25 @@
-import React from 'react';
-import { Box, Flex, Image, Heading, keyframes } from '@chakra-ui/react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, Flex, Heading, Text, keyframes } from '@chakra-ui/react';
 
-// List of companies with their logos
+// List of companies
 const companiesList = [
-  { name: "ARUN ENG & CO", logo: "https://example.com/arun_eng_logo.png" },
-  { name: "Arka Jain", logo: "https://example.com/arka_jain_logo.png" },
-  { name: "Jharkhand IT Solutions", logo: "https://www.jharkhanditsolutions.com/wp-content/uploads/2016/10/logo-final.png" },
-  { name: "Hitachi Payment Services", logo: "https://www.hitachi-payments.com/wp-content/uploads/2023/06/pARTNER-OF-CHOICE.png" },
-  { name: "Hitachi Chennai", logo: "https://example.com/hitachi_chennai_logo.png" },
-  { name: "Emversity", logo: "https://abnd.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Femversityt.c8166fd4.jpg&w=1920&q=75" },
-  { name: "Hitachi Mumbai", logo: "https://example.com/hitachi_mumbai_logo.png" },
-  { name: "Hitachi North East", logo: "https://example.com/hitachi_ne_logo.png" },
-  { name: "Hitachi Jaipur", logo: "https://example.com/hitachi_jaipur_logo.png" },
-  { name: "Hitachi Assam", logo: "https://example.com/hitachi_assam_logo.png" },
-  { name: "Winso Software Pvt Ltd", logo: "https://example.com/winso_logo.png" },
-  { name: "CMS", logo: "https://example.com/cms_logo.png" },
-  { name: "M/s Unique Engineer's", logo: "https://example.com/unique_engineers_logo.png" },
-  { name: "Blue Craft", logo: "https://example.com/blue_craft_logo.png" },
-  { name: "A.K ENGINEERING CORPORATION", logo: "https://example.com/ak_engineering_logo.png" },
-  { name: "JINDAL ORRISA", logo: "https://example.com/jindal_orrisa_logo.png" }
+  { name: "ARUN ENG & CO" },
+  { name: "Arka Jain" },
+  { name: "Jharkhand IT Solutions" },
+  { name: "Hitachi Payment Services" },
+  { name: "Hitachi Chennai" },
+  { name: "Emversity" },
+  { name: "Hitachi Mumbai" },
+  { name: "Hitachi North East" },
+  { name: "Hitachi Jaipur" },
+  { name: "Hitachi Assam" },
+  { name: "Winso Software Pvt Ltd" },
+  { name: "CMS" },
+  { name: "M/s Unique Engineer's" },
+  { name: "Blue Craft" },
+  { name: "A.K ENGINEERING CORPORATION" },
+  { name: "JINDAL ORRISA" }
 ];
-
 
 // Duplicated list to ensure seamless scrolling
 const duplicatedList = [...companiesList, ...companiesList];
@@ -31,31 +30,61 @@ const scrollAnimation = keyframes`
 `;
 
 const Companies = () => {
+  const [isPaused, setIsPaused] = useState(false);  // State to control scrolling
+  const animationRef = useRef(null);
+
   // Calculate the total width required for seamless scrolling
-  const containerWidth = duplicatedList.length * 165; // Assuming each item is approximately 150px wide
+  const containerWidth = duplicatedList.length * 405; // Adjust item width if necessary
+
+  // Pause animation when mouse enters and resume when mouse leaves
+  useEffect(() => {
+    if (isPaused) {
+      animationRef.current.style.animationPlayState = 'paused';
+    } else {
+      animationRef.current.style.animationPlayState = 'running';
+    }
+  }, [isPaused]);
 
   return (
     <Box textAlign="center" py="8">
       <Heading as="h4" size="xl" mb="8"
-          fontSize={{ base: "2xl", md: "3xl" }}
-          fontFamily={"ClashDisplay"}
-          color={"blue.400"} // Change to your desired color
-          
-          >
+        fontSize={{ base: "2xl", md: "3xl" }}
+        fontFamily={"ClashDisplay"}
+        color={"blue.400"}  // Change to your desired color
+      >
         Top Startups & MNC’s that Hire from TalentConnect
       </Heading>
-      <Box overflow="hidden" width="100%">
+      <Box overflow="hidden" width="100%" mt={20}>
         <Flex
+          ref={animationRef}
           as="ul"
           listStyleType="none"
           width={`${containerWidth}px`}  // Set width based on duplicated list
-          animation={`${scrollAnimation} 60s linear infinite`}  // Adjust animation duration as needed
+          animation={`${scrollAnimation} 60s linear infinite`}  // Smooth scrolling
           whiteSpace="nowrap"
+          onMouseEnter={() => setIsPaused(true)}  // Stop scrolling when hovering
+          onMouseLeave={() => setIsPaused(false)}  // Resume scrolling when hover ends
         >
           {duplicatedList.map((company, index) => (
-            <Box as="li" key={index} mx="4" display="inline-block">
-              <Image src={company.logo} alt={company.name} height="50px" />
-              
+            <Box
+              as="li"
+              key={index}
+              mx="6"
+              display="inline-block"
+              p="4"
+              bg="white"             
+              borderRadius="md"
+              boxShadow="0 0 15px rgba(160, 32, 240, 0.6)"  // Shining shadow effect
+              transition="box-shadow 0.3s, border-color 0.3s"
+            >
+              <Text
+                fontSize={{ base: "lg", md: "xl" }}
+                fontWeight="bold"
+                color="orange.400"
+                fontFamily={"Poppins, sans-serif"}  // Professional font style
+              >
+                {company.name}
+              </Text>
             </Box>
           ))}
         </Flex>

@@ -18,7 +18,7 @@ export default function About() {
   };
 
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex  flex={1} align={"center"} justify={"center"} >
         <Box
           borderWidth={2}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Stack, Flex, Button, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
 function Section1() {
   return (
@@ -42,6 +43,7 @@ function Section1() {
           We can help you expand your reach and get your jobs in front of the right candidates.
           </Text>
           <Stack direction={'row'}>
+           <Link to="/company-form">
             <Button
               bg={'blue.400'}
               rounded={'full'}
@@ -49,6 +51,7 @@ function Section1() {
               _hover={{ bg: 'blue.500' }}>
               Employer Enrollment
             </Button>
+            </Link>
           </Stack>
         </Stack>
       </VStack>

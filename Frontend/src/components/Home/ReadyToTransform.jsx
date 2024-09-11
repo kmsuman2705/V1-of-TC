@@ -20,6 +20,7 @@ export default function ReadyToTransform() {
       borderRadius="lg"
       boxShadow="lg"
       textAlign="center"
+      mt={10}
     >
       <Container maxW={"container.md"}>
         <Heading

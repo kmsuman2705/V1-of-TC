@@ -10,10 +10,12 @@ import Placed from "../components/Home/Placed.jsx";
 import Companies from "../components/Home/Companies.jsx";
 
 
+
 const Home = () => {
   return (
     <>
       <Hero />
+      
       <CampusToCubicle />
       <About />
       <WhyChooseTalentConnect />

@@ -51,7 +51,7 @@ const AutoSliding3DCardSlider = () => {
 
   return (
     <Flex direction="column" alignItems="center" mt={10} mb={10} position="relative">
-      <Heading mb={6} fontSize={['xl', '2xl', '3xl']} color={theme.colors.blue[500]}>
+      <Heading mb={6} fontSize={['xl', '2xl', '3xl']} color={theme.colors.blue[500] }>
         Placed Students
       </Heading>
       <Flex
