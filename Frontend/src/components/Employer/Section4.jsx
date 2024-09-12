@@ -40,7 +40,7 @@ function Section4() {
       boxShadow="lg"
       bg={useColorModeValue('gray.100', 'gray.700')}
       p={{ base: 8, md: 12 }}
-      m={4}
+      
       position="relative"
       overflow="hidden"
       width="100%"

@@ -1,14 +1,14 @@
 import {
-  
   Flex,
   Heading,
-  Image,
   Stack,
   Text,
   useBreakpointValue,
   Box,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion"; 
+import hVideo from "../../assets/videos/tc.mp4";
+//import posterImage from "../../assets/images/cc.png"; // Add your poster image here
 
 export default function About() {
   // Framer-motion variants for text animations
@@ -19,40 +19,58 @@ export default function About() {
 
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex  flex={1} align={"center"} justify={"center"} >
+      <Flex flex={1} align={"center"} justify={"center"}>
         <Box
-          borderWidth={2}
-          borderColor={"blue.400"}
+          w={{ base: "90%", md: "80%" }} // Wider box on mobile and desktop
+          maxW="800px" // Max width for larger screens         
           borderRadius={"lg"}
-          overflow={"hidden"}
-          width="80%"
-          maxHeight="50vh" // Adjust this value as needed
+          maxHeight="60vh" // Increase video height
         >
           <Box
-            position="relative"
-            overflow="hidden"
-            transition="transform 0.5s ease"
-            _hover={{ transform: "scale(1.1)" }}
+            w="100%"
+            p={4}
+            display="flex"
+            justifyContent="center"
+            as={motion.div}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            _hover={{
+              transform: "scale(1.03)",
+              borderColor: "blue.400",
+              boxShadow: "0 0 20px rgba(255, 215, 0, 1)",
+              transition: "all 0.4s ease",
+              borderRadius: "lg",
+            }}
           >
-            <Image
-              alt={"About Us Image"}
-              objectFit={"cover"}
-              height="100%" // Keep the height at 100% to fit the container
-              //maxHeight="100%" // Prevent exceeding the container's height
-              //width="100%" // Ensure the image takes full width
-              src={
-                "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              }
+            <video
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+             // poster={posterImage} // Show poster image before the video loads
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "8px",
+                border: "2px solid transparent",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              }}
+              src={hVideo}
             />
           </Box>
         </Box>
       </Flex>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
-          <Heading  as={motion.div}
+          <Heading
+            as={motion.div}
             variants={textVariants}
             initial="hidden"
-            whileInView="visible" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+            whileInView="visible"
+            fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+          >
             <Text
               as={"span"}
               position={"relative"}
@@ -74,44 +92,36 @@ export default function About() {
               At TalentConnect,
             </Text>
           </Heading>
-          <Text  as={motion.div}
+          <Text
+            as={motion.div}
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-           fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            We are dedicated to bridging the gap between talented individuals
-            and the dynamic workforce.
+            fontSize={{ base: "md", lg: "lg" }}
+            color={"black"}
+          >
+            We are dedicated to bridging the gap between talented individuals and the dynamic workforce.
           </Text>
-          <Text  as={motion.div}
+          <Text
+            as={motion.div}
             variants={textVariants}
             initial="hidden"
-            whileInView="visible" 
-           fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            Our mission is to provide top-notch career services that empower
-            individuals to achieve their professional aspirations while
-            supporting organizations in building their dream teams.
+            whileInView="visible"
+            fontSize={{ base: "md", lg: "lg" }}
+            color={"black"}
+          >
+            Our mission is to provide top-notch career services that empower individuals to achieve their professional aspirations while supporting organizations in building their dream teams.
           </Text>
-          <Text  as={motion.div}
+          <Text
+            as={motion.div}
             variants={textVariants}
             initial="hidden"
-            whileInView="visible" 
-           fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            With a commitment to excellence, innovation, and integrity,
-            TalentConnect is your trusted partner in career success.
+            whileInView="visible"
+            fontSize={{ base: "md", lg: "lg" }}
+            color={"black"}
+          >
+            With a commitment to excellence, innovation, and integrity, TalentConnect is your trusted partner in career success.
           </Text>
-          {/*  <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-            <Button
-              rounded={"full"}
-              bg={"blue.400"}
-              color={"white"}
-              _hover={{
-                bg: "blue.500",
-              }}
-            >
-              Get Started
-            </Button>
-            <Button rounded={"full"}>Learn More</Button>
-          </Stack> */}
         </Stack>
       </Flex>
     </Stack>

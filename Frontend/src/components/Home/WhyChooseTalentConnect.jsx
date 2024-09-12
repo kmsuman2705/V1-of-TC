@@ -59,10 +59,10 @@ const Feature = ({ title, text, icon, link }) => {
             {icon}
           </Flex>
         </Flex>
-        <Text fontWeight={600} textAlign="center" fontSize={{ base: "lg", md: "xl" }}>
+        <Text fontWeight={700} textAlign="center" fontSize={{ base: "xl", md: "xl" }}>
           {title}
         </Text>
-        <Text color={"gray.600"} textAlign="center" fontSize={{ base: "sm", md: "md" }}>
+        <Text color={"black"} textAlign="center" fontSize={{ base: "sm", md: "md" }}>
           {text}
         </Text>
       </Stack>
@@ -72,16 +72,26 @@ const Feature = ({ title, text, icon, link }) => {
 
 export default function WhyChooseTalentConnect() {
   return (
-    <Box p={4} bg="yellow.100">
-      <Text
-        fontSize={{ base: "2xl", md: "4xl" }}
-        fontWeight={700}
-        mb={6}
-        color="blue.400"
-        textAlign="center"
-      >
-        Why Choose TalentConnect?
-      </Text>
+    <Box p={4} bg="blue.100">
+       <Flex justifyContent="center" alignItems="center">
+          <Text
+            fontSize={{ base: "2xl", md: "4xl" }}
+            fontWeight={700}
+            mb={6}
+            color="black"
+          >
+            Why Choose
+          </Text>
+          <Text
+            fontSize={{ base: "2xl", md: "4xl" }}
+            fontWeight={700}
+            mb={6}
+            color="blue.400"
+            ml={2}  
+          >
+            TalentConnect?
+          </Text>
+        </Flex>
       <Text
         fontSize={{ base: "md", lg: "lg" }}
         color={"black"}

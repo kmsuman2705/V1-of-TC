@@ -29,15 +29,15 @@ const CollegeSolutions = () => {
   ];
 
   return (
-    <Container maxW={"full"} bg="gray.100" mt={20} minH={"80vh"}>
+    <Container maxW={"full"} bg="gray.100"  minH={"90vh"}>
       <Heading
         fontFamily={"ClashDisplay"}
         fontSize={{ base: "2xl", sm: "4xl" }}
         fontWeight="bold"
         color="blue.400"
         textAlign="center"
-      
-        mb={20}
+        p={10}
+        mb={10}
       >
         TalentConnect Solutions for Colleges
       </Heading>

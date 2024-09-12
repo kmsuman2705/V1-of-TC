@@ -46,7 +46,7 @@ function Section2() {
     <Box
       p={{ base: 10, md: 20 }}
       bgGradient={bgGradient}
-      m={5}
+      
       borderRadius="lg"
       boxShadow="xl"
       transition="0.3s ease-in-out"

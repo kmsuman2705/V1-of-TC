@@ -87,7 +87,7 @@ const Card = ({ heading, description, icon, link }) => {
             <Heading size="md" color="#7877e6ff">
               {heading}
             </Heading>
-            <Text mt={1} fontSize={"sm"} color={"gray.600"}>
+            <Text mt={1} fontSize={"sm"} color={"black"}>
               {description}
             </Text>
           </Box>

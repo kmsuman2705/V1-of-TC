@@ -12,6 +12,7 @@ const Feature = ({ title, text, icon }) => {
       borderRadius="md"
       bg="white"
       shadow="md"
+      
     >
       <Flex
         w={16}
@@ -42,7 +43,7 @@ const Feature = ({ title, text, icon }) => {
 
 export default function CollegeChallenges() {
   return (
-    <Box p={4} bg="#f4f4f3ff">
+    <Box p={20} bg="#f4f4f3ff">
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}
         fontWeight={700}

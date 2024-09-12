@@ -177,7 +177,7 @@ export default function Hero() {
                   rounded={"full"}
                   color={"white"}
                   border={"1px solid rgba(255, 255, 255, 0.5)"}
-                  _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+                  _hover={{ transform: "scale(1.05)", boxShadow: "lg" , bg:"blue.400"}}
                   whileHover={{ scale: 1.1 }}
                   
                   initial={{ scale: 0.8 }}

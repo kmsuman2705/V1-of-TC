@@ -11,50 +11,81 @@ import {
 } from "@chakra-ui/react";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
+import { motion } from "framer-motion";
+
+// Create motion components for animation
+const MotionBox = motion(Box);
+const MotionHeading = motion(Heading);
 
 
 export default function OnCampus() {
   return (
     <>
       {/* Section 1 */}
-      <Flex
-        w={"full"}
-        h={"100vh"}
-        backgroundImage={
-          'url(https://img.freepik.com/premium-photo/group-engineers-gathered-take-team-photo_592794-426.jpg?w=740)'
-        }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-        backgroundAttachment={"fixed"}
-        zIndex={1}
-        objectFit={"cover"}
-        position="relative"
+ <Flex
+      w={"full"}
+      h={"100vh"}
+      backgroundImage={
+        'url(https://img.freepik.com/premium-photo/group-engineers-gathered-take-team-photo_592794-426.jpg?w=740)'
+      }
+      backgroundSize={"cover"}
+      backgroundPosition={"center center"}
+      backgroundAttachment={"fixed"}
+      zIndex={1}
+      objectFit={"cover"}
+      position="relative"
+      alignItems="center" // Center vertically
+      justifyContent="center" // Center horizontally
+    >
+      <Stack
+        spacing={6}
+        align="center" // Center the text box horizontally
+        textAlign="center" // Center text inside the box
+        position="relative" // Ensure it's positioned correctly
       >
-        <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+        <MotionBox
+          bg="#FAF9F6"
+          p={10}
+          borderRadius="md"
+          textAlign="left"
+          color="black"
+          w={{ base: "90%", md: "70%" }} // Make box wider horizontally
+          maxW="5xl" // Optional: ensure a maximum width
+          minH="300px" // Ensure a minimum height for rectangular shape
+          initial={{ opacity: 0, scale: 0.9 }} // Start from small and invisible
+          animate={{ opacity: 1, scale: 1 }} // Scale up and fade in
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" right="8" bottom="20">
-            <Box
-              bg="rgba(245, 245, 245, 0.8)"
-              p={10}
-              borderRadius="md"
-              textAlign="left"
-              color="black"
-              maxW="lg"
+          <Stack spacing={4} align="center" textAlign="center">
+            <MotionHeading
+              fontFamily={"ClashDisplay"}
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+              color="#003B5C"
+              initial={{ opacity: 0 }} // Start from invisible
+              animate={{ opacity: 1 }} // Fade in
+              transition={{ duration: 1, delay: 0.5 }} // Delay slightly after the box animation
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold" color="blue.400">
-                Elevate Your Talent Acquisition: Premier Workforce Solutions
-              </Heading>
-              <Text mt={4} fontSize={{ base: "md", md: "lg" }} color="gray.800">
-                Discover top-tier workforce solutions designed to streamline your hiring process and connect you with exceptional talent. Our services offer customized recruitment strategies, candidate screening, and talent management to help you build a skilled and dynamic team that drives your organization’s success.
-              </Text>
-            </Box>
+              Elevate Your Talent Acquisition: 
+            </MotionHeading>
+            <MotionHeading
+              fontFamily={"ClashDisplay"}
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+              color="#F4A460"
+              initial={{ opacity: 0 }} // Start from invisible
+              animate={{ opacity: 1 }} // Fade in
+              transition={{ duration: 1, delay: 0.5 }} // Delay slightly after the box animation
+            >
+             Premier Workforce Solutions
+            </MotionHeading>
+            <Text mt={4} fontSize={{ base: "md", md: "lg" }} color="black">
+              Discover top-tier workforce solutions designed to streamline your hiring process and connect you with exceptional talent. Our services offer customized recruitment strategies, candidate screening, and talent management to help you build a skilled and dynamic team that drives your organization’s success.
+            </Text>
           </Stack>
-        </VStack>
-      </Flex>
+        </MotionBox>
+      </Stack>
+    </Flex>
 
       {/* Section 2 */}
       <Flex
