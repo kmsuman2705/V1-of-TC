@@ -15,7 +15,7 @@ import section4Image from "../../../assets/images/OnCampus/section4.png"; // Adj
 
 const Section4 = () => {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={{base:10}}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           
@@ -57,7 +57,7 @@ const Section4 = () => {
               rounded={"full"}
               bg={"gray.500"}
               color={"white"}
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg",  bg: "blue.300", color:"white" }}
             >
               Connect With Us
             </Button>

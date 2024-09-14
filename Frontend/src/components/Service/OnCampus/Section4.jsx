@@ -57,7 +57,7 @@ const Section4 = () => {
               rounded={"full"}
               bg={"gray.500"}
               color={"white"}
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg" , bg: "blue.300", color:"white"}}
             >
               Connect With Us
             </Button>

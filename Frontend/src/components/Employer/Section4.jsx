@@ -84,20 +84,28 @@ function Section4() {
           Get in touch or create an account.
         </chakra.h2>
         <Button
-          as={Link}
-          href="company-form"
-          color="white"
-          variant="solid"
-          size="lg"
-          rounded="md"
-          lineHeight={1}
-          bgGradient="linear(to-l, #0ea5e9, #2563eb)"
-          _hover={{ bgGradient: 'linear(to-r, #0ea5e9, #2563eb)', transform: 'scale(1.1)' }}
-          _active={{ transform: 'scale(0.98)' }}
-          transition="all 0.3s ease"
-        >
-          Get Started
-        </Button>
+            as={Link}
+            href="company-form"
+            color="white"
+            variant="solid"
+            size="lg"
+            rounded="md"
+            lineHeight={1}
+            bg={"teal.400"}
+            _hover={{
+              bgGradient: 'linear(to-r, #0ea5e9, #2563eb)',
+              transform: 'scale(1.1)',
+              textDecoration: 'none' // Ensure no underline on hover
+            }}
+            _active={{
+              transform: 'scale(0.98)',
+              textDecoration: 'none' // Ensure no underline when active
+            }}
+            transition="all 0.3s ease"
+          >
+            Get Started
+          </Button>
+
       </Box>
     </Stack>
   );

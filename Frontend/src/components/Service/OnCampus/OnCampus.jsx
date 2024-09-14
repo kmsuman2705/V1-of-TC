@@ -87,75 +87,77 @@ export default function OnCampus() {
           </Flex>
 
       {/* Section 2 */}
-     ;
+     
 
 <Flex
-  mt={{ base: 10, md: 135 }}
-  w={"full"}
- 
-  h={{ base: "50vh", md: "60vh" }}
-  backgroundImage={
-    'url(https://images.unsplash.com/photo-1562564055-71e051d33c19?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
-  }
-  backgroundSize={"cover"}
-  backgroundPosition={"center center"}
-  backgroundAttachment={"fixed"}
-  zIndex={1}
-  position="relative"
->
-  <VStack
-    w={"full"}
-    justify={"center"}
-    px={useBreakpointValue({ base: 4, md: 8 })}
-    bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
-  >
-    <Stack
-      maxW={{ base: "full", md: "2xl" }}
-      spacing={6}
-      position="absolute" left="8"
-      p={{ base: 4, md: 0 }} // Responsive padding for the stack
+      mt={{ base: 10, md: 20 }} // Adjusted margin-top for smaller screens
+      w="full"
+      h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Adjusted height for smaller screens
+      backgroundImage={
+        'url(https://images.unsplash.com/photo-1562564055-71e051d33c19?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+      }
+      backgroundSize="cover"
+      backgroundPosition="center center"
+      backgroundAttachment="fixed"
+      zIndex={1}
+      position="relative"
     >
-      <Box
-        bg="gray.100"
-        p={10}
-        borderRadius="md"
-        textAlign="left"
-        color="black"
-        maxW="lg"
-        minH={{ base: "auto", md: "500px" }} // Responsive height for the box
-        w={{ base: "full", md: "auto" }} // Make the box full width on smaller screens
+      <VStack
+        w="full"
+        justify="center"
+        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })} // Responsive padding
+        bgGradient="linear(to-r, transparent, blackAlpha.600)"
       >
-        <Heading
-          fontFamily={"ClashDisplay"}
-          fontSize={{ base: "xl", md: "5xl" }}
-          fontWeight="bold"
-          color="blue.400"
+        <Stack
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 8 }} // Adjusted position for smaller screens
+          p={{ base: 4, md: 6 }} // Responsive padding for the stack
         >
-          Why Should You Hire Us?
-        </Heading>
-        <Text
-          mt={4}
-          fontSize={{ base: "sm", md: "md" }}
-          color="black"
-        >
-          Hire TalentConnect for top-notch on-campus recruitment
-          solutions and seamless collaboration with universities. Our
-          OnCampus service brings career opportunities directly to
-          students, ensuring a strong brand presence on campus and
-          access to a talent pipeline of pre-screened candidates. With
-          our proven track record of successful campus branding
-          campaigns, we are a trusted partner for companies looking to
-          attract the best young talent. Let us help you take the next
-          step in building your future workforce with our
-          comprehensive on-campus hiring solutions. Choose
-          TalentConnect for a hassle-free recruitment process and
-          access to talented students ready to kickstart their
-          professional journeys.
-        </Text>
-      </Box>
-    </Stack>
-  </VStack>
-</Flex>
+          <Box
+            bg="gray.100"
+            p={4}
+            borderRadius="md"
+            textAlign="left"
+            color="black"
+            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+            minH={{ base: "auto", md: "400px" }} // Adjusted height for the box
+            w="full" // Full width on smaller screens
+          >
+            <Heading
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "2xl", md: "xl", lg: "5xl" }} // Responsive font size
+              fontWeight="bold"
+              color="blue.400"
+            >
+              Why Should You Hire Us?
+            </Heading>
+            <Text
+              mt={4}
+              fontSize={{ base: "xs", md: "sm", lg: "md" }} // Responsive font size
+              color="black"
+            >
+              Hire TalentConnect for top-notch on-campus recruitment
+              solutions and seamless collaboration with universities. Our
+              OnCampus service brings career opportunities directly to
+              students, ensuring a strong brand presence on campus and
+              access to a talent pipeline of pre-screened candidates. With
+              our proven track record of successful campus branding
+              campaigns, we are a trusted partner for companies looking to
+              attract the best young talent. Let us help you take the next
+              step in building your future workforce with our
+              comprehensive on-campus hiring solutions. Choose
+              TalentConnect for a hassle-free recruitment process and
+              access to talented students ready to kickstart their
+              professional journeys.
+            </Text>
+          </Box>
+        </Stack>
+      </VStack>
+    </Flex>
+  
+
 
       {/* Section 3 */}
         <Section3 />

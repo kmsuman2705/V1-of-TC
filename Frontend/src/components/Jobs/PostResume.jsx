@@ -308,6 +308,8 @@ export default function PostResume() {
                   _hover={{
                     bgGradient: "linear(to-r, red.400,pink.400)",
                     boxShadow: "xl",
+                     bg: "blue.300", color:"white",
+                     transform: "scale(1.05)"
                   }}
                 >
                   Submit

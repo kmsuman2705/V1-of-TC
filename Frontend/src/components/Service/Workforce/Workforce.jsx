@@ -23,63 +23,63 @@ export default function OnCampus() {
     <>
       {/* Section 1 */}
  <Flex
-      w={"full"}
-      h={"100vh"}
-      backgroundImage={
-        'url(https://img.freepik.com/premium-photo/group-engineers-gathered-take-team-photo_592794-426.jpg?w=740)'
-      }
-      backgroundSize={"cover"}
-      backgroundPosition={"center center"}
-      backgroundAttachment={"fixed"}
+      mt={{ base: 10}}
+      w="full"
+      h={{ base: "80vh", sm: "90vh", md: "100vh" }} // Responsive height
+      backgroundImage='url(https://img.freepik.com/premium-photo/group-engineers-gathered-take-team-photo_592794-426.jpg?w=740)'
+      backgroundSize="cover"
+      backgroundPosition="center center"
+      backgroundAttachment="fixed"
       zIndex={1}
-      objectFit={"cover"}
+      objectFit="cover"
       position="relative"
       alignItems="center" // Center vertically
       justifyContent="center" // Center horizontally
     >
       <Stack
-        spacing={6}
+        spacing={{ base: 4, sm: 5, md: 6, lg: 8 }} // Responsive spacing
         align="center" // Center the text box horizontally
         textAlign="center" // Center text inside the box
         position="relative" // Ensure it's positioned correctly
+        px={{ base: 4, sm: 6, md: 8, lg: 10 }} // Responsive padding
       >
         <MotionBox
           bg="#FAF9F6"
-          p={10}
+          p={{ base: 6, sm: 8, md: 10, lg: 12 }} // Responsive padding
           borderRadius="md"
           textAlign="left"
           color="black"
-          w={{ base: "90%", md: "70%" }} // Make box wider horizontally
-          maxW="5xl" // Optional: ensure a maximum width
-          minH="300px" // Ensure a minimum height for rectangular shape
+          w={{ base: "90%", sm: "80%", md: "70%" }} // Responsive width
+          maxW="4xl" // Optional: ensure a maximum width
+          minH={{ base: "auto", sm: "250px", md: "300px" }} // Responsive min height
           initial={{ opacity: 0, scale: 0.9 }} // Start from small and invisible
           animate={{ opacity: 1, scale: 1 }} // Scale up and fade in
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <Stack spacing={4} align="center" textAlign="center">
             <MotionHeading
-              fontFamily={"ClashDisplay"}
-              fontSize={{ base: "4xl", md: "5xl" }}
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }} // Responsive font size
               fontWeight="bold"
               color="#003B5C"
               initial={{ opacity: 0 }} // Start from invisible
               animate={{ opacity: 1 }} // Fade in
               transition={{ duration: 1, delay: 0.5 }} // Delay slightly after the box animation
             >
-              Elevate Your Talent Acquisition: 
+              Elevate Your Talent Acquisition:
             </MotionHeading>
             <MotionHeading
-              fontFamily={"ClashDisplay"}
-              fontSize={{ base: "4xl", md: "5xl" }}
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }} // Responsive font size
               fontWeight="bold"
               color="#F4A460"
               initial={{ opacity: 0 }} // Start from invisible
               animate={{ opacity: 1 }} // Fade in
               transition={{ duration: 1, delay: 0.5 }} // Delay slightly after the box animation
             >
-             Premier Workforce Solutions
+              Premier Workforce Solutions
             </MotionHeading>
-            <Text mt={4} fontSize={{ base: "md", md: "lg" }} color="black">
+            <Text mt={4} fontSize={{ base: "sm", sm: "md", md: "lg" }} color="black">
               Discover top-tier workforce solutions designed to streamline your hiring process and connect you with exceptional talent. Our services offer customized recruitment strategies, candidate screening, and talent management to help you build a skilled and dynamic team that drives your organization’s success.
             </Text>
           </Stack>
@@ -89,9 +89,9 @@ export default function OnCampus() {
 
       {/* Section 2 */}
       <Flex
-        mt={135}
+        mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
         w={"full"}
-        h={"60vh"}
+        h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
         backgroundImage={
           'url(https://images.unsplash.com/photo-1686771416282-3888ddaf249b?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
         }
@@ -104,23 +104,35 @@ export default function OnCampus() {
         <VStack
           w={"full"}
           justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
+          px={useBreakpointValue({ base: 4, md: 6, lg: 8 })}
           bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" left="8">
+          <Stack 
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }}
+          >
             <Box
               bg="gray.100"
-              p={10}
+              p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW="lg"
-              minH="500px"
+              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+              w="full" // Full width on smaller screens
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" color="blue.400">
+              <Heading 
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+              fontWeight="bold"
+              color="blue.400"
+              >
                 Why Should You Choose Us?
               </Heading>
-              <Text mt={4} fontSize={{ base: "1x1", md: "2x1" }} color="gray.800">
+              <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
                 When you partner with us for your workforce needs, you benefit from our commitment to delivering tailored recruitment strategies that align with your organization’s unique requirements. We understand that each company is different, and we customize our approach to ensure we connect you with the talent that fits seamlessly into your company’s culture and job specifications. Choosing us means opting for a partner dedicated to not only meeting your immediate hiring needs but also contributing to your long-term success and growth.
               </Text>
             </Box>
@@ -130,9 +142,9 @@ export default function OnCampus() {
 
       {/* New Section - Employer Branding */}
       <Flex
-        mt={135}
-        w={"full"}
-        h={"70vh"}
+        mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
+        w="full"
+        h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
         backgroundImage={
           'url(https://www.jobsoid.com/wp-content/uploads/2020/01/Employer-Branding.svg)'
         }
@@ -145,22 +157,29 @@ export default function OnCampus() {
         <VStack
           w={"full"}
           justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
+          px={useBreakpointValue({ base: 4,  md: 6, lg: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" right="8" bottom="35">
+          <Stack maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          right={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }}
+          >
             <Box
               bg="rgba(245, 245, 245, 0.9)"
-              p={10}
+              p={{ base: 4, md: 6, lg: 10 }} 
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW="lg"
+              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+              w="full" // Full width on smaller screens
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold" color="blue.400">
+              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} fontWeight="bold" color="blue.400">
                 Strengthen Your Employer Brand
               </Heading>
-              <Text mt={4} fontSize={{ base: "md", md: "lg" }} color="gray.800">
+              <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
                 Build a compelling employer brand that attracts top talent and fosters a positive work environment. Our strategies help you communicate your company’s values, culture, and unique benefits to potential candidates, enhancing your reputation as an employer of choice.
               </Text>
             </Box>
@@ -171,9 +190,9 @@ export default function OnCampus() {
     
       {/*EmployerBranding */}
       <Flex
-        mt={135}
-        w={"full"}
-        h={"60vh"}
+        mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
+        w="full"
+        h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
         backgroundImage={
           'url(https://images.unsplash.com/photo-1686771416282-3888ddaf249b?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
         }
@@ -186,23 +205,34 @@ export default function OnCampus() {
         <VStack
           w={"full"}
           justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
+          px={useBreakpointValue({ base: 4,  md: 6, lg: 8 })}
           bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" right="8" >
+          <Stack 
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }}          
+          >
             <Box
               bg="gray.100"
-              p={10}
+              p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW="lg"
-              minH="450px" // Increase the height of the box
+              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+              w="full" // Full width on smaller screens
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" color="blue.400">
+              <Heading fontFamily="ClashDisplay"
+              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
+              fontWeight="bold"
+              color="blue.400"
+              >
                 Employer Branding
               </Heading>
-              <Text mt={4} fontSize={{ base: "1x1", md: "2x1" }} color="gray.800">
+              <Text mt={4}  fontSize={{ base: "sm", md: "md", lg: "xl" }}  color="gray.800">
               Strengthen your company's reputation and attract top talent with a compelling employer branding strategy. Our page highlights the distinctive qualities that make your workplace exceptional, including your organizational culture, core values, and the unique opportunities you offer. Emphasize your commitment to employee growth, innovation, and a supportive work environment. Engage potential candidates by showcasing the benefits of working with you and how your company stands out in the competitive job market.
               </Text>
             </Box>

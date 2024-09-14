@@ -218,6 +218,7 @@ export default function OpeningForm({ jobId }) {
               colorScheme="blue"
               isLoading={isSubmitting}
               type="submit"
+               _hover={{transform: "scale(1.05)"}}
             >
               Apply
             </Button>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Heading, Input, Button, Flex, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Heading, Input, Button, Flex, useBreakpointValue, Stack, Text } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
 import Card from '../Card/Card.jsx';
@@ -10,9 +10,10 @@ function Opening() {
     const [titleQuery, setTitleQuery] = useState('');
     const [locationQuery, setLocationQuery] = useState('');
     const [filteredCards, setFilteredCards] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const cardsPerPage = 12;
 
     useEffect(() => {
-        // Fetch data from the API when the component mounts
         axios.get('http://localhost:5000/api/cards/cards')
             .then(response => {
                 setCards(response.data);
@@ -29,7 +30,16 @@ function Opening() {
             card.location.toLowerCase().includes(locationQuery.toLowerCase())
         );
         setFilteredCards(filtered);
+        setCurrentPage(1); // Reset to the first page when search is performed
     };
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const currentCards = filteredCards.slice(startIndex, startIndex + cardsPerPage);
 
     const headingFontSize = useBreakpointValue({ base: '2xl', md: '6xl' });
     const searchInputWidth = useBreakpointValue({ base: 'full', md: '400px' });
@@ -46,11 +56,9 @@ function Opening() {
                     color="blue.400"
                     fontFamily={"ClashDisplay"}
                     textShadow="2px 2px 4px rgba(0, 0, 0, 0.3)"
-                
-                    >
+                >
                     Current Openings
                 </Heading>
-
             </Box>
             <Flex
                 direction={{ base: 'column', md: 'row' }}
@@ -86,7 +94,7 @@ function Opening() {
                     borderRadius="20px"
                     width={searchButtonWidth}
                     fontWeight="600"
-                    _hover={{ bg: 'rgb(177, 13, 68)', transition: '1s ease-out' }}
+                    _hover={{ bg: "blue.300", color: "white", transform: "scale(1.05)" }}
                 >
                     Search
                 </Button>
@@ -94,29 +102,39 @@ function Opening() {
             <Heading as="h2" fontSize="25px" fontWeight="bold" mb={6}>
                 Recommendation
             </Heading>
-            <Flex
-                wrap="wrap"
-                gap={6}
-                justify="center"
-            >
-                {filteredCards.map(card => (
+            <Flex wrap="wrap" gap={6} justify="center">
+                {currentCards.map(card => (
                     <Card
-                    key={card.jobId} // Ensure this is a unique identifier
-                    title={card.title}
-                    location={card.location}
-                    salary={card.salary}
-                    experience={card.experience}
-                    jobDescription={card.jobDescription}
-                    jobId={card.jobId} // Pass jobId if needed
-                    department={card.department}
-                    roleCategory={card.roleCategory}
-                    employmentType={card.employmentType}
-                    eductaion={card.eductaion}
-                    englishLevel={card.englishLevel}
-                    gender={card.gender}
+                        key={card.jobId} // Ensure this is a unique identifier
+                        title={card.title}
+                        location={card.location}
+                        salary={card.salary}
+                        experience={card.experience}
+                        jobDescription={card.jobDescription}
+                        jobId={card.jobId} // Pass jobId if needed
+                        department={card.department}
+                        roleCategory={card.roleCategory}
+                        employmentType={card.employmentType}
+                        eductaion={card.eductaion}
+                        englishLevel={card.englishLevel}
+                        gender={card.gender}
                     />
                 ))}
             </Flex>
+            <Stack spacing={4} align="center" mt={8}>
+                <Flex gap={2}>
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <Button
+                            key={index + 1}
+                            onClick={() => handlePageChange(index + 1)}
+                            variant={currentPage === index + 1 ? 'solid' : 'outline'}
+                            colorScheme="blue"
+                        >
+                            {index + 1}
+                        </Button>
+                    ))}
+                </Flex>
+            </Stack>
         </Box>
     );
 }

@@ -26,11 +26,17 @@ const CollegeCTA = () => {
       >
          <Link to="/college-form">
         <Button
-          colorScheme="blue"
+          colorScheme="teal"
           size="lg"
           mb={{ base: 4, md: 0 }}
           mr={{ base: 0, md: 4 }}  // Add margin-right on medium screens and larger
           onClick={() => console.log('Get Started clicked')}
+          _hover={{
+              bgGradient: 'linear(to-r, #0ea5e9, #2563eb)',
+              transform: 'scale(1.05)',
+              textDecoration: 'none', // Ensure no underline on hover
+              color:"white"
+            }}
         >
           Get Started
         </Button>
@@ -43,6 +49,12 @@ const CollegeCTA = () => {
           size="lg"
           ml={{ base: 0, md: 4 }}  // Add margin-left on medium screens and larger
           onClick={() => console.log('Contact Us clicked')}
+          _hover={{
+              bgGradient: 'linear(to-r, #0ea5e9, #2563eb)',
+              transform: 'scale(1.05)',
+              textDecoration: 'none', // Ensure no underline on hover
+              color:"white"
+            }}
         >
           Contact Us
         </Button>

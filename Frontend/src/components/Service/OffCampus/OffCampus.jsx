@@ -41,7 +41,7 @@ export default function OffCampus() {
         bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
       >
         <Stack
-          maxW={"4xl"} // Adjust the width of the stack to make it more rectangular
+          maxW={"2xl"} // Adjust the width of the stack to make it more rectangular
           spacing={6}
           position="absolute"
           align="center" // Center the text box horizontally
@@ -52,7 +52,7 @@ export default function OffCampus() {
             p={10}
             borderRadius="md"
             color="black"
-            w="full"
+             w={{ base: "90%", md: "60%" }}
             maxW="3xl" // Ensure it's wider
             minH="auto" // Adjust the height to make it rectangular
             initial={{ opacity: 0, y: 50 }} // Starting state for animation (hidden and lower on the y-axis)
@@ -84,48 +84,64 @@ export default function OffCampus() {
     </Flex>
 
       {/* Section 2 */}
-      <Flex
-        mt={135}
-        w={"full"}
-        h={"60vh"}
-        backgroundImage={
-          'url(https://images.pexels.com/photos/3184424/pexels-photo-3184424.jpeg)'
-        }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-        backgroundAttachment={"fixed"} // This makes the background image stay in place
-        zIndex={1}
-        position="relative"
+    <Flex
+      mt={{ base: 10, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+      w="full"
+      h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
+      backgroundImage={
+        'url(https://images.pexels.com/photos/3184424/pexels-photo-3184424.jpeg)'
+      }
+      backgroundSize="cover"
+      backgroundPosition="center center"
+      backgroundAttachment="fixed" // This makes the background image stay in place
+      zIndex={1}
+      position="relative"
+    >
+      <VStack
+        w="full"
+        justify="center"
+        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })} // Responsive padding
+        bgGradient="linear(to-r, transparent, blackAlpha.600)"
       >
-        <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
+        <Stack
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }} 
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" left="8" >
-            <Box
-              bg="#F0F4F8"
-              p={10}
-              borderRadius="md"
-              textAlign="left"
-              color="black"
-              maxW="lg"
-              minH="500px" // Increase the height of the box
+          <Box
+            bg="#F0F4F8"
+            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+            borderRadius="md"
+            textAlign="left"
+            color="black"
+            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+            w="full" // Full width on smaller screens
+          >
+            <Heading
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+              fontWeight="bold"
+              color="blue.400"
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" color="blue.400">
-               TalentConnect: Your Partner in OffCampus Success
-              </Heading>
-              <Text mt={4} fontSize={{ base: "1x1", md: "2x1" }} color="gray.800">
-                Unlock a world of career opportunities with TalentConnect's OffCampus service. 
-                Designed for recent graduates and job seekers, we facilitate job fairs, networking events, and exclusive job listings to connect you with top employers. 
-                Our dedicated team ensures you have access to the best opportunities that match your skills and ambitions. 
-                Trust TalentConnect to guide you through a successful career transition and help you achieve your professional dreams.
-              </Text>
-            </Box>
-          </Stack>
-        </VStack>
-      </Flex>
+              TalentConnect: Your Partner in OffCampus Success
+            </Heading>
+            <Text
+              mt={4}
+              fontSize={{ base: "sm", md: "md", lg: "xl" }} // Responsive font size
+              color="gray.800"
+            >
+              Unlock a world of career opportunities with TalentConnect's OffCampus service. 
+              Designed for recent graduates and job seekers, we facilitate job fairs, networking events, and exclusive job listings to connect you with top employers. 
+              Our dedicated team ensures you have access to the best opportunities that match your skills and ambitions. 
+              Trust TalentConnect to guide you through a successful career transition and help you achieve your professional dreams.
+            </Text>
+          </Box>
+        </Stack>
+      </VStack>
+    </Flex>
     
 
       {/* Section 3 */}

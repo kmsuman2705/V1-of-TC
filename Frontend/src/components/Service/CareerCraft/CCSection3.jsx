@@ -32,7 +32,7 @@ const CCSection3 = () => {
   const cardHeight = useBreakpointValue({ base: "auto", md: "50vh" }); // Adjust height based on breakpoints
 
   return (
-    <Container maxW="full" bg="gray.100" mt={135} minH="80vh">
+    <Container maxW="full" bg="gray.100" mt={{ base: 10, md: 20, lg: 32 }} minH="80vh">
       <Heading
         fontFamily="ClashDisplay"
         fontSize={{ base: "2xl", sm: "4xl" }}

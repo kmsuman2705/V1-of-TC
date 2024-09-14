@@ -93,6 +93,7 @@ function Card({ jobId, title, location, salary, experience, jobDescription }) {
                     color="white"
                     fontWeight="600"
                     onClick={onOpen}
+                    _hover={{transform: "scale(1.05)"}}
                 >
                     Apply
                 </Button>
@@ -104,6 +105,7 @@ function Card({ jobId, title, location, salary, experience, jobDescription }) {
                         color="white"
                         fontWeight="600"
                         leftIcon={<FaWhatsapp />}
+                        _hover={{transform: "scale(1.05)"}}
                     >
                         Chat Now
                     </Button>

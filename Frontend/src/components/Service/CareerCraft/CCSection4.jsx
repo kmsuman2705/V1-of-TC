@@ -54,16 +54,27 @@ const CCSection4 = () => {
           </Text>
           
           <Stack direction={{ base: "column", md: "row" }} spacing={4} mt={4}>
-            <Button
+           <Button
               as={Link}
               href={whatsappLink}
               rounded={"full"}
               bg={"gray.500"}
               color={"white"}
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+              _hover={{
+                transform: "scale(1.05)",
+                boxShadow: "lg",
+                bg: "blue.300",
+                color: "white",
+                textDecoration: "none" // Ensure no underline on hover
+              }}
+              _active={{
+                textDecoration: "none" // Ensure no underline when active
+              }}
+              transition="all 0.3s ease"
             >
               Connect With Us
             </Button>
+
           </Stack>
         </Stack>
       </Flex>

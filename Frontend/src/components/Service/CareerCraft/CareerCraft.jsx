@@ -87,49 +87,68 @@ export default function CareerCraft() {
     </Flex>
 
       {/* Section 2 */}
-      <Flex
-        mt={135}
-        w={"full"}
-        h={"60vh"}
-        backgroundImage={
-          'url( https://images.pexels.com/photos/3184290/pexels-photo-3184290.jpeg)'
-        }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-        backgroundAttachment={"fixed"} // This makes the background image stay in place
-        zIndex={1}
-        position="relative"
+          <Flex
+      mt={{ base: 10, md: 20, lg: 32 }} // Responsive margin-top
+      w="full"
+     h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
+      backgroundImage={
+        'url(https://images.pexels.com/photos/3184290/pexels-photo-3184290.jpeg)'
+      }
+      backgroundSize="cover"
+      backgroundPosition="center center"
+      backgroundAttachment="fixed"
+      zIndex={1}
+      position="relative"
+      alignItems="center" // Center content vertically
+      justifyContent="center" // Center content horizontally
+    >
+      <VStack
+        w="full"
+        justify="center"
+        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })}
+        bgGradient="linear(to-r, transparent, blackAlpha.600)"
       >
-        <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
+        <Stack
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }}
         >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" left="8" >
-            <Box
-              bg="gray.100"
-              p={10}
-              borderRadius="md"
-              textAlign="left"
-              color="black"
-              maxW="lg"
-              minH="500px" // Increase the height of the box
+          <Box
+            bg="gray.100"
+            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+            borderRadius="md"
+            textAlign="left"
+            color="black"
+            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+            w="full" // Full width on smaller screens
+          >
+            <Heading
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
+              fontWeight="bold"
+              color="blue.400"
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" color="blue.400">
-               How CareerCraft Can Transform Your Professional Journey?
-              </Heading>
-              <Text mt={4} fontSize={{ base: "1x1", md: "2x1" }} color="gray.800">
-                <h2 style={{ fontWeight: 'bold', fontSize: 'inherit' }}>
-                    Elevate Your Career with Expert Training and Guidance
-                </h2>
-                <br />
-                CareerCraft offers specialized training and personalized mentorship to transform your professional journey. Gain cutting-edge skills and advanced certifications tailored to your career goals. With guidance from industry experts, CareerCraft equips you with the confidence and expertise to excel and advance in today’s competitive job market.
-              </Text>
-            </Box>
-          </Stack>
-        </VStack>
-      </Flex>
+              How CareerCraft Can Transform Your Professional Journey?
+            </Heading>
+            <Text
+              mt={4}
+              fontSize={{ base: "sm", md: "md", lg: "xl" }} 
+              color="gray.800"
+              //lineHeight="1.6"
+            >
+              <strong>
+                Elevate Your Career with Expert Training and Guidance
+              </strong>
+              <br />
+              CareerCraft offers specialized training and personalized mentorship to transform your professional journey. Gain cutting-edge skills and advanced certifications tailored to your career goals. With guidance from industry experts, CareerCraft equips you with the confidence and expertise to excel and advance in today’s competitive job market.
+            </Text>
+          </Box>
+        </Stack>
+      </VStack>
+    </Flex>
     
 
       {/* Section 3 */}

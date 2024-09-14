@@ -45,20 +45,20 @@ export default function ReadyToTransform() {
           <Button
             as={RouterLink}
             to="/jobs/post-resume"
-            size="lg"
-            colorScheme="teal"
-            variant="solid"
-            _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+            rounded={"full"}
+            color={"teal"}
+            bg={"white"}
+            _hover={{ transform: "scale(1.05)", boxShadow: "lg", bg: "blue.300", color:"white" }}
           >
             Post Your Resume
           </Button>
           <Button
             as={RouterLink}
             to="/jobs/current-opening"
-            size="lg"
-            colorScheme="blue"
-            variant="outline"
-            _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+            rounded={"full"}
+            color={"teal"}
+            bg={"white"}
+            _hover={{ transform: "scale(1.05)", boxShadow: "lg", bg: "blue.300", color:"white" }}
           >
             Current Openings
           </Button>

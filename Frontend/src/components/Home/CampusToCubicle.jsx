@@ -106,7 +106,7 @@ export default function CampusToCubicle() {
               to="/campus-to-cubicle#connectus"
               rounded={"full"}
               color={"teal"}
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg", bg: "blue.200" }}
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg",  bg: "blue.300", color:"white"}}
               onClick={handleGetStartedClick}
             >
               Get Started
@@ -116,7 +116,7 @@ export default function CampusToCubicle() {
               to="/campus-to-cubicle"
               rounded={"full"}
               color={"teal"}
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg", bg: "blue.200" }}
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg", bg: "blue.300", color:"white"}}
             >
               Learn More
             </Button>
@@ -130,7 +130,7 @@ export default function CampusToCubicle() {
           <AspectRatio ratio={12 / 9} width="100%" maxW="100%">
             <Image
               src={dimg} // Using the image instead of a video
-            
+              borderRadius={"lg"}
               alt="Campus to Cubicle"
               objectFit="cover"
             />

@@ -242,7 +242,12 @@ export default function ContactForm() {
                           variant="solid"
                           bg="#D5006D"
                           color="white"
-                          _hover={{ bg: "#B0004C" }}
+                          _hover={{
+                              bgGradient: 'linear(to-r, #0ea5e9, #2563eb)',
+                              transform: 'scale(1.05)',
+                              textDecoration: 'none', // Ensure no underline on hover
+                              color:"white"
+                            }}
                           onClick={formik.handleSubmit}
                         >
                           Send Message

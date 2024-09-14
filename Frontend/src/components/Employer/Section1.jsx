@@ -45,10 +45,13 @@ function Section1() {
           <Stack direction={'row'}>
            <Link to="/company-form">
             <Button
-              bg={'blue.400'}
-              rounded={'full'}
-              color={'white'}
-              _hover={{ bg: 'blue.500' }}>
+              bg="rgba(255, 255, 255, 0.15)"
+              backdropFilter="blur(10px)"
+              rounded={"full"}
+              color={"white"}
+              border={"1px solid rgba(255, 255, 255, 0.5)"}
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg" , bg:"blue.400"}}
+                 >
               Employer Enrollment
             </Button>
             </Link>

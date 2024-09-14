@@ -27,7 +27,7 @@ const OCSection3 = () => {
   ];
 
   return (
-    <Container maxW={"2x1"} bg="gray.100" mt={135} minH={"80vh"}>
+    <Container maxW={"2x1"} bg="gray.100" mt={{ base: 10, md: 20, lg: 32 }} minH={"80vh"}>
       <Heading
         fontFamily={"ClashDisplay"}
         fontSize={{ base: "2xl", sm: "4xl" }}
