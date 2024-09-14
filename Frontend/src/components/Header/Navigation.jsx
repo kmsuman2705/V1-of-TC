@@ -6,6 +6,7 @@ import {
   Stack,
   Collapse,
   Icon,
+  Link as ChakraLink,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -14,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { HashLink as Link } from "react-router-hash-link";
-import {  useLocation } from "react-router-dom"; // Updated import
+import { useLocation } from "react-router-dom";
 
 const NAV_ITEMS = [
   {
@@ -51,12 +52,18 @@ const DesktopNav = () => {
   const { pathname } = useLocation(); // Get current path
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("blue.400", "blue.300");
+  const activeTabBgColor = useColorModeValue("teal.50", "white.700");
+  const activeBorderColor = useColorModeValue("blue.500", "blue.300");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => {
-        const isActive = pathname === navItem.href || (navItem.children && navItem.children.some(child => pathname === child.href));
+        const isActive =
+          pathname === navItem.href ||
+          (navItem.children &&
+            navItem.children.some((child) => pathname === child.href));
+
         return (
           <Box key={navItem.label}>
             {navItem.children ? (
@@ -69,22 +76,12 @@ const DesktopNav = () => {
                     fontSize={"sm"}
                     fontWeight={500}
                     color={isActive ? linkHoverColor : linkColor}
+                    bg={isActive ? activeTabBgColor : "transparent"}
+                    borderRadius="md"
                     _hover={{
                       textDecoration: "none",
                       color: linkHoverColor,
-                      borderBottom: "2px solid",
-                      borderColor: linkHoverColor,
-                      position: "relative",
-                      _after: {
-                        content: `""`,
-                        position: "absolute",
-                        left: 0,
-                        bottom: 0,
-                        width: "100%",
-                        height: "2px",
-                        backgroundColor: linkHoverColor,
-                        transition: "width 0.2s ease-in-out",
-                      },
+                      bg: "blue.50",
                     }}
                     borderBottom={isActive ? "4px solid" : "none"}
                     borderColor={linkHoverColor}
@@ -116,22 +113,12 @@ const DesktopNav = () => {
                 fontSize={"sm"}
                 fontWeight={500}
                 color={isActive ? linkHoverColor : linkColor}
+                bg={isActive ? activeTabBgColor : "transparent"}
+                borderRadius="md"
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
-                  borderBottom: "2px solid",
-                  borderColor: linkHoverColor,
-                  position: "relative",
-                  _after: {
-                    content: `""`,
-                    position: "absolute",
-                    left: 0,
-                    bottom: 0,
-                    width: "100%",
-                    height: "2px",
-                    backgroundColor: linkHoverColor,
-                    transition: "width 0.2s ease-in-out",
-                  },
+                      color: linkHoverColor,
+                      bg: "blue.50",
                 }}
                 borderBottom={isActive ? "4px solid" : "none"}
                 borderColor={linkHoverColor}
@@ -148,7 +135,7 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
   const subNavHoverColor = useColorModeValue("blue.400", "blue.300");
-  const { pathname } = useLocation(); // Get current path
+  const { pathname } = useLocation();
   const isActive = pathname === href;
 
   return (
@@ -161,16 +148,6 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
         _hover={{
           bg: useColorModeValue("blue.50", "gray.900"),
           position: "relative",
-          _after: {
-            content: `""`,
-            position: "absolute",
-            left: 0,
-            bottom: 0,
-            width: "100%",
-            height: "2px",
-            backgroundColor: subNavHoverColor,
-            transition: "width 0.2s ease-in-out",
-          },
         }}
         borderBottom={isActive ? "2px solid" : "none"}
         borderColor={subNavHoverColor}
@@ -198,61 +175,69 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   );
 };
 
+const MobileNav = () => {
+  const bg = useColorModeValue("white", "gray.800");
+
+  return (
+    <Stack bg={bg} p={4} display={{ md: "none" }}>
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
 const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
   const textColor = useColorModeValue("gray.600", "gray.200");
-  const borderColor = useColorModeValue("gray.200", "gray.700");
-  const hoverColor = useColorModeValue("blue.600", "blue.300");
-  const { pathname } = useLocation(); // Get current path
-  const isActive = pathname === href;
+  const hoverColor = useColorModeValue("blue.400", "blue.300");
+  const { pathname } = useLocation();
+  const activeTabBgColor = useColorModeValue("teal.50", "white.700");
+  const isActive = pathname === href || (children && children.some(child => pathname === child.href));
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
-      <Box
-        py={2}
+    <Stack spacing={4} onClick={children ? onToggle : undefined}>
+      <Flex
         as={Link}
         to={href ?? "#"}
-        justifyContent="space-between"
-        alignItems="center"
+        py={2}
+        justify="space-between"
+        align="center"
+        color={isActive ? hoverColor : textColor}
+        bg={isActive ? activeTabBgColor : "transparent"}
+        borderRadius="md"
         _hover={{
           textDecoration: "none",
-          position: "relative",
-          _after: {
-            content: `""`,
-            position: "absolute",
-            left: 0,
-            bottom: 0,
-            width: "100%",
-            height: "2px",
-            backgroundColor: hoverColor,
-            transition: "width 0.2s ease-in-out",
-          },
+          color: hoverColor,
+          bg: "blue.50",
         }}
-        borderBottom={isActive ? "2px solid" : "none"}
+        borderBottom={isActive ? "4px solid" : "none"}
         borderColor={hoverColor}
       >
-        <Text fontWeight={600} color={textColor}>
-          {label}
-        </Text>
+        <Text fontWeight={600}>{label}</Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
+            transition="all .25s ease-in-out"
+            transform={isOpen ? "rotate(180deg)" : "rotate(0deg)"}
             w={6}
             h={6}
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggle();
+            }}
           />
         )}
-      </Box>
+      </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+      <Collapse in={isOpen} animateOpacity>
         <Stack
           mt={2}
           pl={4}
           borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={borderColor}
-          align={"start"}
+          borderStyle="solid"
+          borderColor={hoverColor}
+          align="start"
         >
           {children &&
             children.map((child) => (
@@ -261,19 +246,15 @@ const MobileNavItem = ({ label, children, href }) => {
                 key={child.label}
                 py={2}
                 to={child.href}
+                fontSize="sm"
+                fontWeight={500}
+                color={pathname === child.href ? hoverColor : textColor}
+                bg={pathname === child.href ? activeTabBgColor : "transparent"}
+                borderRadius="md"
                 _hover={{
                   textDecoration: "none",
-                  position: "relative",
-                  _after: {
-                    content: `""`,
-                    position: "absolute",
-                    left: 0,
-                    bottom: 0,
-                    width: "100%",
-                    height: "2px",
-                    backgroundColor: hoverColor,
-                    transition: "width 0.2s ease-in-out",
-                  },
+                  color: hoverColor,
+                  bg: "blue.50",
                 }}
                 borderBottom={pathname === child.href ? "2px solid" : "none"}
                 borderColor={hoverColor}
@@ -287,18 +268,6 @@ const MobileNavItem = ({ label, children, href }) => {
   );
 };
 
-const MobileNav = () => {
-  const bg = useColorModeValue("white", "gray.800");
-
-  return (
-    <Stack bg={bg} p={4} display={{ md: "none" }}>
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
-      ))}
-    </Stack>
-  );
-};
-
 const Navigation = () => {
   return (
     <>
@@ -308,5 +277,7 @@ const Navigation = () => {
   );
 };
 
-export { DesktopNav, MobileNav };
 export default Navigation;
+
+export { DesktopNav, MobileNav };
+
