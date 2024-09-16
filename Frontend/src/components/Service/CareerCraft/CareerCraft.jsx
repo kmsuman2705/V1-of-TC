@@ -8,10 +8,13 @@ import {
   Box,
   Heading,
   Container,
+  Image
 } from "@chakra-ui/react";
 import CCSection3 from "./CCSection3";
 import CCSection4 from "./CCSection4";
 import { motion } from "framer-motion";
+import './globals.css'
+import careerCraftImage from "../../../assets/images/CareerCraft/cc.jpg";
 
 // Create motion components for animation
 const MotionBox = motion(Box);
@@ -21,7 +24,95 @@ export default function CareerCraft() {
    
   return (
     <>
-      {/* Section 1 */}
+    <Flex
+  w="full"
+  mt={{ base: "10" }}
+  h={{ base: "70vh", md: "100vh" }}
+  direction={{ base: "column", md: "row" }}
+  align="center"
+  justify="center"
+  p={{ base: 0, md: 10 }}
+  bgColor="#F3E9DD"
+  position="relative"
+  overflow="hidden"
+  borderRadius="lg"
+>
+  {/* Animated Shapes */}
+  <div className="shape clip-path"></div>
+
+  {/* Main Content */}
+  <Flex
+    direction={{ base: "column", md: "row" }}
+    w="full"
+    h="full"
+    align="center"
+    justify="center"
+    gap={{ base: 4, md: 8 }}
+    zIndex={1}
+  >
+    {/* Text Side */}
+    <Flex
+      flex={1}
+      direction="column"
+      align={{ base: "center", md: "flex-start" }}
+      justify="center"
+      color="black"
+      maxW={{ base: "100%", md: "50%" }}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <VStack align="center" spacing={{ base: 4, md: 6 }}>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#1A202C"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+           CareerCraft: 
+        </MotionHeading>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#3782C3"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Elevate Your Career
+        </MotionHeading>
+        <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} maxW="xl" align="center">
+          CareerCraft is our specialized program focused on skill development and career readiness. Through workshops, training sessions, and mentorship, we equip individuals with the skills and confidence needed to excel in their chosen fields.
+        </Text>
+      </VStack>
+    </Flex>
+
+    {/* Image Side */}
+    <Flex
+      flex={1}
+      justify="center"
+      align="center"
+      w="full"
+      h={{ base: "100%", md: "100%" }}
+      overflow="hidden"
+    >
+      <Image
+        className="animated-image"
+        src={careerCraftImage}
+        alt="OnCampus"
+        objectFit="cover"
+        boxSize={{ base: "100%", md: "100%" }}
+        filter="brightness(1)"
+      />
+    </Flex>
+  </Flex>
+</Flex>
+
+
+
+      {/* Section 1 
 <Flex
       w={"full"}
       h={"100vh"}
@@ -84,7 +175,7 @@ export default function CareerCraft() {
           </Stack>
         </MotionBox>
       </Stack>
-    </Flex>
+    </Flex>  */}
 
       {/* Section 2 */}
           <Flex

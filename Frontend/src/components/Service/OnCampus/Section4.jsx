@@ -15,7 +15,7 @@ import section4Image from "../../../assets/images/OnCampus/section4.png"; // Adj
 
 const Section4 = () => {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}  mt={{ base: 10, md: 0 }}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           

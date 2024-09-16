@@ -8,18 +8,109 @@ import {
   Box,
   Heading,
   Container,
+  Image
 } from "@chakra-ui/react";
 import OCSection3 from "./OCSection3";
 import OCSection4 from "./OCSection4";
 import { motion } from "framer-motion";
+import './globals.css'
+import offcampusImage from "../../../assets/images/OffCampus/oc.png";
 
 const MotionBox = motion(Box);
+const MotionHeading = motion(Heading);
 
 export default function OffCampus() {
    
   return (
     <>
-      {/* Section 1 */}
+    <Flex
+  w="full"
+  mt={{ base: "10" }}
+  h={{ base: "70vh", md: "100vh" }}
+  direction={{ base: "column", md: "row" }}
+  align="center"
+  justify="center"
+  p={{ base: 0, md: 10 }}
+  bgColor="#A98AC6"
+  position="relative"
+  overflow="hidden"
+  borderRadius="lg"
+>
+  {/* Animated Shapes 
+  <div className="shape clip-path"></div> */}
+
+  {/* Main Content */}
+  <Flex
+    direction={{ base: "column", md: "row" }}
+    w="full"
+    h="full"
+    align="center"
+    justify="center"
+    gap={{ base: 4, md: 8 }}
+    zIndex={1}
+  >
+    {/* Text Side */}
+    <Flex
+      flex={1}
+      direction="column"
+      align={{ base: "center", md: "flex-start" }}
+      justify="center"
+      color="black"
+      maxW={{ base: "100%", md: "50%" }}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <VStack align="center" spacing={{ base: 4, md: 6 }}>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#1A365D"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+           OffCampus Gateway:
+        </MotionHeading>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#FFFFFF"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Your Path to Success
+        </MotionHeading>
+        <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} maxW="xl" align="center">
+          TalentConnect's OffCampus service offers a platform for recent graduates and job seekers to explore diverse career opportunities. We organize job fairs, networking events, and provide access to exclusive job postings to help you find the perfect fit for your skills and ambitions.
+        </Text>
+      </VStack>
+    </Flex>
+
+    {/* Image Side */}
+    <Flex
+      flex={1}
+      justify="center"
+      align="center"
+      w="full"
+      h={{ base: "100%", md: "100%" }}
+      overflow="hidden"
+    >
+      <Image
+        className="animated-image"
+        src={offcampusImage}
+        alt="OnCampus"
+        objectFit="cover"
+        boxSize={{ base: "100%", md: "100%" }}
+        filter="brightness(1)"
+      />
+    </Flex>
+  </Flex>
+</Flex>
+
+  
+      {/* Section 1 
          <Flex
       w={"full"}
       h={"100vh"}
@@ -81,7 +172,7 @@ export default function OffCampus() {
           </MotionBox>
         </Stack>
       </VStack>
-    </Flex>
+    </Flex> */}
 
       {/* Section 2 */}
     <Flex

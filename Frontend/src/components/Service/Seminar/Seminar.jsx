@@ -8,10 +8,13 @@ import {
   Box,
   Heading,
   Container,
+  Image,
 } from "@chakra-ui/react";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 import { motion } from "framer-motion";
+import './globals.css'
+import seminarImage from "../../../assets/images/Seminar/s.jpg";
 
 // Create motion components for animation
 const MotionBox = motion(Box);
@@ -21,8 +24,98 @@ const MotionHeading = motion(Heading);
 export default function OnCampus() {
 
   return (
+  
     <>
-      {/* Section 1 */}
+    
+  <Flex
+  w="full"
+  mt={{ base: "10" }}
+  h={{ base: "70vh", md: "100vh" }}
+  direction={{ base: "column", md: "row" }}
+  align="center"
+  justify="center"
+  p={{ base: 0, md: 10 }}
+  bgColor="#FEE28F"
+  position="relative"
+  overflow="hidden"
+  borderRadius="lg"
+>
+  {/* Animated Shapes 
+  <div className="shape clip-path"></div> */}
+
+  {/* Main Content */}
+  <Flex
+    direction={{ base: "column", md: "row" }}
+    w="full"
+    h="full"
+    align="center"
+    justify="center"
+    gap={{ base: 4, md: 8 }}
+    zIndex={1}
+  >
+    {/* Text Side */}
+    <Flex
+      flex={1}
+      direction="column"
+      align={{ base: "center", md: "flex-start" }}
+      justify="center"
+      color="black"
+      maxW={{ base: "100%", md: "50%" }}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <VStack align="center" spacing={{ base: 4, md: 6 }}>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#2A4365"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+           Join Our
+        </MotionHeading>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#FC8E53"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Transformative Seminars
+        </MotionHeading>
+        <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} maxW="xl" align="center">
+          Expand your expertise with our expert-led seminars, designed to provide practical insights and networking opportunities. Enhance your personal and professional growth in an engaging and interactive environment.
+        </Text>
+      </VStack>
+    </Flex>
+
+    {/* Image Side */}
+    <Flex
+      flex={1}
+      justify="center"
+      align="center"
+      w="full"
+      h={{ base: "100%", md: "100%" }}
+      overflow="hidden"
+    >
+      <Image
+        className="animated-image"
+        src={seminarImage}
+        alt="OnCampus"
+        objectFit="cover"
+        boxSize={{ base: "100%", md: "100%" }}
+        filter="brightness(1)"
+      />
+    </Flex>
+  </Flex>
+</Flex>
+
+
+
+      {/* Section 1 
      <Flex
       w={"full"}
       h={"100vh"}
@@ -91,7 +184,7 @@ export default function OnCampus() {
           </MotionBox>
         </Stack>
       </VStack>
-    </Flex>
+    </Flex> */}
 
       {/* Section 2 */}
       <Flex

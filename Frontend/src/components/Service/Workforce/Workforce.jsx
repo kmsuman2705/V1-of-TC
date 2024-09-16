@@ -8,10 +8,13 @@ import {
   Box,
   Heading,
   Container,
+  Image
 } from "@chakra-ui/react";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 import { motion } from "framer-motion";
+import './globals.css'
+import workforceImage from "../../../assets/images/Workforce/wf.jpg";
 
 // Create motion components for animation
 const MotionBox = motion(Box);
@@ -21,7 +24,98 @@ const MotionHeading = motion(Heading);
 export default function OnCampus() {
   return (
     <>
-      {/* Section 1 */}
+
+    <Flex
+  w="full"
+  mt={{ base: "10" }}
+  h={{ base: "70vh", md: "100vh" }}
+  direction={{ base: "column", md: "row" }}
+  align="center"
+  justify="center"
+  p={{ base: 0, md: 10 }}
+ bgGradient= "linear-gradient(to top, #BDEEFE, #D7F3FE, #FFFFFF)"
+  position="relative"
+  overflow="hidden"
+  borderRadius="lg"
+>
+  {/* Animated Shapes 
+  <div className="shape clip-path"></div> */}
+
+  {/* Main Content */}
+  <Flex
+    direction={{ base: "column", md: "row" }}
+    w="full"
+    h="full"
+    align="center"
+    justify="center"
+    gap={{ base: 4, md: 8 }}
+    zIndex={1}
+  >
+    {/* Text Side */}
+    <Flex
+      flex={1}
+      direction="column"
+      align={{ base: "center", md: "flex-start" }}
+      justify="center"
+      color="black"
+      maxW={{ base: "100%", md: "50%" }}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <VStack align="center" spacing={{ base: 4, md: 6 }}>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#003B5C"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          align="center"
+        >
+           Elevate Your Talent Acquisition:
+        </MotionHeading>
+        <MotionHeading
+          fontFamily="ClashDisplay"
+          fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+          fontWeight="bold"
+          color="#F4A460"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Premier Workforce Solutions
+        </MotionHeading>
+        <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} maxW="xl" align="center">
+          Discover top-tier workforce solutions designed to streamline your hiring process and connect you with exceptional talent. Our services offer customized recruitment strategies, candidate screening, and talent management to help you build a skilled and dynamic team that drives your organization’s success.
+        </Text>
+      </VStack>
+    </Flex>
+
+    {/* Image Side */}
+    <Flex
+      flex={1}
+      justify="center"
+      align="center"
+      w="full"
+      h={{ base: "100%", md: "100%" }}
+      overflow="hidden"
+    >
+      <Image
+        className="animated-image"
+        src={workforceImage}
+        alt="OnCampus"
+        objectFit="cover"
+        boxSize={{ base: "100%", md: "100%" }}
+        filter="brightness(1)"
+      />
+    </Flex>
+  </Flex>
+</Flex>
+
+
+
+
+      {/* Section 1 
  <Flex
       mt={{ base: 10}}
       w="full"
@@ -85,7 +179,7 @@ export default function OnCampus() {
           </Stack>
         </MotionBox>
       </Stack>
-    </Flex>
+    </Flex> */}
 
       {/* Section 2 */}
       <Flex
