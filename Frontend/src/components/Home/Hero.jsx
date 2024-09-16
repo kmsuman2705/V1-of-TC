@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { HashLink as Link } from "react-router-hash-link";
 import { motion } from "framer-motion";
-import hVideo from "../../assets/videos/hp.mp4";
+import hVideo from "../../assets/videos/hpp.mp4";
 import { FaChevronDown } from "react-icons/fa";
 
 export default function Hero() {
@@ -73,7 +73,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <Text
-            bg="white" // Initially pure white
+            bgGradient= "linear(to-r, red.400, yellow.400)" // Initially pure white
             bgClip="text"
             fontWeight={700}
             lineHeight={1.2}

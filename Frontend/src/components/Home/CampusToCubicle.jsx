@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion"; // Import framer-motion for animations
-import dimg from '../../assets/images/campusToCubicle.jpeg';
+import dimg from '../../assets/images/ccc.png';
 
 export default function CampusToCubicle() {
   const handleGetStartedClick = () => {
@@ -78,7 +78,7 @@ export default function CampusToCubicle() {
 
           {/* Image is conditionally placed between paragraphs on mobile */}
           {isMobile && (
-            <AspectRatio ratio={16 / 9} width="100%" maxW="100%">
+            <AspectRatio ratio={9 / 9} width="80%" maxW="100%" alignItems={"center"}>
               <Image
                 src={dimg} // Using the image instead of a video
                 alt="Campus to Cubicle"
@@ -127,7 +127,7 @@ export default function CampusToCubicle() {
       {/* Flex container for the image on larger screens */}
       {!isMobile && (
         <Flex flex={1} align={"center"} justifyContent={"center"} p={10}>
-          <AspectRatio ratio={12 / 9} width="100%" maxW="100%">
+          <AspectRatio ratio={5 / 5} width="80%" maxW="100%">
             <Image
               src={dimg} // Using the image instead of a video
               borderRadius={"lg"}
