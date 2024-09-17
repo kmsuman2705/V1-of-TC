@@ -24,6 +24,10 @@ export default function CareerCraft() {
    
   return (
     <>
+     <Flex
+      direction="column"
+      bgColor="#F3E9DD"  // Set background color here
+    >
     <Flex
   w="full"
   mt={{ base: "55", }}
@@ -254,6 +258,7 @@ export default function CareerCraft() {
 
       {/* Section 4 */}
         <CCSection4 />
+      </Flex>
     </>
   );
 }

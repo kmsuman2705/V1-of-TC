@@ -24,6 +24,10 @@ export default function OffCampus() {
   return (
     <>
     <Flex
+      direction="column"
+      bgColor="#A98AC6"  // Set background color here
+    >
+    <Flex
   w="full"
   mt={{ base: "10" }}
   h={{ base: "70vh", md: "100vh" }}
@@ -248,6 +252,7 @@ export default function OffCampus() {
 
       {/* Section 4 */}
         <OCSection4 />
+        </Flex>
     </>
   );
 }

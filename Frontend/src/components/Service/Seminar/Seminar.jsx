@@ -26,6 +26,10 @@ export default function OnCampus() {
   return (
   
     <>
+    <Flex
+      direction="column"
+      bgColor="#FEE28F"  // Set background color here
+    >
     
   <Flex
   w="full"
@@ -192,7 +196,7 @@ export default function OnCampus() {
       w="full"
       h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
       backgroundImage={
-        'url(https://images.unsplash.com/photo-1551731409-43eb3e517a1a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+        'url(https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
 
       }
       backgroundSize="cover"
@@ -258,6 +262,7 @@ export default function OnCampus() {
 
       {/* Section 4 */}
       <Section4 />
+      </Flex>
     </>
   );
 }

@@ -24,10 +24,14 @@ const MotionHeading = motion(Heading);
 export default function OnCampus() {
   return (
     <>
+     <Flex
+      direction="column"
+      bgColor="#D7F3FE"  // Set background color here
+    >
 
     <Flex
   w="full"
-  mt={{ base: "20" }}
+  mt={{ base: "20", }}
   h={{ base: "70vh", md: "100vh" }}
   direction={{ base: "column", md: "row" }}
   align="center"
@@ -368,6 +372,7 @@ export default function OnCampus() {
 
       {/* Section 4 */}
       <Section4 />
+      </Flex>
     </>
   );
 }
