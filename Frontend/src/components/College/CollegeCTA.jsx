@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, Button } from '@chakra-ui/react';
+import { Box, Flex,Heading, Text, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 const CollegeCTA = () => {
@@ -12,9 +12,21 @@ const CollegeCTA = () => {
       bg="blue.50"
     >
       <Box flex={1} textAlign={{ base: 'center', md: 'left' }} mb={{ base: 6, md: 0 }}>
-        <Text fontSize={"50px"} fontWeight="bold" mb={4} fontFamily={"ClashDisplay"}>
-          Empower Your Institution Today
-        </Text>
+        <Flex >
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "5xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    Empower Your
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Institution Today
+                  </Text>
+                </Heading>
+              </Flex>
         <Text fontSize={"20px"} color="gray.600">
           Join TalentConnect and revolutionize your campus recruitment.
         </Text>

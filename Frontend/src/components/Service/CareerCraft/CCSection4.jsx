@@ -16,6 +16,7 @@ import section4Image from "../../../assets/images/OnCampus/section4.png"; // Adj
 const phoneNumber = '7564974126';
 const whatsappLink = `https://wa.me/${phoneNumber}`;
 
+
 const CCSection4 = () => {
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
@@ -43,38 +44,32 @@ const CCSection4 = () => {
       </Flex>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
+          <Flex justifyContent="center" alignItems="center">
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+            <Text  fontFamily={"ClashDisplay"} color={"black"}>
              Questions?
-             Collaborations? Let's Talk.
-            </Text>            
+             Collaborations?
+            </Text>  
+            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+             Let's Talk.
+            </Text>                       
           </Heading>
+          </Flex>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
             Empower Your Campus Recruitment with TalentConnect - Your Gateway to Top Talent!
           </Text>
           
           <Stack direction={{ base: "column", md: "row" }} spacing={4} mt={4}>
-           <Button
-              as={Link}
-              href={whatsappLink}
+            <Button
+              as={RouterLink}
+              to="/college-form"
               rounded={"full"}
               bg={"gray.500"}
               color={"white"}
-              _hover={{
-                transform: "scale(1.05)",
-                boxShadow: "lg",
-                bg: "blue.300",
-                color: "white",
-                textDecoration: "none" // Ensure no underline on hover
-              }}
-              _active={{
-                textDecoration: "none" // Ensure no underline when active
-              }}
-              transition="all 0.3s ease"
+              _hover={{ transform: "scale(1.05)", boxShadow: "lg",  bg: "blue.300", color:"white" }}
             >
               Connect With Us
             </Button>
-
           </Stack>
         </Stack>
       </Flex>

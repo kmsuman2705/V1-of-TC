@@ -121,7 +121,7 @@ return (
      
 
 <Flex
-      mt={{ base: 10, md: 20 }} // Adjusted margin-top for smaller screens
+      mt={{ base: 20, md: 20 }} // Adjusted margin-top for smaller screens
       w="full"
       h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Adjusted height for smaller screens
       backgroundImage={
@@ -156,14 +156,25 @@ return (
             minH={{ base: "auto", md: "400px" }} // Adjusted height for the box
             w="full" // Full width on smaller screens
           >
+            <Flex justifyContent="center" alignItems="center">
             <Heading
               fontFamily="ClashDisplay"
-              fontSize={{ base: "2xl", md: "xl", lg: "5xl" }} // Responsive font size
+              fontSize={{ base: "2xl", md: "xl", lg: "4xl" }} // Responsive font size
+              fontWeight="bold"
+              color="black"
+              p={2}
+            >
+              Why Should You 
+            </Heading>
+            <Heading
+              fontFamily="ClashDisplay"
+              fontSize={{ base: "2xl", md: "xl", lg: "4xl" }} // Responsive font size
               fontWeight="bold"
               color="blue.400"
             >
-              Why Should You Hire Us?
+              Hire Us?
             </Heading>
+            </Flex>
             <Text
               mt={4}
               fontSize={{ base: "xs", md: "sm", lg: "md" }} // Responsive font size

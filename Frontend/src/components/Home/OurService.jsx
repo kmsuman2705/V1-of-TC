@@ -96,7 +96,8 @@ const Card = ({ heading, description, icon, link }) => {
           <Button 
             as="div"
             variant={"link"}
-            colorScheme={"blue"}
+            colorScheme={"back"}
+            fontWeight={700}
             size={"sm"}
           >
             Learn more
@@ -110,15 +111,23 @@ const Card = ({ heading, description, icon, link }) => {
 export default function OurServices() {
   return (
     <Box id="our-services" p={4} bg="#ffffff" mt={10}>
-      <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
+      <Flex justifyContent="center" alignItems="center">
         <Heading
           fontSize={{ base: "2xl", sm: "4xl" }}
-          fontWeight={"bold"}
+          fontWeight={"700"}
+          color="black"
+          p={4}
+        >
+          Our
+        </Heading>
+        <Heading
+          fontSize={{ base: "2xl", sm: "4xl" }}
+          fontWeight={"700"}
           color="blue.400"
         >
-          Our Services
+          Services
         </Heading>
-      </Stack>
+      </Flex>
 
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">

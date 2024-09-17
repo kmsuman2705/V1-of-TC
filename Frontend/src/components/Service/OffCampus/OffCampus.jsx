@@ -64,7 +64,7 @@ export default function OffCampus() {
           fontFamily="ClashDisplay"
           fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
           fontWeight="bold"
-          color="#1A365D"
+          color="#FAE8BB"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -176,7 +176,7 @@ export default function OffCampus() {
 
       {/* Section 2 */}
     <Flex
-      mt={{ base: 10, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+      mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
       w="full"
       h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
       backgroundImage={
@@ -211,14 +211,22 @@ export default function OffCampus() {
             minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
             w="full" // Full width on smaller screens
           >
-            <Heading
-              fontFamily="ClashDisplay"
-              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
-              fontWeight="bold"
-              color="blue.400"
-            >
-              TalentConnect: Your Partner in OffCampus Success
-            </Heading>
+            <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    TalentConnect:
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Your Partner in OffCampus Success
+                  </Text>
+                </Heading>
+              </Flex>
+
             <Text
               mt={4}
               fontSize={{ base: "sm", md: "md", lg: "xl" }} // Responsive font size

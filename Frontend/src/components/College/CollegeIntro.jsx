@@ -80,13 +80,13 @@ export default function CollegeIntro() {
               Our Vision
             </Text>
           </Heading>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+          <Text fontSize={{ base: "md", lg: "lg" }} color={"black"}>
             Welcome to TalentConnect, where we specialize in transforming campus recruitment for colleges facing challenges like limited employer connections, resource constraints, skill gaps among graduates, and a lack of actionable feedback.
           </Text>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+          <Text fontSize={{ base: "md", lg: "lg" }} color={"black"}>
             Our solutions include a network connecting colleges with skilled employers, a recruitment platform with tools for targeted training programs to bridge skill gaps, and data-driven insights for refining career services and recruitment strategies.
           </Text>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+          <Text fontSize={{ base: "md", lg: "lg" }} color={"black"}>
             Empower your institution with TalentConnect to prepare students effectively for successful careers.
           </Text>
           <hr />
@@ -94,19 +94,19 @@ export default function CollegeIntro() {
           <Stack spacing={4} mt={8} align={"center"} ref={ref}>
             <Stack direction={{ base: "column", md: "row" }} spacing={8} textAlign="center">
               <Box>
-                <Text fontSize={"lg"} color={"gray.500"}>Founded</Text>
+                <Text fontSize={"lg"} color={"black"}>Founded</Text>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={700}>
                   {isInView ? <CountUp end={2023} duration={2} /> : 2023}
                 </Text>
               </Box>
               <Box>
-                <Text fontSize={"lg"} color={"gray.500"}>Institutions Served</Text>
+                <Text fontSize={"lg"} color={"black"}>Institutions Served</Text>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={700}>
                   {isInView ? <CountUp end={120} duration={2} suffix="+" /> : "120+"}
                 </Text>
               </Box>
               <Box>
-                <Text fontSize={"lg"} color={"gray.500"}>Employers Connected</Text>
+                <Text fontSize={"lg"} color={"black"}>Employers Connected</Text>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={700}>
                   {isInView ? <CountUp end={500} duration={2} suffix="+" /> : "500+"}
                 </Text>

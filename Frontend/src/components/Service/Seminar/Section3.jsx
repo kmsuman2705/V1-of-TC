@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, Heading, Box, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Container, Stack,Flex, Heading, Box, Text, useBreakpointValue } from "@chakra-ui/react";
 
 const Section3 = () => {
   const cardData = [
@@ -26,20 +26,26 @@ const Section3 = () => {
     },
   ];
 
-  return (
-    <Container maxW="100%" bg="gray.100" mt={135} minH={"80vh"}>
-      <Heading
-        fontFamily={"ClashDisplay"}
-        fontSize={{ base: "2xl", sm: "4xl" }}
-        fontWeight="bold"
-        color="blue.400"
-        textAlign="center"
-        mb={8}
-      >
-        <br />
-        Empowering Your Career
-      </Heading>
-      <br />
+    return (
+    <Container maxW={"2x1"} bg="gray.100" mt={{ base: 20, md: 20, lg: 32 }} minH={"80vh"}>
+     <Flex justifyContent="center" alignItems="center">
+  <Heading
+    fontFamily="ClashDisplay"
+    fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+    fontWeight="bold"
+    p="2"
+    mb={6}
+    mt={6}
+  >
+    <Text as="span" color="black">
+      Empowering
+    </Text>
+    <Text as="span" color="blue.400">
+      {' '}Your Career
+    </Text>
+  </Heading>
+</Flex>
+
       <Stack
         direction={useBreakpointValue({ base: "column", md: "row" })}
         justify="space-around"
@@ -58,6 +64,7 @@ const Section3 = () => {
             bgSize="cover"
             bgImage={`url(${card.imageUrl})`}
             bgPosition="center"
+            
             _hover={{
               _before: {
                 content: `""`,

@@ -47,13 +47,22 @@ const Companies = () => {
 
   return (
     <Box textAlign="center" py="8">
-      <Heading as="h4" size="xl" mb="8"
-        fontSize={{ base: "2xl", md: "3xl" }}
+      <Flex justifyContent="center" alignItems="center">
+      <Heading as="h4" size="xl" mb="6" p="4"
+        fontSize={{ base: "2xl", md: "4xl" }}
+        fontFamily={"ClashDisplay"}
+        color={"black"}  // Change to your desired color
+      >
+        Top Startups & MNC’s
+      </Heading>
+      <Heading as="h4" size="xl" mb="6"
+        fontSize={{ base: "2xl", md: "4xl" }}
         fontFamily={"ClashDisplay"}
         color={"blue.400"}  // Change to your desired color
       >
-        Top Startups & MNC’s that Hire from TalentConnect
+        that Hire from TalentConnect
       </Heading>
+      </Flex>
       <Box overflow="hidden" width="100%" mt={20}>
         <Flex
           ref={animationRef}

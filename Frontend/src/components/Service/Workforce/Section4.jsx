@@ -15,7 +15,8 @@ import section4Image from "../../../assets/images/OnCampus/section4.png"; // Adj
 
 const Section4 = () => {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={{base:10}}>
+   
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           
@@ -40,12 +41,17 @@ const Section4 = () => {
       </Flex>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
+          <Flex justifyContent="center" alignItems="center">
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+            <Text  fontFamily={"ClashDisplay"} color={"black"}>
              Questions?
-             Collaborations? Let's Talk.
-            </Text>            
+             Collaborations?
+            </Text>  
+            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+             Let's Talk.
+            </Text>                       
           </Heading>
+          </Flex>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
             Empower Your Campus Recruitment with TalentConnect - Your Gateway to Top Talent!
           </Text>
@@ -53,7 +59,7 @@ const Section4 = () => {
           <Stack direction={{ base: "column", md: "row" }} spacing={4} mt={4}>
             <Button
               as={RouterLink}
-              to="/company-form"
+              to="/college-form"
               rounded={"full"}
               bg={"gray.500"}
               color={"white"}

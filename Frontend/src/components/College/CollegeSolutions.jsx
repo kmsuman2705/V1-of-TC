@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, Heading, Box, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Container,Flex,  Stack, Heading, Box, Text, useBreakpointValue } from "@chakra-ui/react";
 
 const CollegeSolutions = () => {
   const cardData = [
@@ -30,17 +30,23 @@ const CollegeSolutions = () => {
 
   return (
     <Container maxW={"full"} bg="gray.100"  minH={"90vh"}>
-      <Heading
-        fontFamily={"ClashDisplay"}
-        fontSize={{ base: "2xl", sm: "4xl" }}
-        fontWeight="bold"
-        color="blue.400"
-        textAlign="center"
-        p={10}
-        mb={10}
-      >
-        TalentConnect Solutions for Colleges
-      </Heading>
+       <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                  mt={6}
+                  mb={6}
+                >
+                  <Text as="span" color="black">
+                    TalentConnect
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Solutions for Colleges
+                  </Text>
+                </Heading>
+              </Flex>
       <Stack
         direction={useBreakpointValue({ base: "column", md: "row" })}
         justify="space-around"

@@ -7,6 +7,7 @@ import {
   Icon,
   Text,
   Stack,
+  Flex,
   HStack,
   VStack,
   useColorModeValue,
@@ -53,10 +54,22 @@ function Section2() {
       _hover={{ boxShadow: '2xl' }}
     >
       <Stack spacing={6} as={Container} maxW={'3xl'} textAlign={'center'}>
-        <Heading fontSize={{ base: '2xl', md: '4xl' }} color={'blue.600'} fontWeight="extrabold">
-          Challenges Faced by Companies in Hiring Freshers
-        </Heading>
-        <Text color={'gray.700'} fontSize={{ base: 'md', md: 'lg' }}>
+         <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    Challenges Faced by Companies
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}in Hiring Freshers
+                  </Text>
+                </Heading>
+              </Flex>
+        <Text color={'black'} fontSize={{ base: 'md', md: 'lg' }}>
           Partner with TalentConnect today to simplify your fresh talent acquisition journey
         </Text>
       </Stack>
@@ -97,7 +110,7 @@ function Section2() {
                 </Box>
                 <VStack align={'start'}>
                   <Text fontWeight={800} fontSize="lg">{feature.title}</Text>
-                  <Text color={'gray.600'}>{feature.description}</Text>
+                  <Text color={'black'}>{feature.description}</Text>
                 </VStack>
               </HStack>
             </Box>

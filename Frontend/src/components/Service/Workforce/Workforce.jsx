@@ -27,7 +27,7 @@ export default function OnCampus() {
 
     <Flex
   w="full"
-  mt={{ base: "10" }}
+  mt={{ base: "20" }}
   h={{ base: "70vh", md: "100vh" }}
   direction={{ base: "column", md: "row" }}
   align="center"
@@ -218,14 +218,21 @@ export default function OnCampus() {
               minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
               w="full" // Full width on smaller screens
             >
-              <Heading 
-              fontFamily="ClashDisplay"
-              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
-              fontWeight="bold"
-              color="blue.400"
-              >
-                Why Should You Choose Us?
-              </Heading>
+                      <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    Why Should You
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Choose Us?
+                  </Text>
+                </Heading>
+              </Flex>
               <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
                 When you partner with us for your workforce needs, you benefit from our commitment to delivering tailored recruitment strategies that align with your organization’s unique requirements. We understand that each company is different, and we customize our approach to ensure we connect you with the talent that fits seamlessly into your company’s culture and job specifications. Choosing us means opting for a partner dedicated to not only meeting your immediate hiring needs but also contributing to your long-term success and growth.
               </Text>
@@ -270,9 +277,21 @@ export default function OnCampus() {
               minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
               w="full" // Full width on smaller screens
             >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} fontWeight="bold" color="blue.400">
-                Strengthen Your Employer Brand
-              </Heading>
+              <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    Strengthen Your
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Employer Brand
+                  </Text>
+                </Heading>
+              </Flex>
               <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
                 Build a compelling employer brand that attracts top talent and fosters a positive work environment. Our strategies help you communicate your company’s values, culture, and unique benefits to potential candidates, enhancing your reputation as an employer of choice.
               </Text>
@@ -319,13 +338,21 @@ export default function OnCampus() {
               minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
               w="full" // Full width on smaller screens
             >
-              <Heading fontFamily="ClashDisplay"
-              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
-              fontWeight="bold"
-              color="blue.400"
-              >
-                Employer Branding
-              </Heading>
+              <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                   Employer
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Branding
+                  </Text>
+                </Heading>
+              </Flex>
               <Text mt={4}  fontSize={{ base: "sm", md: "md", lg: "xl" }}  color="gray.800">
               Strengthen your company's reputation and attract top talent with a compelling employer branding strategy. Our page highlights the distinctive qualities that make your workplace exceptional, including your organizational culture, core values, and the unique opportunities you offer. Emphasize your commitment to employee growth, innovation, and a supportive work environment. Engage potential candidates by showcasing the benefits of working with you and how your company stands out in the competitive job market.
               </Text>

@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Icon, Text, Stack, Flex } from "@chakra-ui/react";
 import { FcBusinessman, FcMoneyTransfer, FcDataRecovery, FcFeedback } from "react-icons/fc";
 
 // Feature component for displaying each challenge
@@ -31,10 +31,10 @@ const Feature = ({ title, text, icon }) => {
       >
         {icon}
       </Flex>
-      <Text fontWeight={600} textAlign="center">
+      <Text fontWeight={700} textAlign="center">
         {title}
       </Text>
-      <Text color={"gray.600"} textAlign="center">
+      <Text color={"black"} textAlign="center">
         {text}
       </Text>
     </Stack>
@@ -44,18 +44,25 @@ const Feature = ({ title, text, icon }) => {
 export default function CollegeChallenges() {
   return (
     <Box p={20} bg="#f4f4f3ff">
-      <Text
-        fontSize={{ base: "2xl", md: "4xl" }}
-        fontWeight={700}
-        mb={6}
-        color="blue.400"
-        textAlign="center"
-      >
-        Challenges Faced by Colleges in Campus Recruitment
-      </Text>
+      <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                  mb={6}
+                >
+                  <Text as="span" color="black">
+                    Challenges Faced by Colleges
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}in Campus Recruitment
+                  </Text>
+                </Heading>
+              </Flex>
       <Text
         fontSize={{ base: "md", lg: "lg" }}
-        color={"gray.500"}
+        color={"black"}
         mb={10}
         textAlign="center"
       >

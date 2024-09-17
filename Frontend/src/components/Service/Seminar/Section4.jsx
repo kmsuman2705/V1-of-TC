@@ -44,12 +44,17 @@ const Section4 = () => {
       </Flex>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
+          <Flex justifyContent="center" alignItems="center">
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+            <Text  fontFamily={"ClashDisplay"} color={"black"}>
              Questions?
-             Collaborations? Let's Talk.
-            </Text>            
+             Collaborations?
+            </Text>  
+            <Text  fontFamily={"ClashDisplay"} color={"blue.400"}>
+             Let's Talk.
+            </Text>                       
           </Heading>
+          </Flex>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
             Empower Your Campus Recruitment with TalentConnect - Your Gateway to Top Talent!
           </Text>

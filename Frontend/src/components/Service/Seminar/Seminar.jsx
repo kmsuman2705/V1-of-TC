@@ -187,46 +187,71 @@ export default function OnCampus() {
     </Flex> */}
 
       {/* Section 2 */}
-      <Flex
-        mt={135}
-        w={"full"}
-        h={"60vh"}
-        backgroundImage={
-          'url(https://images.unsplash.com/photo-1551731409-43eb3e517a1a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
-        }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-        backgroundAttachment={"fixed"} // This makes the background image stay in place
-        zIndex={1}
-        position="relative"
-      >
-        <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
-        >
-          <Stack maxW={"2xl"} spacing={6} position="absolute" left="8" >
-            <Box
-              bg="gray.100"
-              p={10}
-              borderRadius="md"
-              textAlign="left"
-              color="black"
-              maxW="lg"
-              minH="500px" // Increase the height of the box
-            >
-              <Heading fontFamily={"ClashDisplay"} fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" color="blue.400">
-                Why Should You Join?
-              </Heading>
-              <Text mt={4} fontSize={{ base: "1x1", md: "2x1" }} color="gray.800">
-                Our seminars offer a unique opportunity to gain expert knowledge from industry leaders and subject matter experts. By attending, you'll have the chance to network with like-minded professionals, expanding your professional connections. You'll acquire practical skills that can be immediately applied to your work, ensuring you stay updated with the latest trends and developments in your field. Our interactive sessions, including discussions, Q&A segments, and hands-on workshops, provide a dynamic and engaging learning experience.
+  <Flex
+      mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+      w="full"
+      h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
+      backgroundImage={
+        'url(https://images.unsplash.com/photo-1551731409-43eb3e517a1a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
 
-              </Text>
-            </Box>
-          </Stack>
-        </VStack>
-      </Flex>
+      }
+      backgroundSize="cover"
+      backgroundPosition="center center"
+      backgroundAttachment="fixed" // This makes the background image stay in place
+      zIndex={1}
+      position="relative"
+    >
+      <VStack
+        w="full"
+        justify="center"
+        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })} // Responsive padding
+        bgGradient="linear(to-r, transparent, blackAlpha.600)"
+      >
+        <Stack
+          maxW={{ base: "full", md: "2xl" }}
+          spacing={4}
+          position="absolute"
+          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
+          p={{ base: 4, md: 6 }} 
+        >
+          <Box
+            bg="#F0F4F8"
+            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+            borderRadius="md"
+            textAlign="left"
+            color="black"
+            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
+            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
+            w="full" // Full width on smaller screens
+          >
+            <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                     Why Should
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}You Join?
+                  </Text>
+                </Heading>
+              </Flex>
+
+            <Text
+              mt={4}
+              fontSize={{ base: "sm", md: "md", lg: "xl" }} // Responsive font size
+              color="black"
+            >
+              Our seminars offer a unique opportunity to gain expert knowledge from industry leaders and subject matter experts. By attending, you'll have the chance to network with like-minded professionals, expanding your professional connections. You'll acquire practical skills that can be immediately applied to your work, ensuring you stay updated with the latest trends and developments in your field. Our interactive sessions, including discussions, Q&A segments, and hands-on workshops, provide a dynamic and engaging learning experience.
+
+            </Text>
+          </Box>
+        </Stack>
+      </VStack>
+    </Flex>
 
       {/* Section 3 */}
       <Section3 />

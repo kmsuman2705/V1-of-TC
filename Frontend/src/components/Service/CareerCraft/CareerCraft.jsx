@@ -26,7 +26,7 @@ export default function CareerCraft() {
     <>
     <Flex
   w="full"
-  mt={{ base: "10" }}
+  mt={{ base: "55", }}
   h={{ base: "70vh", md: "100vh" }}
   direction={{ base: "column", md: "row" }}
   align="center"
@@ -65,7 +65,7 @@ export default function CareerCraft() {
           fontFamily="ClashDisplay"
           fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
           fontWeight="bold"
-          color="#1A202C"
+          color="#303048"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -76,7 +76,7 @@ export default function CareerCraft() {
           fontFamily="ClashDisplay"
           fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
           fontWeight="bold"
-          color="#3782C3"
+          color="#F8BE2F" 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -179,7 +179,7 @@ export default function CareerCraft() {
 
       {/* Section 2 */}
           <Flex
-      mt={{ base: 10, md: 20, lg: 32 }} // Responsive margin-top
+      mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
       w="full"
      h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
       backgroundImage={
@@ -216,18 +216,25 @@ export default function CareerCraft() {
             minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
             w="full" // Full width on smaller screens
           >
-            <Heading
-              fontFamily="ClashDisplay"
-              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
-              fontWeight="bold"
-              color="blue.400"
-            >
-              How CareerCraft Can Transform Your Professional Journey?
-            </Heading>
+           <Flex justifyContent="center" alignItems="center">
+                <Heading
+                  fontFamily="ClashDisplay"
+                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontWeight="bold"
+                  p="2"
+                >
+                  <Text as="span" color="black">
+                    How CareerCraft Can
+                  </Text>
+                  <Text as="span" color="blue.400">
+                    {' '}Transform Your Professional Journey?
+                  </Text>
+                </Heading>
+              </Flex>
             <Text
               mt={4}
               fontSize={{ base: "sm", md: "md", lg: "xl" }} 
-              color="gray.800"
+              color="black"
               //lineHeight="1.6"
             >
               <strong>

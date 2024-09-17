@@ -7,6 +7,7 @@ import {
   Heading,
   Stack,
   Text,
+  Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
@@ -23,16 +24,29 @@ export default function ReadyToTransform() {
       mt={10}
     >
       <Container maxW={"container.md"}>
+        <Flex justifyContent="center" alignItems="center">
         <Heading
           as="h2"
-          fontSize={{ base: "2xl", md: "3xl" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          fontFamily={"ClashDisplay"}
+          color={"black"} // Change to your desired color
+          mb={4}
+          p={2}
+          
+        >
+          Ready to Transform 
+        </Heading>
+        <Heading
+          as="h2"
+          fontSize={{ base: "2xl", md: "4xl" }}
           fontFamily={"ClashDisplay"}
           color={"blue.400"} // Change to your desired color
           mb={4}
-          letterSpacing={1}
+          
         >
-          Ready to Transform Your Career?
+          Your Career?
         </Heading>
+        </Flex>
         <Text fontSize={{ base: "lg", md: "xl" }} mb={6}>
           Join TalentConnect today and take the first step towards unlocking
           your full career potential. Let's make it happen!
