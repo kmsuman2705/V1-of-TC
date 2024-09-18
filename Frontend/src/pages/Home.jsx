@@ -20,8 +20,8 @@ const Home = () => {
       <About />
       <WhyChooseTalentConnect />
       <OurServices />
-     {/* <SuccessStories /> */}
-      <Placed/>
+     {/* <SuccessStories /> 
+      <Placed/> */}
 
       <Companies />
 

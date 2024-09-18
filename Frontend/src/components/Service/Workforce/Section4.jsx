@@ -16,7 +16,7 @@ import section4Image from "../../../assets/images/OnCampus/s4.png"; // Adjust th
 const Section4 = () => {
   return (
    
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={{base:10, md:0}}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           
@@ -27,7 +27,7 @@ const Section4 = () => {
             position="relative"
             overflow="hidden"
             transition="transform 0.5s ease"
-            _hover={{ transform: "scale(1.1)" }}
+            
           >
             <Image
               alt={"Section 4 Image"}
@@ -52,7 +52,7 @@ const Section4 = () => {
             </Text>                       
           </Heading>
           </Flex>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+          <Text fontSize={{ base: "md", lg: "lg" }} color={"black"} fontWeight={"400"}>
             Empower Your Campus Recruitment with TalentConnect - Your Gateway to Top Talent!
           </Text>
           

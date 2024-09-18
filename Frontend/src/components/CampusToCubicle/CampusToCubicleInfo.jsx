@@ -16,6 +16,7 @@ import CTCSection3 from "./CTCsection3";
 import CTCSection4 from "./CTCsection4";
 import New from "./New"
 import New2 from "./New2"
+import Company from "./Company"
 
 
 
@@ -187,7 +188,7 @@ export default function CampusToCubicleInfo() {
 
       <New/>
       <New2/>
-
+      <Company/>
 
       {/* Section 3 */}
         <CTCSection3 />

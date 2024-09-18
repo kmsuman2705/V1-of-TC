@@ -27,15 +27,15 @@ const Section3 = () => {
   ];
 
     return (
-    <Container maxW={"2x1"} bg="gray.100" mt={{ base: 20, md: 20, lg: 32 }} minH={"80vh"}>
+    <Container maxW={"2x1"} bg="#FEE28F"  minH={"80vh"}>
      <Flex justifyContent="center" alignItems="center">
   <Heading
     fontFamily="ClashDisplay"
     fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
     fontWeight="bold"
     p="2"
-    mb={6}
-    mt={6}
+    mb={{base:10, md:20}}
+    mt={{base:10, md:20}}
   >
     <Text as="span" color="black">
       Empowering

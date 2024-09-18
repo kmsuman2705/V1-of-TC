@@ -192,7 +192,7 @@ export default function OnCampus() {
 
       {/* Section 2 */}
   <Flex
-      mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+      mt={{base:10}}
       w="full"
       h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
       backgroundImage={
@@ -207,26 +207,21 @@ export default function OnCampus() {
     >
       <VStack
         w="full"
+        h="full" // Matches the height of the image
         justify="center"
-        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })} // Responsive padding
-        bgGradient="linear(to-r, transparent, blackAlpha.600)"
+        alignItems="flex-start" // Aligns content to the left
+        px={{ base: 4, md: 6, lg: 0 }}
+        bgGradient="linear(to-r, blackAlpha.600, transparent)" // Gradient from left to transparent
       >
-        <Stack
-          maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }} 
-        >
+       
           <Box
-            bg="#F0F4F8"
-            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+            bg="#DED0C6"
+            p={4}
             borderRadius="md"
             textAlign="left"
             color="black"
-            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-            w="full" // Full width on smaller screens
+            w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+            h="100%" // Ensures the height matches the image
           >
             <Flex justifyContent="center" alignItems="center">
                 <Heading
@@ -246,14 +241,15 @@ export default function OnCampus() {
 
             <Text
               mt={4}
-              fontSize={{ base: "sm", md: "md", lg: "xl" }} // Responsive font size
+              fontSize={{ base: "xs", md: "sm", lg: "md" }}
+              fontWeight="400"
               color="black"
             >
               Our seminars offer a unique opportunity to gain expert knowledge from industry leaders and subject matter experts. By attending, you'll have the chance to network with like-minded professionals, expanding your professional connections. You'll acquire practical skills that can be immediately applied to your work, ensuring you stay updated with the latest trends and developments in your field. Our interactive sessions, including discussions, Q&A segments, and hands-on workshops, provide a dynamic and engaging learning experience.
 
             </Text>
           </Box>
-        </Stack>
+      
       </VStack>
     </Flex>
 

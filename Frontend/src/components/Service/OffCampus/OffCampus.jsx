@@ -25,7 +25,7 @@ export default function OffCampus() {
     <>
     <Flex
       direction="column"
-      bgColor="#A98AC6"  // Set background color here
+      bgColor="#B7CFF9"  // Set background color here
     >
     <Flex
   w="full"
@@ -35,7 +35,8 @@ export default function OffCampus() {
   align="center"
   justify="center"
   p={{ base: 0, md: 10 }}
-  bgColor="#A98AC6"
+    // bgColor="#B7CFF9"  // Set background color here
+
   position="relative"
   overflow="hidden"
   borderRadius="lg"
@@ -180,9 +181,9 @@ export default function OffCampus() {
 
       {/* Section 2 */}
     <Flex
-      mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+      // Adjusted margin-top for different screen sizes
       w="full"
-      h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
+      h={{ base: "50vh", md: "50vh", lg: "70vh" }} // Responsive height
       backgroundImage={
         'url(https://images.pexels.com/photos/3184424/pexels-photo-3184424.jpeg)'
       }
@@ -193,32 +194,27 @@ export default function OffCampus() {
       position="relative"
     >
       <VStack
-        w="full"
-        justify="center"
-        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })} // Responsive padding
-        bgGradient="linear(to-r, transparent, blackAlpha.600)"
+         w="full"
+    h="full" // Matches the height of the image
+    justify="center"
+    alignItems="flex-start" // Aligns content to the left
+    px={{ base: 4, md: 6, lg: 0 }}
+    bgGradient="linear(to-r, blackAlpha.600, transparent)" // Gradient from left to transparent
       >
-        <Stack
-          maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }} 
-        >
+        
           <Box
-            bg="#F0F4F8"
-            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+            bg="#FFF7D9"
+            p={4} // Responsive padding
             borderRadius="md"
             textAlign="left"
             color="black"
-            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-            w="full" // Full width on smaller screens
+           w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+           h="100%" // Ensures the height matches the image
           >
             <Flex justifyContent="center" alignItems="center">
                 <Heading
                   fontFamily="ClashDisplay"
-                  fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
+                  fontSize={{ base: "2xl", md: "xl", lg: "4xl" }} // Responsive font size
                   fontWeight="bold"
                   p="2"
                 >
@@ -233,8 +229,9 @@ export default function OffCampus() {
 
             <Text
               mt={4}
-              fontSize={{ base: "sm", md: "md", lg: "xl" }} // Responsive font size
-              color="gray.800"
+              fontSize={{ base: "xs", md: "sm", lg: "md" }} // Responsive font size
+              fontWeight="400"
+              color="black"
             >
               Unlock a world of career opportunities with TalentConnect's OffCampus service. 
               Designed for recent graduates and job seekers, we facilitate job fairs, networking events, and exclusive job listings to connect you with top employers. 
@@ -242,7 +239,7 @@ export default function OffCampus() {
               Trust TalentConnect to guide you through a successful career transition and help you achieve your professional dreams.
             </Text>
           </Box>
-        </Stack>
+        
       </VStack>
     </Flex>
     

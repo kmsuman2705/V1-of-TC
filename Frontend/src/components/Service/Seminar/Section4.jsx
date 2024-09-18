@@ -19,7 +19,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}`;
 
 const Section4 = () => {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={10}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={{base:10, md:0}}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           
@@ -55,7 +55,7 @@ const Section4 = () => {
             </Text>                       
           </Heading>
           </Flex>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+          <Text fontSize={{ base: "md", lg: "lg" }}  fontWeight= "400" color={"black"}>
             Empower Your Campus Recruitment with TalentConnect - Your Gateway to Top Talent!
           </Text>
           

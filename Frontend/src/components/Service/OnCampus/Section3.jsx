@@ -27,7 +27,7 @@ const Section3 = () => {
   ];
 
   return (
-    <Container maxW="100%" bg="gray.100" mt={{ base: 20, md: 90 }} minH={"80vh"}>
+    <Container maxW="100%" bgColor="#FCEEE3" minH={"80vh"}>
      <Flex justifyContent="center" alignItems="center">
       <Heading
         fontFamily={"ClashDisplay"}
@@ -35,7 +35,8 @@ const Section3 = () => {
         fontWeight="bold"
         color="black"
         textAlign="center"
-        mb={8}
+        mb={10}
+        mt={10}
         p={2}
       >
         <br />
@@ -47,7 +48,8 @@ const Section3 = () => {
         fontWeight="bold"
         color="blue.400"
         textAlign="center"
-        mb={8}
+        mb={10}
+        mt={10}
       >
         <br />
         Offerings

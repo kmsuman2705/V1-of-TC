@@ -183,9 +183,9 @@ export default function CareerCraft() {
 
       {/* Section 2 */}
           <Flex
-      mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
+      mt={{ base: 10}} // Responsive margin-top
       w="full"
-     h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
+     h={{ base: "40vh", md: "50vh", lg: "70vh" }}// Responsive height
       backgroundImage={
         'url(https://images.pexels.com/photos/3184290/pexels-photo-3184290.jpeg)'
       }
@@ -199,26 +199,21 @@ export default function CareerCraft() {
     >
       <VStack
         w="full"
+        h="full" // Matches the height of the image
         justify="center"
-        px={useBreakpointValue({ base: 4, md: 6, lg: 8 })}
-        bgGradient="linear(to-r, transparent, blackAlpha.600)"
+        alignItems="flex-start" // Aligns content to the left
+        px={{ base: 4, md: 6, lg: 0 }}
+        bgGradient="linear(to-r, blackAlpha.600, transparent)" // Gradient from left to transparent
       >
-        <Stack
-          maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }}
-        >
+        
           <Box
-            bg="gray.100"
-            p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+           bg="#FFFFFF"
+            p={4}
             borderRadius="md"
             textAlign="left"
             color="black"
-            maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-            minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-            w="full" // Full width on smaller screens
+            w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+            h="100%" // Ensures the height matches the image
           >
            <Flex justifyContent="center" alignItems="center">
                 <Heading
@@ -237,7 +232,8 @@ export default function CareerCraft() {
               </Flex>
             <Text
               mt={4}
-              fontSize={{ base: "sm", md: "md", lg: "xl" }} 
+              fontSize={{ base: "xs", md: "sm", lg: "md" }}
+              fontWeight="400"
               color="black"
               //lineHeight="1.6"
             >
@@ -248,7 +244,7 @@ export default function CareerCraft() {
               CareerCraft offers specialized training and personalized mentorship to transform your professional journey. Gain cutting-edge skills and advanced certifications tailored to your career goals. With guidance from industry experts, CareerCraft equips you with the confidence and expertise to excel and advance in today’s competitive job market.
             </Text>
           </Box>
-        </Stack>
+      
       </VStack>
     </Flex>
     

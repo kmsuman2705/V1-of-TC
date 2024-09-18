@@ -1,161 +1,84 @@
-import { Box, Heading, Text, Flex, Image } from '@chakra-ui/react';
-import { motion } from 'framer-motion'; // For animations
-import cimg from "../../assets/images/campusToCubicle.jpeg"
+import { Box, Heading, Text, Button, VStack, HStack } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import hVideo from "../../assets/videos/Merged.mp4"; // Local video
+
+const MotionBox = motion(Box);
 
 const HeroPage = () => {
     return (
         <Box
-            as={motion.div}
-            bg="white"
-            minH="100vh"
             position="relative"
             overflow="hidden"
+            py={{ base: 20, md: 20 }}  // Adjusted for mobile
+            px={{ base: 4, md: 10 }}   // Adjusted padding for mobile
+            color="white"
+            mt={[10, 20, 20]}
+            mb={[80, 20, 10]}
         >
-            {/* Background Animations */}
-            <Box
+            {/* Background Video */}
+            <MotionBox
                 position="absolute"
-                top="-100px"
-                left="-100px"
-                w={{ base: '150px', md: '400px' }}  // Adjusted for mobile
-                h={{ base: '150px', md: '400px' }}  // Adjusted for mobile
-                bg="teal.300"
-                borderRadius="50%"
-                as={motion.div}
-                animate={{
-                    scale: [1, 1.4, 1],  // Pop-in and Pop-out effect
-                    opacity: [0.4, 0.8, 0.4],  // Adjust the transparency during animation
-                }}
-                transition={{
-                    duration: 2.5,  // Speed up the animation to emphasize the pop effect
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                }}
-                zIndex={0}
-            />
-
-            <Box
-                position="absolute"
-                bottom="-150px"
-                right="-150px"
-                w={{ base: '150px', md: '300px' }}  // Adjusted for mobile
-                h={{ base: '150px', md: '300px' }}  // Adjusted for mobile
-                bg="blue.300"
-                borderRadius="50%"
-                as={motion.div}
-                animate={{
-                    scale: [1, 1.4, 1],  // Pop-in and Pop-out effect
-                    opacity: [0.5, 1, 0.5],  // Adjust the transparency during animation
-                }}
-                transition={{
-                    duration: 3,  // Different duration for variation
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                }}
-                zIndex={0}
-            />
-
-            <Flex
-                direction={{ base: 'column', md: 'row' }}
-                align="center"
-                justify="center"
-                w="100%"
-                maxW="1200px"
-                mt={{ base: 16, md: 16 }}
-                px={6}
-                position="relative"
-                zIndex={2} // Keeps content above the animated backgrounds
-                spacing={{ base: 8, md: 0 }} // Adjust spacing for mobile
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+                zIndex={-2}
+                opacity={1}
+                transition="opacity 1s ease-in-out"  // Smooth fade-in effect
             >
-                {/* Text Section */}
-                <Box
-                    textAlign={{ base: 'center', md: 'left' }}
-                    maxW={{ base: '90%', md: '600px' }} // Adjusted for mobile
-                    mb={{ base: 8, md: 0 }}  // Adjust margin for mobile view
-                >
-                    <Heading
-                        as={motion.h1}
-                        size={{ base: 'xl', md: '2xl' }} // Adjusted size for mobile
-                        mb={4}
-                        initial={{ y: -50 }}
-                        animate={{ y: 0 }}
-                        transition={{ type: 'spring', stiffness: 100 }}
-                    >
-                        <Text color="blue.500">CampusToCubicle:</Text>
-                        Partnering for Future Success
-                    </Heading>
-                    {/* Image / Vector Section */}
-                    <Box
-                        display={{ base: 'block', md: 'none' }} // Show image on mobile
-                        mt={8}  // Margin to separate from heading
-                        mb={8}  // Margin to separate from text
-                        textAlign="center"
-                        position="relative"
-                    >
-                        <Image
-                            src={cimg} // Replace with your vector URL
-                            alt="Hero Vector"
-                            w="80%" // Adjust size for mobile
-                            maxW="300px" // Max width for mobile
-                            h="auto" // Maintain aspect ratio
-                            borderRadius={40}
-                            mx="auto" // Center horizontally on mobile
-                        />
-                    </Box>
-                    <Text
-                        as={motion.p}
-                        fontSize={{ base: 'md', md: 'lg' }}  // Adjusted for mobile
-                        mt={6}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5, duration: 1 }}
-                    >
-                        TalentConnect revolutionizes the campus-to-cubicle journey for colleges and companies. Our tech platform integrates company needs with college engagement, ensuring efficient recruitment and personalized campaigns. We handle the entire hiring process and provide on-demand training for new hires, bridging the gap between campus and career.
-                    </Text>
-                </Box>
+                <video
+                    src={hVideo}
+                    muted
+                    loop // Ensures the video loops while it's playing
+                    autoPlay
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'opacity 2s ease-in-out', // Ensures smooth transition
+                    }}
+                />
+            </MotionBox>
 
-                <Box
-                    display={{ base: 'none', md: 'block' }} // Hide image on mobile
-                    as={motion.div}
-                    initial={{ scale: 0.5 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.7 }}
-                    position="relative"
-                    mt={8}
+            <VStack spacing={{ base: 6, md: 10 }} textAlign="center">
+                {/* Hero Text */}
+                <Heading
+                    as="h1"
+                    size={{ base: '2xl', md: '3xl' }}  // Adjusted for mobile
+                    lineHeight="shorter"
+                    bgGradient="linear(to-r, teal.300, blue.500)"
+                    bgClip="text"
+                    fontWeight="bold"
+                    letterSpacing="wide"
                 >
-                    {/* Animated Background for the Vector */}
-                    <Box
-                        display={{ base: 'none', md: 'block' }} // Hide this box on mobile
-                        position="absolute"
-                        top="-80px"
-                        left="80px"
-                        w={{ base: '150px', md: '200px' }}  // Adjusted for mobile
-                        h={{ base: '150px', md: '200px' }}  // Adjusted for mobile
-                        bg="blue.100"
-                        borderRadius="50%"
-                        zIndex={-1}
-                        as={motion.div}
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            rotate: [0, 180, 360],
-                        }}
-                        transition={{
-                            duration: 6,
-                            ease: 'easeInOut',
-                            repeat: Infinity,
-                        }}
-                    />
-                    <Image
-                        src={cimg} // Replace with your vector URL
-                        alt="Hero Vector"
-                        w={{ base: '200px', md: '490px' }} // Adjusted for mobile
-                        h="auto" // Maintain aspect ratio
-                        zIndex={1}
-                        marginLeft={{ base: 0, md: 40 }}  // Centered on mobile
-                        mt={{ base: 8, md: 0 }} // Adjust margin for mobile
-                        borderRadius={40}
-                    />
-                </Box>
-            </Flex>
+                    CampusToCubicle:
+                    <Text color="gray.100">Partnering for Future Success</Text>
+                </Heading>
+                <Text fontSize={{ base: 'md', md: 'xl' }} maxW="800px" color="gray.200">
+                    TalentConnect revolutionizes the campus-to-cubicle journey for colleges and companies. Our tech platform integrates company needs with college engagement, ensuring efficient recruitment and personalized campaigns. We handle the entire hiring process and provide on-demand training for new hires, bridging the gap between campus and career.
+                </Text>
+
+                {/* Call to Action Buttons */}
+                <HStack
+                    spacing={{ base: 4, md: 8 }}  // Adjusted for mobile
+                    flexDirection={{ base: 'column', md: 'row' }}  // Stack buttons vertically on mobile
+                >
+                    <Button
+                        colorScheme="transparent"
+                        border="2px solid"
+                        borderColor={"blue.300"}
+                        _hover={{ backgroundColor: "blue.300" }}
+                        size={{ base: 'md', md: 'lg' }}  // Adjusted for mobile
+                        rightIcon={<FaArrowRight />}
+                        as={motion.button}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Get Started
+                    </Button>
+                </HStack>
+            </VStack>
         </Box>
     );
 };

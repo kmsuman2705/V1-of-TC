@@ -37,7 +37,8 @@ export default function OnCampus() {
   align="center"
   justify="center"
   p={{ base: 0, md: 10 }}
- bgGradient= "linear-gradient(to top, #BDEEFE, #D7F3FE, #FFFFFF)"
+   bgColor="#D7F3FE" 
+// bgGradient= "linear-gradient(to top, #BDEEFE, #D7F3FE, #FFFFFF)"
   position="relative"
   overflow="hidden"
   borderRadius="lg"
@@ -86,6 +87,7 @@ export default function OnCampus() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
+          align="center"
         >
           Premier Workforce Solutions
         </MotionHeading>
@@ -187,7 +189,7 @@ export default function OnCampus() {
 
       {/* Section 2 */}
       <Flex
-        mt={{ base: 20, md: 20, lg: 32 }} // Adjusted margin-top for different screen sizes
+        mt={{ base: 20,  }} // Adjusted margin-top for different screen sizes
         w={"full"}
         h={{ base: "40vh", md: "50vh", lg: "60vh" }} // Responsive height
         backgroundImage={
@@ -200,29 +202,24 @@ export default function OnCampus() {
         position="relative"
       >
         <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 6, lg: 8 })}
-          bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
+          w="full"
+          h="full" // Matches the height of the image
+          justify="center"
+          alignItems="flex-start" // Aligns content to the left
+          px={{ base: 4, md: 6, lg: 0 }}
+          bgGradient="linear(to-r,  transparent)" // Gradient from left to transparent
         >
-          <Stack 
-          maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }}
-          >
+         
             <Box
-              bg="gray.100"
-              p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+              bg="#FFFFFF"
+              p={4}
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-              w="full" // Full width on smaller screens
+              w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+              h="100%" // Ensures the height matches the image
             >
-                      <Flex justifyContent="center" alignItems="center">
+            <Flex justifyContent="center" alignItems="center">
                 <Heading
                   fontFamily="ClashDisplay"
                   fontSize={{ base: "xl", md: "2xl", lg: "4xl" }} // Responsive font size
@@ -237,17 +234,19 @@ export default function OnCampus() {
                   </Text>
                 </Heading>
               </Flex>
-              <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
+              <Text mt={4} fontSize={{ base: "xs", md: "sm", lg: "md" }}
+                fontWeight="400"
+                color="black">
                 When you partner with us for your workforce needs, you benefit from our commitment to delivering tailored recruitment strategies that align with your organization’s unique requirements. We understand that each company is different, and we customize our approach to ensure we connect you with the talent that fits seamlessly into your company’s culture and job specifications. Choosing us means opting for a partner dedicated to not only meeting your immediate hiring needs but also contributing to your long-term success and growth.
               </Text>
             </Box>
-          </Stack>
+       
         </VStack>
       </Flex>
 
       {/* New Section - Employer Branding */}
       <Flex
-        mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
+         // Responsive margin-top
         w="full"
         h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
         backgroundImage={
@@ -260,26 +259,22 @@ export default function OnCampus() {
         position="relative"
       >
         <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4,  md: 6, lg: 8 })}
-          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+         w="full"
+    h="full" // Matches the height of the image
+    justify="center"
+    alignItems="flex-end" // Aligns content to the left
+    px={{ base: 4, md: 6, lg: 0 }}
+    bgGradient="linear(to-r,  transparent)" // Gradient from left to transparent
         >
-          <Stack maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          right={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }}
-          >
+          
             <Box
-              bg="rgba(245, 245, 245, 0.9)"
-              p={{ base: 4, md: 6, lg: 10 }} 
+             bg="#FFFFFF"
+              p={4}
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-              w="full" // Full width on smaller screens
+              w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+              h="100%" // Ensures the height matches the image
             >
               <Flex justifyContent="center" alignItems="center">
                 <Heading
@@ -296,18 +291,20 @@ export default function OnCampus() {
                   </Text>
                 </Heading>
               </Flex>
-              <Text mt={4} fontSize={{ base: "sm", md: "md", lg: "xl" }} color="gray.800">
+              <Text mt={4} fontSize={{ base: "xs", md: "sm", lg: "md" }}
+        fontWeight="400"
+        color="black">
                 Build a compelling employer brand that attracts top talent and fosters a positive work environment. Our strategies help you communicate your company’s values, culture, and unique benefits to potential candidates, enhancing your reputation as an employer of choice.
               </Text>
             </Box>
-          </Stack>
+          
         </VStack>
       </Flex>
 
     
       {/*EmployerBranding */}
       <Flex
-        mt={{ base: 20, md: 20, lg: 32 }} // Responsive margin-top
+         // Responsive margin-top
         w="full"
         h={{ base: "40vh", md: "50vh", lg: "60vh" }}// Responsive height
         backgroundImage={
@@ -320,27 +317,22 @@ export default function OnCampus() {
         position="relative"
       >
         <VStack
-          w={"full"}
-          justify={"center"}
-          px={useBreakpointValue({ base: 4,  md: 6, lg: 8 })}
-          bgGradient={"linear(to-r, transparent, blackAlpha.600)"}
+        w="full"
+    h="full" // Matches the height of the image
+    justify="center"
+    alignItems="flex-start" // Aligns content to the left
+    px={{ base: 4, md: 6, lg: 0 }}
+    bgGradient="linear(to-r,  transparent)" // Gradient from left to transparent
         >
-          <Stack 
-          maxW={{ base: "full", md: "2xl" }}
-          spacing={4}
-          position="absolute"
-          left={{ base: 4, md: 6, lg: 8 }} // Responsive positioning
-          p={{ base: 4, md: 6 }}          
-          >
+          
             <Box
-              bg="gray.100"
-              p={{ base: 4, md: 6, lg: 10 }} // Responsive padding
+             bg="#FFFFFF"
+              p={4}
               borderRadius="md"
               textAlign="left"
               color="black"
-              maxW={{ base: "full", md: "lg" }} // Full width on smaller screens
-              minH={{ base: "auto", md: "400px", lg: "500px" }} // Responsive height
-              w="full" // Full width on smaller screens
+              w={{ base: "full", md: "50%", lg: "40%" }} // Width for the text box
+              h="100%" // Ensures the height matches the image
             >
               <Flex justifyContent="center" alignItems="center">
                 <Heading
@@ -357,11 +349,13 @@ export default function OnCampus() {
                   </Text>
                 </Heading>
               </Flex>
-              <Text mt={4}  fontSize={{ base: "sm", md: "md", lg: "xl" }}  color="gray.800">
+              <Text mt={4}  fontSize={{ base: "xs", md: "sm", lg: "md" }}
+        fontWeight="400"
+        color="black">
               Strengthen your company's reputation and attract top talent with a compelling employer branding strategy. Our page highlights the distinctive qualities that make your workplace exceptional, including your organizational culture, core values, and the unique opportunities you offer. Emphasize your commitment to employee growth, innovation, and a supportive work environment. Engage potential candidates by showcasing the benefits of working with you and how your company stands out in the competitive job market.
               </Text>
             </Box>
-          </Stack>
+        
         </VStack>
       </Flex>
        
