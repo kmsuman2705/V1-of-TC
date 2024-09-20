@@ -51,7 +51,9 @@ const CompanyForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        await axios.post('http://localhost:5000/api/company/submit-company-form', values);
+        //await axios.post('http://3.7.169.233:5000/api/company/submit-company-form', values);
+
+        await axios.post('http://3.7.169.233:5000/api/company/submit-company-form', values);
         setMessage("Your company details have been submitted successfully.");
         setMessageType('success');
         setTimeout(() => {

@@ -9,12 +9,17 @@ import ReadyToTransform from "../components/Home/ReadyToTransform.jsx";
 import Placed from "../components/Home/Placed.jsx";
 import Companies from "../components/Home/Companies.jsx";
 
-
+import {Flex} from "@chakra-ui/react";
 
 const Home = () => {
   return (
     <>
-      <Hero />
+    <Hero />
+    <Flex
+      direction="column"
+      bgColor="#BEE3F8"  // Set background color here
+    >
+      
       
       <CampusToCubicle />
       <About />
@@ -27,6 +32,7 @@ const Home = () => {
 
       <ReadyToTransform />
       {/* Your other page components or routes can go here */}
+    </Flex>
     </>
   );
 };

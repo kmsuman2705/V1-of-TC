@@ -49,7 +49,9 @@ export default function ContactForm() {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('http://localhost:5000/api/contact/contact', values);
+        //const response = await axios.post('http://3.7.169.233:5000/api/contact/contact', values);
+
+        const response = await axios.post('http://3.7.169.233:5000/api/contact/contact', values);
         toast({
           title: 'Message sent.',
           description: response.data.message,

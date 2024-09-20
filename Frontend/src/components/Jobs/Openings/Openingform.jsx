@@ -35,7 +35,9 @@ export default function OpeningForm({ jobId }) {
       }
       
       try {
-        const response = await axios.get(`http://localhost:5000/api/cards/cards/${jobId}`);
+        //const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
+        const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
+
         setJobDetails(response.data);
       } catch (error) {
         console.error("Error fetching job details:", error.response ? error.response.data : error.message);
@@ -55,7 +57,9 @@ export default function OpeningForm({ jobId }) {
     data.append('jobTitle', jobDetails.title);
 
     try {
-      await axios.post('http://localhost:5000/api/job-applications/apply', data, {
+      //await axios.post('http://3.7.169.233:5000/api/job-applications/apply', data, {
+
+      await axios.post('http://3.7.169.233:5000/api/job-applications/apply', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setMessage({ text: 'Resume uploaded successfully!', type: 'success' });

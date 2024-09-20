@@ -44,7 +44,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch('http://3.7.169.233:5000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

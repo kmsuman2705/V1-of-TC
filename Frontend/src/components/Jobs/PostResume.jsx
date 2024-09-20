@@ -86,7 +86,9 @@ export default function PostResume() {
     data.append("resume", values.resume);
 
     try {
-      await axios.post("http://localhost:5000/api/resumes/submit", data, {
+      //await axios.post("http://3.7.169.233:5000/api/resumes/submit", data, {
+
+     await axios.post("http://3.7.169.233:5000/api/resumes/submit", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

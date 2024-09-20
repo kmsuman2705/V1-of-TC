@@ -172,14 +172,18 @@ const AdminPostJobPanel = () => {
   const fetchJobData = async () => {
     try {
       // Fetch job data
-      const response = await axios.get("http://localhost:5000/api/cards/cards");
+      //const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
+
+      const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
       const jobData = response.data;
 
       // Fetch number of students applied for each job
       const updatedJobs = await Promise.all(
         jobData.map(async (job) => {
           try {
-            const { data } = await axios.get(`http://localhost:5000/api/job-applications/applications/count/${job.jobId}`);
+            //const { data } = await axios.get(`http://3.7.169.233:5000/api/job-applications/applications/count/${job.jobId}`);
+
+            const { data } = await axios.get(`http://3.7.169.233:5000/api/job-applications/applications/count/${job.jobId}`);
             return { ...job, studentsApplied: data.count };
           } catch (err) {
             console.error(`Error fetching student count for job ${job.jobId}:`, err);
@@ -241,7 +245,9 @@ const handleDeleteSelected = async () => {
   const selectedIds = Object.keys(selectedJobs).filter((jobId) => selectedJobs[jobId]);
     if (selectedIds.length > 0) {
       try {
-        await axios.delete("http://localhost:5000/api/cards/cards", {
+        //await axios.delete("http://3.7.169.233:5000/api/cards/cards", {
+
+          await axios.delete("http://3.7.169.233:5000/api/cards/cards", {
           data: { jobId: selectedIds },
         });
         setJobData((prevData) => prevData.filter((job) => !selectedIds.includes(job.jobId)));
@@ -270,11 +276,15 @@ const handleDeleteSelected = async () => {
 
   const handlePostJob = async () => {
     try {
-      await axios.post("http://localhost:5000/api/cards/cards", formData);
+      //await axios.post("http://3.7.169.233:5000/api/cards/cards", formData);
+
+      await axios.post("http://3.7.169.233:5000/api/cards/cards", formData);
       setFormData({ title: "", location: "", salary: "", experience: "", jobDescription: "",jobRole: "", department: "", roleCategory: "", employmentType: "", education: "", englishLevel: "", gender: ""  });
       onPostModalClose();
       // Refresh job data
-      const response = await axios.get("http://localhost:5000/api/cards/cards");
+     // const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
+
+      const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
       setJobData(response.data);
     } catch (error) {
       console.error("Error posting job:", error);
@@ -283,10 +293,15 @@ const handleDeleteSelected = async () => {
 
   const handleEditJob = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/cards/cards/${editData.jobId}`, editData);
+      //await axios.put(`http://3.7.169.233:5000/api/cards/cards/${editData.jobId}`, editData);
+
+      await axios.put(`http://3.7.169.233:5000/api/cards/cards/${editData.jobId}`, editData);
       onEditModalClose();
       // Refresh job data
-      const response = await axios.get("http://localhost:5000/api/cards/cards");
+      //const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
+
+
+      const response = await axios.get("http://3.7.169.233:5000/api/cards/cards");
       setJobData(response.data);
     } catch (error) {
       console.error("Error editing job:", error);
@@ -295,7 +310,10 @@ const handleDeleteSelected = async () => {
 
   const handleViewJob = async (jobId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/cards/cards/${jobId}`);
+      //const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
+
+
+      const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
       setViewData(response.data);
       onViewModalOpen();
     } catch (error) {

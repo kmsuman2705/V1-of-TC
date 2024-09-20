@@ -133,7 +133,7 @@ const CompanyPanel = () => {
   useEffect(() => {
     const fetchCompanyData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/company/company-forms");
+        const response = await axios.get("http://3.7.169.233:5000/api/company/company-forms");
         setCompanyData(response.data);
       } catch (error) {
         console.error("Error fetching company data:", error);
@@ -182,7 +182,7 @@ const CompanyPanel = () => {
     const selectedIds = Object.keys(selectedCompanies).filter((id) => selectedCompanies[id]);
     if (selectedIds.length > 0) {
       try {
-        await axios.delete("http://localhost:5000/api/company/delete", {
+        await axios.delete("http://3.7.169.233:5000/api/company/delete", {
           data: { ids: selectedIds },
         });
         setCompanyData((prevData) => prevData.filter((company) => !selectedIds.includes(company._id)));

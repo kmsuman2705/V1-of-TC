@@ -113,7 +113,7 @@ const ContactPanel = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/contact/contacts");
+        const response = await axios.get("http://3.7.169.233:5000/api/contact/contacts");
         setContactData(response.data);
       } catch (error) {
         console.error("Error fetching contact data:", error);
@@ -162,7 +162,7 @@ const ContactPanel = () => {
     const selectedIds = Object.keys(selectedContacts).filter(id => selectedContacts[id]);
     if (selectedIds.length > 0) {
       try {
-        await axios.delete("http://localhost:5000/api/contact/contacts", {
+        await axios.delete("http://3.7.169.233:5000/api/contact/contacts", {
           data: { ids: selectedIds },
         });
         setContactData(prevData => prevData.filter(contact => !selectedIds.includes(contact._id)));

@@ -17,11 +17,12 @@ const videos = [
 
 export default function Hero() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const fontSizes = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "lg", xl: "sm", "2xl": "4xl", "3xl": "xl",});
-  const px = useBreakpointValue({ base: 4, sm: 5, md: 6, lg: 7, xl: 6, "2xl": 12, "3xl": 10 });
-  const py = useBreakpointValue({ base: 2, sm: 3, md: 4, lg: 5, xl: 4, "2xl": 10, "3xl": 8 });
-  const spacing = useBreakpointValue({ base: 2, sm: 3, md: 4, lg: 5, xl: 6, "2xl": 7, "3xl": 8 });
-
+  const buttonSizes = useBreakpointValue({base: "sm", sm: "sm", md: "sm", lg: "md", xl: "lg", "2xl": "2xl", "3xl": "4xl",});
+  const px = useBreakpointValue({ base: 2, sm: 2, md: 2, lg: 4, xl: 6, "2xl": 8, "3xl": 12 });
+  const py = useBreakpointValue({ base: 2, sm: 2, md: 2, lg: 4, xl: 6, "2xl": 8, "3xl": 12 });
+  const spacing = useBreakpointValue({ base: 2, sm: 3, md: 3, lg: 5, xl: 6, "2xl": 7, "3xl": 10 });
+  const sizeHeading =  useBreakpointValue({ base: "4xl",sm: "4xl", md: "4xl", lg: "5xl", xl: "7xl","2xl": "8xl","3xl": "9xl"});
+  const sizeText = useBreakpointValue({base: "sm", sm: "md",md: "md",lg: "lg",xl: "xl", "2xl": "3xl","3xl": "5xl"});
   // Change video at intervals
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -84,15 +85,7 @@ export default function Hero() {
             color={"#FF8C00"}
             fontWeight={700}
             lineHeight={1.2}
-            fontSize={useBreakpointValue({
-              base: "4xl",
-              sm: "4xl",
-              md: "5xl",
-              lg: "6xl",
-              xl: "7xl",
-              "2xl": "9xl",
-              "3xl": "9xl",
-            })}
+            fontSize={sizeHeading}
             as={motion.div}
             initial={{ y: "-100vh" }}          // Start off-screen to the top
             animate={{ y: 0 }}                 // Move to original position
@@ -102,15 +95,7 @@ export default function Hero() {
           </Text>
           <Text
             color={"#F8F8FF"}
-            fontSize={useBreakpointValue({
-              base: "sm",
-              sm: "md",
-              md: "lg",
-              lg: "xl",
-              xl: "lg",
-              "2xl": "xl",
-              "3xl": "5xl",
-            })}
+            fontSize={sizeText}
             as={motion.div}
             initial={{ y: "-100vh" }}          // Start off-screen to the top
             animate={{ y: 0 }}                 // Move to original position
@@ -128,7 +113,7 @@ export default function Hero() {
             <Link to="/#our-services">
               <Button
                 as={motion.button}
-                fontSize={fontSizes} // Responsive font size
+                fontSize={buttonSizes} // Responsive font size
                 px={px} // Responsive horizontal padding
                 py={py} // Responsive vertical padding
                 bgGradient="linear(to-r, teal.400, blue.500)"
@@ -144,7 +129,7 @@ export default function Hero() {
             <Link to="/contact">
               <Button
                 as={motion.button}
-                fontSize={fontSizes} // Responsive font size
+                fontSize={buttonSizes} // Responsive font size
                 px={px} // Responsive horizontal padding
                 py={py} // Responsive vertical padding
                 bg={"whiteAlpha.300"}

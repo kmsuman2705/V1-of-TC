@@ -14,7 +14,10 @@ function Opening() {
     const cardsPerPage = 12;
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/cards/cards')
+       // axios.get('http://3.7.169.233:5000/api/cards/cards')
+
+       axios.get('http://3.7.169.233:5000/api/cards/cards')
+        
             .then(response => {
                 setCards(response.data);
                 setFilteredCards(response.data); // Initially display all cards

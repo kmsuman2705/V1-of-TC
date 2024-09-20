@@ -16,7 +16,9 @@ const DashboardOverview = () => {
   useEffect(() => {
     const fetchCollegeCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/college/count');
+        //const response = await fetch('http://3.7.169.233:5000/api/college/count');
+
+        const response = await fetch('http://3.7.169.233:5000/api/college/count');
         const data = await response.json();
         setCollegeCount(data.count);
       } catch (error) {
@@ -26,7 +28,9 @@ const DashboardOverview = () => {
 
     const fetchCompanyCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/company/count');
+        //const response = await fetch('http://3.7.169.233:5000/api/company/count');
+
+        const response = await fetch('http://3.7.169.233:5000/api/company/count');
         const data = await response.json();
         setCompanyCount(data.count);
       } catch (error) {
@@ -36,7 +40,9 @@ const DashboardOverview = () => {
 
     const fetchJobPostCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/cards/count');
+       // const response = await fetch('http://3.7.169.233:5000/api/cards/count');
+
+        const response = await fetch('http://3.7.169.233:5000/api/cards/count');
         const data = await response.json();
         setJobPostCount(data.count);
       } catch (error) {
@@ -46,7 +52,9 @@ const DashboardOverview = () => {
 
     const fetchContactCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/contact/count');
+        //const response = await fetch('http://3.7.169.233:5000/api/contact/count');
+
+        const response = await fetch('http://3.7.169.233:5000/api/contact/count');
         const data = await response.json();
         setContactCount(data.count);
       } catch (error) {
@@ -56,7 +64,9 @@ const DashboardOverview = () => {
 
     const fetchStudentPostCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/resumes/count');
+       // const response = await fetch('http://3.7.169.233:5000/api/resumes/count');
+
+         const response = await fetch('http://3.7.169.233:5000/api/resumes/count');
         const data = await response.json();
         setStudentPostCount(data.count);
       } catch (error) {
@@ -66,7 +76,9 @@ const DashboardOverview = () => {
 
     const fetchStudentApplyCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/job-Applications/count');
+        //const response = await fetch('http://3.7.169.233:5000/api/job-Applications/count');
+
+        const response = await fetch('http://3.7.169.233:5000/api/job-Applications/count');
         const data = await response.json();
         setStudentApplyCount(data.count);
       } catch (error) {

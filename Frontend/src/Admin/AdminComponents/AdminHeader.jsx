@@ -30,7 +30,7 @@ const AdminHeader = ({ onOpenSidebar }) => {
     // Fetch notifications from your API
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/notifications'); // Update with your API endpoint
+        const response = await axios.get('http://3.7.169.233:5000/api/notifications'); // Update with your API endpoint
         setNotifications(response.data);
         setUnreadCount(response.data.filter(notification => !notification.read).length);
       } catch (error) {

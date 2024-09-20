@@ -79,7 +79,7 @@ const downloadPDF = (data) => {
       {
         content: `${student.name}-Resume`,
         styles: { textColor: [0, 0, 255] },
-        link: `http://localhost:5000/api/job-applications/downloadResume/${student._id}`,
+        link: `http://3.7.169.233:5000/api/job-applications/downloadResume/${student._id}`,
       },
     ]),
     didDrawCell: (data) => {
@@ -137,7 +137,7 @@ const downloadExcel = async (data) => {
     const cell = worksheet.getCell(`H${index + 2}`);
     cell.value = {
       text: `${student.name}-Resume`,
-      hyperlink: `http://localhost:5000/api/job-applications/downloadResume/${student._id}`,
+      hyperlink: `http://3.7.169.233:5000/api/job-applications/downloadResume/${student._id}`,
     };
     cell.font = { color: { argb: "FF0000FF" }, underline: true };
   });
@@ -178,7 +178,7 @@ const StudentApplied = () => {
       const fetchStudentData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/job-applications/applications/${jobIdFromQuery}`
+            `http://3.7.169.233:5000/api/job-applications/applications/${jobIdFromQuery}`
           );
           setStudentData(response.data);
         } catch (error) {
@@ -232,7 +232,7 @@ const StudentApplied = () => {
     );
     if (selectedIds.length > 0) {
       try {
-        await axios.post("http://localhost:5000/api/job-applications/delete", {
+        await axios.post("http://3.7.169.233:5000/api/job-applications/delete", {
           ids: selectedIds,
         });
         setStudentData((prevData) =>
@@ -252,13 +252,13 @@ const StudentApplied = () => {
     const fileType = res.resume.split(".").pop();
 
     setResumeType(fileType);
-    setSelectedResume(`http://localhost:5000/api/job-applications/viewResume/${studentId}`);
+    setSelectedResume(`http://3.7.169.233:5000/api/job-applications/viewResume/${studentId}`);
     onOpen();
   };
 
   const handleDownloadResume = (studentId) => {
     window.open(
-      `http://localhost:5000/api/job-applications/downloadResume/${studentId}`,
+      `http://3.7.169.233:5000/api/job-applications/downloadResume/${studentId}`,
       "_blank"
     );
   };
