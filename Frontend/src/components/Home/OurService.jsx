@@ -54,6 +54,7 @@ const Card = ({ heading, description, icon, link }) => {
       borderRadius="lg"
       overflow="hidden"
       p={5}
+       
       bg={useColorModeValue("white", "gray.800")}
       boxShadow="lg"
       transition="transform 0.3s, box-shadow 0.3s"
@@ -110,7 +111,7 @@ const Card = ({ heading, description, icon, link }) => {
 
 export default function OurServices() {
   return (
-    <Box id="our-services" p={4} bg="#ffffff" mt={10}>
+    <Box id="our-services" p={4}  bgColor={"#BEE3F8"} mt={10}>
       <Flex justifyContent="center" alignItems="center">
         <Heading
           fontSize={{ base: "2xl", sm: "4xl" }}

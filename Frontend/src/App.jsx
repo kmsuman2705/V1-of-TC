@@ -22,6 +22,7 @@ import Counselling from "./components/Service/Counselling/Counselling.jsx";
 import Workforce from "./components/Service/Workforce/Workforce.jsx";
 import CareerCraft from "./components/Service/CareerCraft/CareerCraft.jsx";
 import WhatsAppIcon from "./components/WhatsAppIcon.jsx";
+import theme from "./theme";  // Import the custom theme
 
 // Import Admin components
 import Layout from "./Admin/AdminComponents/Layout.jsx";
@@ -45,7 +46,7 @@ const NotFound = () => <div>Page Not Found</div>;
 
 const App = () => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Router>
         <AuthProvider>
           <ScrollToTop />

@@ -18,7 +18,7 @@ export default function About() {
   };
 
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}  mt={{ base: 1, md: -20  }} >
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}  mt={{ base: 1, md: -20  }}  bgColor={"#BEE3F8"}>
       <Flex flex={1} align={"center"} justify={"center"}>
         <Box
           w={{ base: "90%", md: "80%" }} // Wider box on mobile and desktop

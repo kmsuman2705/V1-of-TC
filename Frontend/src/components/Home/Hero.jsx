@@ -12,12 +12,15 @@ import { motion } from "framer-motion";
 
 // Array of video URLs
 const videos = [
-  // "https://static.videezy.com/system/resources/previews/000/035/082/original/MT053.mp4",
   "https://static.vecteezy.com/system/resources/previews/043/623/224/mp4/two-successful-young-businesswoman-shaking-hands-business-meeting-in-office-job-interview-business-career-placement-concept-hr-holding-job-contract-hiring-female-applicant-human-resources-concept-free-video.mp4",
 ];
 
 export default function Hero() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const fontSizes = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "lg", xl: "sm", "2xl": "4xl", "3xl": "xl",});
+  const px = useBreakpointValue({ base: 4, sm: 5, md: 6, lg: 7, xl: 6, "2xl": 12, "3xl": 10 });
+  const py = useBreakpointValue({ base: 2, sm: 3, md: 4, lg: 5, xl: 4, "2xl": 10, "3xl": 8 });
+  const spacing = useBreakpointValue({ base: 2, sm: 3, md: 4, lg: 5, xl: 6, "2xl": 7, "3xl": 8 });
 
   // Change video at intervals
   useEffect(() => {
@@ -33,8 +36,9 @@ export default function Hero() {
       w={"full"}
       h={"100vh"}
       position={"relative"}
-      zIndex={1}
       overflow={"hidden"}
+      align={"center"}
+      justify={"center"}
     >
       {/* Video Background */}
       <video
@@ -59,49 +63,74 @@ export default function Hero() {
       {/* Gradient Overlay */}
       <VStack
         w={"full"}
+        h={"full"}
         justify={"center"}
-        px={useBreakpointValue({ base: 4, md: 8 })}
+        px={px}
         bgGradient={"linear(to-l, rgba(0, 0, 0, 0.6), transparent)"}
+        position={"relative"}
+        spacing={spacing}
+        align={"center"}
       >
         <Stack
-          maxW={{ base: "90%", md: "2xl" }}
-          align={"flex-start"}
-          spacing={6}
-          position={{ base: "relative", md: "absolute" }}
-          left={{ base: "auto", md: "5%" }} // Shift the text container to the left on larger screens
+          maxW={{ base: "90%", sm: "80%", md: "70%", lg: "60%", xl: "75%", "2xl": "75%" }}
+          spacing={spacing}
+          textAlign={"center"}
           as={motion.div}
-          initial={{ opacity: 0, x: -100 }}  // Start from left (x: -100)
-          animate={{ opacity: 1, x: 0 }}     // Animate to center (x: 0)
-          transition={{ duration: 5 }}        // Smooth transition over 5 seconds
+          initial={{ opacity: 0, y: -100 }}  // Start from top (y: -100)
+          animate={{ opacity: 1, y: 0 }}     // Animate to center (y: 0)
+          transition={{ duration: 1 }}        // Smooth transition over 1 second
         >
           <Text
-            color={"white"}
+            color={"#FF8C00"}
             fontWeight={700}
             lineHeight={1.2}
-            fontSize={useBreakpointValue({ base: "4xl", md: "7xl" })}
+            fontSize={useBreakpointValue({
+              base: "4xl",
+              sm: "4xl",
+              md: "5xl",
+              lg: "6xl",
+              xl: "7xl",
+              "2xl": "9xl",
+              "3xl": "9xl",
+            })}
             as={motion.div}
-            initial={{ x: "-100vw" }}          // Start off-screen to the left
-            animate={{ x: 0 }}                 // Move to original position
-            transition={{ type: "tween", duration: 5, delay: 0.9 }} // Smooth transition
+            initial={{ y: "-100vh" }}          // Start off-screen to the top
+            animate={{ y: 0 }}                 // Move to original position
+            transition={{ type: "tween", duration: 1, delay: 0.5 }} // Smooth transition
           >
             Welcome to TalentConnect!
           </Text>
           <Text
-            color={"white"}
-            fontSize={useBreakpointValue({ base: "md", md: "lg" })}
+            color={"#F8F8FF"}
+            fontSize={useBreakpointValue({
+              base: "sm",
+              sm: "md",
+              md: "lg",
+              lg: "xl",
+              xl: "lg",
+              "2xl": "xl",
+              "3xl": "5xl",
+            })}
             as={motion.div}
-            initial={{ x: "-100vw" }}          // Start off-screen to the left
-            animate={{ x: 0 }}                 // Move to original position
-            transition={{ type: "tween", duration: 1, delay: 0.2 }} // Delayed transition
+            initial={{ y: "-100vh" }}          // Start off-screen to the top
+            animate={{ y: 0 }}                 // Move to original position
+            transition={{ type: "tween", duration: 1, delay: 0.7 }} // Delayed transition
           >
             Your premier destination for comprehensive career solutions. Whether
             you're a job seeker, an employer, or an academic institution, we
             connect talent with opportunity.
           </Text>
-          <Stack direction={"row"} spacing={4}>
+          <Stack
+            direction={"row"}
+            spacing={spacing} // Responsive spacing between buttons
+            justify={"center"}
+          >
             <Link to="/#our-services">
               <Button
                 as={motion.button}
+                fontSize={fontSizes} // Responsive font size
+                px={px} // Responsive horizontal padding
+                py={py} // Responsive vertical padding
                 bgGradient="linear(to-r, teal.400, blue.500)"
                 rounded={"full"}
                 color={"white"}
@@ -115,6 +144,9 @@ export default function Hero() {
             <Link to="/contact">
               <Button
                 as={motion.button}
+                fontSize={fontSizes} // Responsive font size
+                px={px} // Responsive horizontal padding
+                py={py} // Responsive vertical padding
                 bg={"whiteAlpha.300"}
                 rounded={"full"}
                 color={"white"}
