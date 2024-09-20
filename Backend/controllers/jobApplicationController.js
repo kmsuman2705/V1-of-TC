@@ -1,5 +1,5 @@
 // controllers/JobApplicationController.js
-const jobApplication = require("../models/JobApplication");
+const jobApplication = require("../models/jobApplication");
 const Notification = require("../models/Notification");
 const multer = require("multer");
 const path = require("path");
