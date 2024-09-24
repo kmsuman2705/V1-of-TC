@@ -81,30 +81,39 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}     // Animate to center (y: 0)
           transition={{ duration: 1 }}        // Smooth transition over 1 second
         >
+          <style>
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Playpen+Sans:wght@100..800&display=swap');
+</style>
           <Text
-            color={"#FF8C00"}
-            fontWeight={700}
-            lineHeight={1.2}
+            color={"orange.300"} 
+            //fontWeight={100}
+            lineHeight={1.6}
             fontSize={sizeHeading}
-            as={motion.div}
-            initial={{ y: "-100vh" }}          // Start off-screen to the top
-            animate={{ y: 0 }}                 // Move to original position
-            transition={{ type: "tween", duration: 1, delay: 0.5 }} // Smooth transition
+             fontFamily={"Permanent Marker, cursive"} // Set your desired font family here
+             // fontSize={"105px"} // Heading size
+    //  textTransform={"uppercase"}
+      transform={"rotate(-0deg)"}
+      textShadow={"5px 5px white"} // Blue shadow (blue.400 in rgba)
           >
-            Welcome to TalentConnect!
+            Welcome to TalentConnect !
           </Text>
-          <Text
-            color={"#F8F8FF"}
-            fontSize={sizeText}
-            as={motion.div}
-            initial={{ y: "-100vh" }}          // Start off-screen to the top
-            animate={{ y: 0 }}                 // Move to original position
-            transition={{ type: "tween", duration: 1, delay: 0.7 }} // Delayed transition
-          >
-            Your premier destination for comprehensive career solutions. Whether
-            you're a job seeker, an employer, or an academic institution, we
-            connect talent with opportunity.
-          </Text>
+         
+
+<Text
+  color={"white"}
+  fontSize={sizeText}
+  fontWeight={800}
+  fontFamily={"Playpen Sans, cursive"}
+  as={motion.div}
+  initial={{ y: "-100vh" }}          // Start off-screen to the top
+  animate={{ y: 0 }}                 // Move to original position
+  transition={{ type: "tween", duration: 1, delay: 0.7 }} // Delayed transition
+>
+  Your premier destination for comprehensive career solutions. Whether
+  you're a job seeker, an employer, or an academic institution, we
+  connect talent with opportunity.
+</Text>
+
           <Stack
             direction={"row"}
             spacing={spacing} // Responsive spacing between buttons
