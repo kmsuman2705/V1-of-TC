@@ -1,5 +1,5 @@
 import { ReactElement, useState } from "react";
-import { Box, SimpleGrid, Icon, Text, Stack, Flex, keyframes } from "@chakra-ui/react";
+import { Box, SimpleGrid, Icon, Text, Stack, Flex, keyframes, useBreakpointValue, } from "@chakra-ui/react";
 import { FcReadingEbook, FcIdea, FcGraduationCap } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
@@ -24,13 +24,17 @@ const Feature = ({ title, text, icon, link }) => {
   const [isHovered, setIsHovered] = useState(false);
   const randomBgColor = getRandomColor(); // Generate random color for icon background
 
+  const headingSize = useBreakpointValue({ base: "md", sm: "lg", md: "lg", lg: "xl", xl: "xl", "2xl": "2xl", "3xl": "5xl" });
+  const textSize = useBreakpointValue   ({ base: "sm", sm: "sm", md: "sm",   lg: "lg", xl: "lg", "2xl": "xl", "3xl": "4xl"  });
+
+
   return (
     <Link to={link} style={{ textDecoration: 'none' }}>
       <Stack
         align="center"
         bg="white"
         boxShadow="md"
-        borderRadius="md"
+        borderRadius="xl"
         p={6}
         w="100%"
         h="100%"
@@ -59,10 +63,10 @@ const Feature = ({ title, text, icon, link }) => {
             {icon}
           </Flex>
         </Flex>
-        <Text fontWeight={700} textAlign="center" fontSize={{ base: "xl", md: "xl" }}>
+        <Text fontWeight={700} textAlign="center" fontSize={headingSize}>
           {title}
         </Text>
-        <Text color={"black"} textAlign="center" fontSize={{ base: "sm", md: "md" }}>
+        <Text color={"black"} textAlign="center" fontSize={textSize}>
           {text}
         </Text>
       </Stack>
@@ -71,29 +75,38 @@ const Feature = ({ title, text, icon, link }) => {
 };
 
 export default function WhyChooseTalentConnect() {
+  
+  const headingFontSize = useBreakpointValue({ base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "5xl", "2xl": "6xl", "3xl": "8xl" });
+  const textFontSize = useBreakpointValue({ base: "sm", sm: "md", md: "md", lg: "lg", xl: "lg", "2xl": "2xl", "3xl": "5xl"  });
+  const pScreenX = useBreakpointValue({base: 3, sm: 4, md: 4, lg: 12, xl: 6, "2xl": 7, "3xl": 14}); 
+  const pscreenY = useBreakpointValue({base: 10, sm: 10, md: 12, lg: 12, xl: 12, "2xl": 14, "3xl": 40}); 
+
   return (
-    <Box p={4} bg="blue.100">
-       <Flex justifyContent="center" alignItems="center">
+    <Box p={pscreenY} bg="blue.100" px={pScreenX} >
+       <Flex justifyContent="center" alignItems="center"  direction={{base:"column", lg:"row"}} >
           <Text
-            fontSize={{ base: "2xl", md: "4xl" }}
+            fontSize={headingFontSize}
             fontWeight={700}
-            mb={6}
+           
+            mb={{lg:"6"}}
             color="black"
+            
           >
             Why Choose
           </Text>
           <Text
-            fontSize={{ base: "2xl", md: "4xl" }}
+            fontSize={headingFontSize}
             fontWeight={700}
+            
             mb={6}
             color="blue.400"
-            ml={2}  
+            ml={{base:"2","3xl":"8"}}  
           >
             TalentConnect?
           </Text>
         </Flex>
       <Text
-        fontSize={{ base: "md", lg: "lg" }}
+        fontSize={textFontSize}
         color={"black"}
         mb={10}
         textAlign="center"
@@ -101,7 +114,7 @@ export default function WhyChooseTalentConnect() {
         We offer seamless campus-to-cubicle programs, innovative recruitment solutions and personalized career services 
         to meet your unique needs.
       </Text>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+      <SimpleGrid columns={{ base: 1, xl: 3 }} spacing={8}>
         <Feature
           icon={<Icon as={FcReadingEbook} w={10} h={10} />}
           title={"Seamless Campus-to-Cubicle Programs"}

@@ -6,6 +6,7 @@ import {
   Text,
   SimpleGrid,
   useColorModeValue,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs"; // Import LinkedIn icon
@@ -37,23 +38,28 @@ export default function Footer() {
       bg={useColorModeValue("gray.50", "gray.800")}
       color={useColorModeValue("gray.700", "gray.200")}
       py={10}
-      mt={10}
+      //mt={10}
     >
-      <Container maxW="6xl">
+      <Container maxW={useBreakpointValue({ base: "100%", lg: "1200px", xl: "1440px", "2xl": "2560px" })}>
         <SimpleGrid
-          columns={{ base: 1, sm: 2, md: 4 }}
+          columns={{ base: 1, sm: 2, lg: 4 }}
           spacing={10}
           textAlign="left"
         >
-          <Stack spacing={4}>
+          <Stack spacing={4} fontSize={useBreakpointValue({base:"sm", "3xl":"4xl"})}>
             <a href="/">
               <img
                 src={logo}
                 alt="Talent Connect Logo"
-                style={{ height: "60px", width: "70px" }}
+                style={useBreakpointValue({
+                      base: { height: "40px", width: "50px" }, // For mobile and smaller screens
+                      xl: { height: "50px", width: "60px" },
+                      "3xl": { height: "100px", width: "110px" }, // For large screens (>= 62em)
+                    })}
+
               />
             </a>
-            <Text fontSize="sm" color="black">
+            <Text  color="black">
               © 2023 Talent Connect. All rights reserved
             </Text>
             <Text fontWeight="bold">Follow Us</Text>
@@ -72,7 +78,7 @@ export default function Footer() {
               </SocialButton>
             </Stack>
           </Stack>
-          <Stack spacing={4}>
+          <Stack spacing={4} fontSize={useBreakpointValue({base:"sm", "3xl":"4xl"})}>
             <Text fontWeight="bold" as="a" href="/">
               Home
             </Text>
@@ -100,7 +106,7 @@ export default function Footer() {
               </Text>
             </Stack>
           </Stack>
-          <Stack spacing={4}>
+          <Stack spacing={4} fontSize={useBreakpointValue({base:"sm", "3xl":"4xl"})}>
             <Text fontWeight="bold" as={Link} to="/#ready-to-transform">
               Jobs
             </Text>
@@ -119,7 +125,7 @@ export default function Footer() {
               
             </Stack>
           </Stack>
-          <Stack spacing={4}>
+          <Stack spacing={4} fontSize={useBreakpointValue({base:"sm", "3xl":"4xl"})}>
             <Text fontWeight="bold" as={Link} to="/college">
                 College
               </Text>

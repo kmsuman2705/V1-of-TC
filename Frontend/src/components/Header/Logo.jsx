@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, useBreakpointValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import logo from "../../assets/images/Logo/logo.png"; // Adjust the path to your logo image
 
@@ -13,7 +13,7 @@ const Logo = () => {
         position="relative"
         paddingBottom="0px"
         width="100px"
-        height="55px"
+        height={useBreakpointValue({base:"40px" ,lg:"50px","xl":"55px","3xl":"80px"})}
         // display="flex"
         // alignItems="center"
         // justifyContent="flex-start"
@@ -33,7 +33,7 @@ const Logo = () => {
           src={logo}
           alt="Logo"
           className="logo"
-          width="65px"
+          width={{base:"50px" ,lg:"50px","xl":"55px" ,"3xl":"100px"}}
           marginLeft={"5px"}
           height="auto"
           objectFit="cover"

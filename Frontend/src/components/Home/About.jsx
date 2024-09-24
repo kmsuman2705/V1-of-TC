@@ -6,24 +6,21 @@ import {
   useBreakpointValue,
   Box,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import hVideo from "../../assets/videos/tc.mp4";
-// import posterImage from "../../assets/images/cc.png"; // Add your poster image here
-
-
 
 export default function About() {
-
   const isMobile = useBreakpointValue({ base: true, xl: false });
 
   // Responsive sizes
-  const buttonSizes = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "md", xl: "md", "2xl": "xl", "3xl": "5xl"});
-  const paddingX = useBreakpointValue({base: 3, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14"});
-  const paddingY = useBreakpointValue({base: 3, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14"});
-  const imageSize = useBreakpointValue({base: "100%", sm: "100%", md: "100%", lg: "60%", xl: "100%", "2xl": "100%", "3xl": "100%"});
-  const headingSize = useBreakpointValue({base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "5xl", "2xl": "6xl", "3xl": "8xl"});
-  const textSize = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "lg", xl: "lg", "2xl": "2xl", "3xl": "5xl"});
-  const videoSize = useBreakpointValue({base: "100%", md: "80%"});
+ // const buttonSizes = useBreakpointValue({ base: "sm", sm: "md", md: "md", lg: "md", xl: "md", "2xl": "xl", "3xl": "5xl" });
+  //const paddingX = useBreakpointValue({ base: 3, sm: 4, md: 5, lg: 6, xl: 4, "2xl": 7, "3xl": "14" });
+  const paddingY = useBreakpointValue({ base: 3, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14" });
+  const headingSize = useBreakpointValue({ base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "5xl", "2xl": "6xl", "3xl": "8xl" });
+  const textSize = useBreakpointValue({ base: "sm", sm: "md", md: "md", lg: "lg", xl: "lg", "2xl": "2xl", "3xl": "5xl" });
+  const videoSize = useBreakpointValue({ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "100%", "2xl": "100%", "3xl": "100%"});
+  const pScreenX = useBreakpointValue({base: 3, sm: 4, md: 4, lg: 10, xl: 6, "2xl": 7, "3xl": 14}); 
+ // const pscreenY = useBreakpointValue({base: 3, sm: 4, md: 12, lg: 12, xl: 12, "2xl": 0, "3xl": 7}); 
 
   // Framer-motion variants for text animations
   const textVariants = {
@@ -32,9 +29,68 @@ export default function About() {
   };
 
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} mt={{ base: 1, md: -20 }} bgColor={"#BEE3F8"} spacing={0}>
-      <Flex flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={4} w={"full"} maxW={"lg"} p={paddingY}>
+    <Stack
+      //minH={"90vh"}
+      direction={{ base: "column", md: "row" }}
+      spacing={4}
+      maxW={{ base: "100%", lg: "1200px", xl: "1440px", "2xl": "2560px" }}
+      mx={"auto"}
+      px={pScreenX}
+     // py={pscreenY}
+      position={"relative"}
+      overflow={"hidden"}
+      bgColor={"#BEE3F8"}
+      zIndex={1}
+    >
+      {/* Video for Desktop and Larger Screens */}
+      {!isMobile && (
+        <Flex flex={1} align={"center"} justify={"flex-start"} position={"relative"}>
+         <Box               
+               // maxW="800px"
+                borderRadius={"lg"}
+                //maxHeight="60vh"
+                p={paddingY}
+              >
+                <Box
+                  w="100%"
+                  display="flex"
+                  justifyContent="center"
+                  as={motion.div}
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1 }}
+                  _hover={{
+                    transform: "scale(1.03)",
+                    borderColor: "blue.400",
+                    boxShadow: "0 0 20px rgba(255, 215, 0, 1)",
+                    transition: "all 0.4s ease",
+                    borderRadius: "lg",
+                  }}
+                >
+                  <video
+                    key="mobile-video"
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                      width: videoSize,
+                      height: "auto",
+                      borderRadius: "8px",
+                      border: "2px solid transparent",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                    }}
+                    src={hVideo}
+                    aria-label="Promotional video for TalentConnect"
+                  />
+                </Box>
+              </Box>
+        </Flex>
+      )}
+      
+      <Flex p={0} flex={1} align={"center"} justify={"center"} position={"relative"}>
+        <Stack spacing={6} w={"full"} maxW={{ base: "320px", sm: "375px", md: "425px", lg: "768px", xl: "1024px", "2xl": "1440px", "3xl" :"2560px"}}>
           <Heading
             as={motion.div}
             variants={textVariants}
@@ -75,14 +131,14 @@ export default function About() {
           </Text>
           
           {/* Video for Mobile */}
-              {isMobile && (
+          {isMobile && (
             <Flex flex={1} align={"center"} justify={"center"} position={"relative"}>
               <Box
-                w={{ base: "90%", md: "80%" }}
+                w={videoSize}
                 maxW="800px"
                 borderRadius={"lg"}
                 maxHeight="60vh"
-                p={paddingY}
+                //p={paddingY}
               >
                 <Box
                   w="100%"
@@ -101,12 +157,12 @@ export default function About() {
                   }}
                 >
                   <video
+                    key="mobile-video"
                     controls
                     autoPlay
                     loop
                     muted
                     playsInline
-                    // poster={posterImage}
                     style={{
                       width: videoSize,
                       height: "auto",
@@ -121,6 +177,7 @@ export default function About() {
               </Box>
             </Flex>
           )}
+          
           <Text
             as={motion.div}
             variants={textVariants}
@@ -143,39 +200,6 @@ export default function About() {
           </Text>
         </Stack>
       </Flex>
-      {/* Video for Desktop and Larger Screens */}
-      {!isMobile && (
-      <Flex flex={1} align={"center"} justify={"center"} display={{ base: "flex", md: "none" }}>
-        <Box
-          w="100%"
-          display="flex"
-          justifyContent="center"
-          as={motion.div}
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          p={paddingY}
-        >
-          <video
-            controls
-            autoPlay
-            loop
-            muted
-            playsInline
-            // poster={posterImage}
-            style={{
-              width: videoSize,
-              height: "auto",
-              borderRadius: "8px",
-              border: "2px solid transparent",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            }}
-            src={hVideo}
-            aria-label="Promotional video for TalentConnect"
-          />
-        </Box>
-      </Flex>
-      )}
     </Stack>
   );
 }

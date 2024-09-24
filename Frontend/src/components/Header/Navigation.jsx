@@ -12,6 +12,7 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { HashLink as Link } from "react-router-hash-link";
@@ -72,8 +73,8 @@ const DesktopNav = () => {
                   <Box
                     as={Link}
                     to={navItem.href}
-                    p={2}
-                    fontSize={"sm"}
+                    p={useBreakpointValue({lg:"2", "3xl":"8"})}
+                    fontSize={useBreakpointValue({lg:"12px","xl":"sm", "3xl":"3xl"})}
                     fontWeight={500}
                     color={isActive ? linkHoverColor : linkColor}
                     bg={isActive ? activeTabBgColor : "transparent"}
@@ -109,8 +110,8 @@ const DesktopNav = () => {
               <Box
                 as={Link}
                 to={navItem.href}
-                p={2}
-                fontSize={"sm"}
+                p={{lg:"2", "3xl":"8"}}
+                fontSize={{lg:"12px","xl":"sm", "3xl":"3xl"}}
                 fontWeight={500}
                 color={isActive ? linkHoverColor : linkColor}
                 bg={isActive ? activeTabBgColor : "transparent"}
@@ -179,7 +180,7 @@ const MobileNav = () => {
   const bg = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack bg={bg} p={4} display={{ md: "none" }}>
+    <Stack bg={bg} p={4} display={{ lg: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}

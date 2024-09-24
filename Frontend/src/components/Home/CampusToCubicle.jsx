@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import dimg from "../../assets/images/cd.jpg";
+import dimg from "../../assets/images/ud.jpg";
 
 // Define the keyframes for the rectangular moving animation
 const movingAnimation = keyframes`
@@ -26,13 +26,13 @@ const AnimatedBox = ({ children, imageSize }) => (
   <Box position="relative" width={imageSize} maxW="100%">
     <Box
       position="absolute"
-      top={-10}
-      left={-10}
-      width="calc(100% + 20px)"
-      height="calc(100% + 20px)"
+      top={-5}
+      left={-5}
+      width="calc(100% + 0px)"
+      height="calc(100% + 0px)"
       borderRadius="lg"
       zIndex={-1}
-      animation={`${movingAnimation} 8s infinite ease-in-out`}
+      animation={`${movingAnimation} 5s infinite ease-in-out`}
       willChange="transform"
     />
     {children}
@@ -71,28 +71,30 @@ export default function CampusToCubicle() {
   // Responsive sizes
   const buttonSizes = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "md", xl: "md", "2xl": "xl", "3xl": "5xl"});
   const paddingX = useBreakpointValue({base: 3, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14"});
-  const paddingY = useBreakpointValue({base: 3, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14"});
-  const imageSize = useBreakpointValue({base: "100%", sm: "100%", md: "100%", lg: "60%", xl: "100%", "2xl": "100%", "3xl": "100%"});
+  const pX = useBreakpointValue({base: 3, sm: 4, md: 5, lg: 10, xl: 6, "2xl": 7, "3xl": "14"});
+  const paddingY = useBreakpointValue({base: 2, sm: 4, md: 5, lg: 6, xl: 6, "2xl": 7, "3xl": "14"});
+  const pY = useBreakpointValue({base: 10, sm: 10, md: 10, lg: 10, xl: 6, "2xl": 7, "3xl": "20"});
+  const imageSize = useBreakpointValue({base: "90%", sm: "90%", md: "90%", lg: "60%", xl: "100%", "2xl": "100%", "3xl": "100%"});
   const headingSize = useBreakpointValue({base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "5xl", "2xl": "6xl", "3xl": "8xl"});
   const textSize = useBreakpointValue({base: "sm", sm: "md", md: "md", lg: "lg", xl: "lg", "2xl": "2xl", "3xl": "5xl"
   });
 
   return (
     <Stack
-      minH={"100vh"}
+      //minH={"90vh"}
       direction={{ base: "column", md: "row" }}
       spacing={4}
-      maxW={{ base: "100%", lg: "1200px", xl: "1440px", "2xl": "2560px" }}
+      maxW={{ base: "100%", lg: "1200px", xl: "1440px", "2xl": "2560px", "3xl":"100%" }}
       mx={"auto"}
-      px={paddingX}
-      py={paddingY}
+      px={pX}
+      py={pY}
       position={"relative"}
       overflow={"hidden"}
-      bgColor={"#BEE3F8"}
+     // bgColor={"#BEE3F8"}
       zIndex={1}
     >
-      <Flex p={8} flex={1} align={"center"} justify={"center"} position={"relative"}>
-        <Stack spacing={6} w={"full"} maxW={{ base: "320px", sm: "375px", md: "425px", lg: "768px", xl: "1024px", "2xl": "1440px" }}>
+      <Flex p={0} flex={1} align={"center"} justify={"center"} position={"relative"}>
+        <Stack spacing={6} w={"full"} maxW={{ base: "320px", sm: "375px", md: "425px", lg: "768px", xl: "1024px", "2xl": "1440px", "3xl":"2560px" }}>
           <Heading
             as={motion.div}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1 } } }}
@@ -124,7 +126,7 @@ export default function CampusToCubicle() {
           {isMobile && (
             <Flex flex={1} align={"center"} justifyContent={"center"} mt={5} position={"relative"}>
               <AnimatedBox imageSize={imageSize}>
-                <AspectRatio ratio={3 / 1.9} width="100%">
+                <AspectRatio ratio={3 / 1.9} >
                   <Image src={dimg} alt="Campus to Cubicle" objectFit="cover" />
                 </AspectRatio>
               </AnimatedBox>
@@ -135,7 +137,7 @@ export default function CampusToCubicle() {
             Talent Connect takes full responsibility for conducting the recruitment process on behalf of our clients. We provide on-demand training to freshly hired candidates, ensuring a seamless transition from campus to cubicle.
           </MotionText>
 
-          <Stack direction={{ base: "column", md: "row" }} spacing={4}>
+          <Stack direction={{ base: "column", md: "row" }} spacing={4} justify={{md:"center",xl:"flex-start"}}>
             <Button
               as={RouterLink}
               to="/campus-to-cubicle#connectus"

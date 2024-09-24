@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Flex, Heading, Text, keyframes } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, keyframes, useBreakpointValue } from '@chakra-ui/react';
 
 // List of companies
 const companiesList = [
@@ -45,25 +45,34 @@ const Companies = () => {
     }
   }, [isPaused]);
 
+  const headingFontSize = useBreakpointValue({ base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "4xl", "2xl": "6xl", "3xl": "8xl" });
+  const textFontSize = useBreakpointValue({ base: "10px", sm: "11px", md: "sm", lg: "md", xl: "sm", "2xl": "2xl", "3xl": "2xl"  });
+  //const pScreenX = useBreakpointValue({base: 3, sm: 4, md: 4, lg: 12, xl: 6, "2xl": 7, "3xl": 14}); 
+  const pscreenY = useBreakpointValue({base: 5, sm: 10, md: 10, lg: 10, xl: 12, "2xl": 14, "3xl": 40}); 
+
+
   return (
-    <Box textAlign="center" py="8">
-      <Flex justifyContent="center" alignItems="center">
-      <Heading as="h4" size="xl" mb="6" p="4"
-        fontSize={{ base: "2xl", md: "4xl" }}
+
+    
+    <Box textAlign="center" py={pscreenY}>
+      <Flex justifyContent="center" alignItems="center" direction={{base:"column", xl:"row"}}>
+      <Heading as="h4" size="xl"  p={{base:"2","lg":"4", "3xl":"8"}}
+        fontSize={headingFontSize}
         fontFamily={"ClashDisplay"}
         color={"black"}  // Change to your desired color
       >
         Top Startups & MNC’s
       </Heading>
-      <Heading as="h4" size="xl" mb="6"
-        fontSize={{ base: "2xl", md: "4xl" }}
+      <Heading as="h4" size="xl" 
+        fontSize={headingFontSize}
         fontFamily={"ClashDisplay"}
+        
         color={"blue.400"}  // Change to your desired color
       >
         that Hire from TalentConnect
       </Heading>
       </Flex>
-      <Box overflow="hidden" width="100%" mt={20}>
+      <Box overflow="hidden" width="100%" mt={{base:"10",lg:"20"}}>
         <Flex
           ref={animationRef}
           as="ul"
@@ -87,7 +96,7 @@ const Companies = () => {
               transition="box-shadow 0.3s, border-color 0.3s"
             >
               <Text
-                fontSize={{ base: "lg", md: "xl" }}
+                fontSize={textFontSize}
                 fontWeight="bold"
                 color="orange.400"
                 fontFamily={"Poppins, sans-serif"}  // Professional font style
