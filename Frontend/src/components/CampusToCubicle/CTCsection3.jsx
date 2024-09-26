@@ -27,18 +27,12 @@ const CTCSection3 = () => {
   ];
 
   return (
-    <Container maxW="100%" bg="gray.100"  minH={"80vh"}>
-      <Heading
-        fontFamily={"ClashDisplay"}
-        fontSize={{ base: "2xl", sm: "4xl" }}
-        fontWeight="bold"
-        color="blue.400"
-        textAlign="center"
-        mb={8}
-      >
-        <br />
-        Our Unique Offerings
-      </Heading>
+    <Container maxW="100%" bg="white"  minH={"80vh"}>
+      <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }} mb={4} color="blue.200" textAlign={"center"}> <br/>
+                    <Text as="span" color="yellow.300" fontSize={{ base: '2xl', md: '4xl' }}>
+                        Our Unique
+                    </Text> Offering
+                </Heading>
       <br />
       <Stack
         direction={useBreakpointValue({ base: "column", md: "row" })}
@@ -99,7 +93,7 @@ const CTCSection3 = () => {
               alignItems="center"
               textAlign="center"
             >
-              <Heading fontFamily={"ClashDisplay"} textTransform={"uppercase"} color="blue.400" as="h3" size="md" mb={2}>
+              <Heading fontFamily={"ClashDisplay"} textTransform={"uppercase"} color="blue.300" as="h3" size="md" mb={2}>
                 {card.title} <br /> <br />
               </Heading>
               <Text text-align= {"justify"}>{card.description}</Text>
@@ -110,9 +104,9 @@ const CTCSection3 = () => {
               bottom={0}
               w="100%"
               p={4}
-              bg="rgba(0,0,0,0.5)"
+              bg="yellow.300"
               zIndex={3}
-              color="white"
+              color="black"
               className="titleBox"
               textAlign="center"
               

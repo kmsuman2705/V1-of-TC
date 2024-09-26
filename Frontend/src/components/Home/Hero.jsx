@@ -17,12 +17,13 @@ const videos = [
 
 export default function Hero() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const buttonSizes = useBreakpointValue({base: "sm", sm: "sm", md: "sm", lg: "md", xl: "lg", "2xl": "2xl", "3xl": "4xl",});
+  const buttonSizes = useBreakpointValue({ base: "sm", sm: "sm", md: "sm", lg: "md", xl: "lg", "2xl": "2xl", "3xl": "4xl", });
   const px = useBreakpointValue({ base: 2, sm: 2, md: 2, lg: 4, xl: 6, "2xl": 8, "3xl": 12 });
   const py = useBreakpointValue({ base: 2, sm: 2, md: 2, lg: 4, xl: 6, "2xl": 8, "3xl": 12 });
   const spacing = useBreakpointValue({ base: 2, sm: 3, md: 3, lg: 5, xl: 6, "2xl": 7, "3xl": 10 });
-  const sizeHeading =  useBreakpointValue({ base: "4xl",sm: "4xl", md: "4xl", lg: "5xl", xl: "7xl","2xl": "8xl","3xl": "9xl"});
-  const sizeText = useBreakpointValue({base: "sm", sm: "md",md: "md",lg: "lg",xl: "xl", "2xl": "3xl","3xl": "5xl"});
+  const sizeHeading = useBreakpointValue({ base: "4xl", sm: "4xl", md: "4xl", lg: "5xl", xl: "7xl", "2xl": "8xl", "3xl": "9xl" });
+  const sizeText = useBreakpointValue({ base: "sm", sm: "md", md: "md", lg: "lg", xl: "xl", "2xl": "3xl", "3xl": "5xl" });
+
   // Change video at intervals
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -41,6 +42,13 @@ export default function Hero() {
       align={"center"}
       justify={"center"}
     >
+      {/* Import Google Font */}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+
+
       {/* Video Background */}
       <video
         key={currentVideoIndex}
@@ -58,6 +66,7 @@ export default function Hero() {
           objectFit: "cover",
           zIndex: -1,
           transition: "opacity 1s ease-in-out",
+          filter: "brightness(0.7)", // Increase brightness (1.5 can be adjusted)
         }}
       />
 
@@ -71,6 +80,7 @@ export default function Hero() {
         position={"relative"}
         spacing={spacing}
         align={"center"}
+        
       >
         <Stack
           maxW={{ base: "90%", sm: "80%", md: "70%", lg: "60%", xl: "75%", "2xl": "75%" }}
@@ -81,39 +91,34 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}     // Animate to center (y: 0)
           transition={{ duration: 1 }}        // Smooth transition over 1 second
         >
-          <style>
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Playpen+Sans:wght@100..800&display=swap');
-</style>
           <Text
-            color={"orange.300"} 
-            //fontWeight={100}
-            lineHeight={1.6}
+            color={"#FF8C00"}
+            fontWeight={700}
+            lineHeight={1.1}
             fontSize={sizeHeading}
-             fontFamily={"Permanent Marker, cursive"} // Set your desired font family here
-             // fontSize={"105px"} // Heading size
-    //  textTransform={"uppercase"}
-      transform={"rotate(-0deg)"}
-      textShadow={"5px 5px white"} // Blue shadow (blue.400 in rgba)
+
+            fontFamily= {'Almendra, serif'} // Apply the font family
+            
+            as={motion.div}
+            initial={{ y: "-100vh" }}          // Start off-screen to the top
+            animate={{ y: 0 }}                 // Move to original position
+            transition={{ type: "tween", duration: 1, delay: 0.5 }} // Smooth transition
           >
             Welcome to TalentConnect !
           </Text>
-         
-
-<Text
-  color={"white"}
-  fontSize={sizeText}
-  fontWeight={800}
-  fontFamily={"Playpen Sans, cursive"}
-  as={motion.div}
-  initial={{ y: "-100vh" }}          // Start off-screen to the top
-  animate={{ y: 0 }}                 // Move to original position
-  transition={{ type: "tween", duration: 1, delay: 0.7 }} // Delayed transition
->
-  Your premier destination for comprehensive career solutions. Whether
-  you're a job seeker, an employer, or an academic institution, we
-  connect talent with opportunity.
-</Text>
-
+          <Text
+            color={"#FFFFFF"}
+            fontWeight={600}
+            fontSize={sizeText}
+            as={motion.div}
+            initial={{ y: "-100vh" }}          // Start off-screen to the top
+            animate={{ y: 0 }}                 // Move to original position
+            transition={{ type: "tween", duration: 1, delay: 0.7 }} // Delayed transition
+          >
+            Your premier destination for comprehensive career solutions. Whether
+            you're a job seeker, an employer, or an academic institution, we
+            connect talent with opportunity.
+          </Text>
           <Stack
             direction={"row"}
             spacing={spacing} // Responsive spacing between buttons
