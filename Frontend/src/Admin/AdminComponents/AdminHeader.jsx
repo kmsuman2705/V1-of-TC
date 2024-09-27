@@ -18,6 +18,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const AdminHeader = ({ onOpenSidebar }) => {
   const { logout } = useContext(AuthContext);
   const [notifications, setNotifications] = useState([]);
@@ -30,7 +32,7 @@ const AdminHeader = ({ onOpenSidebar }) => {
     // Fetch notifications from your API
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get('http://3.7.169.233:5000/api/notifications'); // Update with your API endpoint
+        const response = await axios.get(`${apiUrl}/api/notifications`); // Update with your API endpoint
         setNotifications(response.data);
         setUnreadCount(response.data.filter(notification => !notification.read).length);
       } catch (error) {

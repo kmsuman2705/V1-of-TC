@@ -19,6 +19,8 @@ import {
   useToast
 } from '@chakra-ui/react';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 // Validation schema
 const validationSchema = Yup.object({
   polytechnicCourses: Yup.array().min(1, 'At least one Polytechnic/ITI/Diploma course must be selected'),
@@ -59,9 +61,9 @@ const CollegeForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
        try {
-        //await axios.post('http://3.7.169.233:5000/api/college/submit-college-form', values);
+        //await axios.post('${apiUrl}/api/college/submit-college-form', values);
 
-        await axios.post('http://3.7.169.233:5000/api/college/submit-college-form', values);
+        await axios.post(`${apiUrl}/api/college/submit-college-form`, values);
         setMessage("Your college details have been submitted successfully.");
         setMessageType('success');
         setTimeout(() => {

@@ -5,7 +5,11 @@ import { FaSearch } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
 import Card from '../Card/Card.jsx';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 function Opening() {
+    
+
     const [cards, setCards] = useState([]);
     const [titleQuery, setTitleQuery] = useState('');
     const [locationQuery, setLocationQuery] = useState('');
@@ -13,11 +17,8 @@ function Opening() {
     const [currentPage, setCurrentPage] = useState(1);
     const cardsPerPage = 12;
 
-    useEffect(() => {
-       // axios.get('http://3.7.169.233:5000/api/cards/cards')
-
-       axios.get('http://3.7.169.233:5000/api/cards/cards')
-        
+useEffect(() => {
+        axios.get(`${apiUrl}/api/cards/cards`)
             .then(response => {
                 setCards(response.data);
                 setFilteredCards(response.data); // Initially display all cards

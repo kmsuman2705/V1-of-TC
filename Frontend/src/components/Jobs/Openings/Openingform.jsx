@@ -8,6 +8,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { RiSpeakFill } from "react-icons/ri";
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const validationSchema = Yup.object({
   name: Yup.string()
     .required('Name is required')
@@ -35,8 +37,8 @@ export default function OpeningForm({ jobId }) {
       }
       
       try {
-        //const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
-        const response = await axios.get(`http://3.7.169.233:5000/api/cards/cards/${jobId}`);
+        //const response = await axios.get(`${apiUrl}/api/cards/cards/${jobId}`);
+        const response = await axios.get(`${apiUrl}/api/cards/cards/${jobId}`);
 
         setJobDetails(response.data);
       } catch (error) {
@@ -57,9 +59,9 @@ export default function OpeningForm({ jobId }) {
     data.append('jobTitle', jobDetails.title);
 
     try {
-      //await axios.post('http://3.7.169.233:5000/api/job-applications/apply', data, {
+      //await axios.post('${apiUrl}/api/job-applications/apply', data, {
 
-      await axios.post('http://3.7.169.233:5000/api/job-applications/apply', data, {
+      await axios.post(`${apiUrl}/api/job-applications/apply`, data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setMessage({ text: 'Resume uploaded successfully!', type: 'success' });

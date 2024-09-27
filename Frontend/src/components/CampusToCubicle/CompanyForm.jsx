@@ -18,6 +18,8 @@ import {
   useTheme,
 } from '@chakra-ui/react';
 
+
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 // Validation schema
 const validationSchema = Yup.object({  
   companyName: Yup.string().required('Company Name is required'),
@@ -51,9 +53,9 @@ const CompanyForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        //await axios.post('http://3.7.169.233:5000/api/company/submit-company-form', values);
+        //await axios.post('${apiUrl}/api/company/submit-company-form', values);
 
-        await axios.post('http://3.7.169.233:5000/api/company/submit-company-form', values);
+        await axios.post(`${apiUrl}/api/company/submit-company-form`, values);
         setMessage("Your company details have been submitted successfully.");
         setMessageType('success');
         setTimeout(() => {

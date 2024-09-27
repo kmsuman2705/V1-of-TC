@@ -27,6 +27,8 @@ import {
 import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from 'react-icons/md';
 import { BsPerson, BsInstagram, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 // Validation schema
 const validationSchema = Yup.object({
   userType: Yup.string().required('User Type is required'),
@@ -49,9 +51,9 @@ export default function ContactForm() {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        //const response = await axios.post('http://3.7.169.233:5000/api/contact/contact', values);
+        //const response = await axios.post('${apiUrl}/api/contact/contact', values);
 
-        const response = await axios.post('http://3.7.169.233:5000/api/contact/contact', values);
+        const response = await axios.post(`${apiUrl}/api/contact/contact`, values);
         toast({
           title: 'Message sent.',
           description: response.data.message,
@@ -131,7 +133,7 @@ export default function ContactForm() {
                           _hover={{ border: "2px solid #D5006D" }}
                           leftIcon={<MdLocationOn color="#D5006D" size="20px" />}
                         >
-                          Jamshedpur, Jharkhand, India
+                          Bengaluru, Karnataka, India
                         </Button>
                       </HStack>
                     </VStack>
@@ -190,7 +192,7 @@ export default function ContactForm() {
                           onChange={formik.handleChange}
                         >
                           <option value="student">Student</option>
-                          <option value="campus">Campus</option>
+                          <option value="campus">College</option>
                           <option value="company">Company</option>
                         </Select>
                         <Text color="red.500" fontSize="sm">{formik.errors.userType}</Text>

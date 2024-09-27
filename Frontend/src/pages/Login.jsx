@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 
 const backgroundImage = 'url(https://4kwallpapers.com/images/walls/thumbs_3t/18274.png)';
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -44,7 +45,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await fetch('http://3.7.169.233:5000/api/login', {
+      const response = await fetch(`${apiUrl}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

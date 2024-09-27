@@ -52,6 +52,8 @@ import axios from "axios";
 import moment from "moment";
 import { useLocation } from 'react-router-dom';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const downloadPDF = (data) => {
   const doc = new jsPDF();
 
@@ -79,7 +81,7 @@ const downloadPDF = (data) => {
       {
         content: `${student.name}-Resume`,
         styles: { textColor: [0, 0, 255] },
-        link: `http://3.7.169.233:5000/api/job-applications/downloadResume/${student._id}`,
+        link: `${apiUrl}/api/job-applications/downloadResume/${student._id}`,
       },
     ]),
     didDrawCell: (data) => {
@@ -137,7 +139,7 @@ const downloadExcel = async (data) => {
     const cell = worksheet.getCell(`H${index + 2}`);
     cell.value = {
       text: `${student.name}-Resume`,
-      hyperlink: `http://3.7.169.233:5000/api/job-applications/downloadResume/${student._id}`,
+      hyperlink: `${apiUrl}/api/job-applications/downloadResume/${student._id}`,
     };
     cell.font = { color: { argb: "FF0000FF" }, underline: true };
   });
@@ -178,7 +180,7 @@ const StudentApplied = () => {
       const fetchStudentData = async () => {
         try {
           const response = await axios.get(
-            `http://3.7.169.233:5000/api/job-applications/applications/${jobIdFromQuery}`
+            `${apiUrl}/api/job-applications/applications/${jobIdFromQuery}`
           );
           setStudentData(response.data);
         } catch (error) {
@@ -232,7 +234,7 @@ const StudentApplied = () => {
     );
     if (selectedIds.length > 0) {
       try {
-        await axios.post("http://3.7.169.233:5000/api/job-applications/delete", {
+        await axios.post(`${apiUrl}/api/job-applications/delete`, {
           ids: selectedIds,
         });
         setStudentData((prevData) =>
@@ -252,13 +254,13 @@ const StudentApplied = () => {
     const fileType = res.resume.split(".").pop();
 
     setResumeType(fileType);
-    setSelectedResume(`http://3.7.169.233:5000/api/job-applications/viewResume/${studentId}`);
+    setSelectedResume(`${apiUrl}/api/job-applications/viewResume/${studentId}`);
     onOpen();
   };
 
   const handleDownloadResume = (studentId) => {
     window.open(
-      `http://3.7.169.233:5000/api/job-applications/downloadResume/${studentId}`,
+      `${apiUrl}/api/job-applications/downloadResume/${studentId}`,
       "_blank"
     );
   };

@@ -51,7 +51,7 @@ function OnlineLearningPage() {
                         shadow="md"
                         transition="all 0.3s ease"
                     >
-                        Discover Talent
+                        Discover Fresh Talent
                     </Button>
                 </Link>
             </MotionBox>

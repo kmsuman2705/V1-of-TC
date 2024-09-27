@@ -32,6 +32,7 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 const downloadPDF = (data) => {
   const doc = new jsPDF();
@@ -113,7 +114,7 @@ const ContactPanel = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const response = await axios.get("http://3.7.169.233:5000/api/contact/contacts");
+        const response = await axios.get(`${apiUrl}/api/contact/contacts`);
         setContactData(response.data);
       } catch (error) {
         console.error("Error fetching contact data:", error);
@@ -162,7 +163,7 @@ const ContactPanel = () => {
     const selectedIds = Object.keys(selectedContacts).filter(id => selectedContacts[id]);
     if (selectedIds.length > 0) {
       try {
-        await axios.delete("http://3.7.169.233:5000/api/contact/contacts", {
+        await axios.delete(`${apiUrl}/api/contact/contacts`, {
           data: { ids: selectedIds },
         });
         setContactData(prevData => prevData.filter(contact => !selectedIds.includes(contact._id)));

@@ -10,7 +10,6 @@ const transporter = require("../config/email");
 // Environment variables
 require("dotenv").config();
 
-
 // Login Route
 router.post("/login", async (req, res) => {
   try {
@@ -62,7 +61,6 @@ router.post("/forgot-password", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 
 // Reset Password Route
 router.post("/reset-password", async (req, res) => {

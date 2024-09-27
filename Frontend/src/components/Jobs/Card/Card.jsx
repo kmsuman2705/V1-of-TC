@@ -87,25 +87,25 @@ function Card({ jobId, title, location, salary, experience, jobDescription }) {
                 padding="10px 0"
             >
                 <Button
-                    colorScheme="blue"
+                    bgGradient="linear(to-r, teal.300, blue.500)" 
                     variant="solid"
                     borderRadius="15px"
                     color="white"
                     fontWeight="600"
                     onClick={onOpen}
-                    _hover={{transform: "scale(1.05)"}}
+                    _hover={{transform: "scale(1.05)", bgGradient: "linear(to-r, blue.500, teal.300)" }}
                 >
                     Apply
                 </Button>
                 <a href='https://wa.me/917044326560'>
                     <Button
-                        colorScheme="whatsapp"
+                        bgGradient="linear(to-r, green.200, green.400, green.600)"
                         variant="solid"
                         borderRadius="15px"
                         color="white"
                         fontWeight="600"
                         leftIcon={<FaWhatsapp />}
-                        _hover={{transform: "scale(1.05)"}}
+                        _hover={{transform: "scale(1.05)", bgGradient: "linear(to-r, green.600, green.400, green.200)"}}
                     >
                         Chat Now
                     </Button>

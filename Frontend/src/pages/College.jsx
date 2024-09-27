@@ -14,7 +14,7 @@ const College = () => {
             <CollegeIntro />
             <CollegeChallenges />
             <CollegeSolutions />
-            <TestimonialPage />
+          {/*  <TestimonialPage /> */} 
             <CollegeCTA />
            
         </div>

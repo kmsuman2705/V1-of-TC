@@ -71,7 +71,7 @@ const CTCSection4 = () => {
                 bg={"gray.500"}
                 color={"white"}
                 width={100}
-                _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+                _hover={{ transform: "scale(1.05)", boxShadow: "lg", bgColor:"blue.300" }}
               >
                 College
               </Button>
@@ -81,7 +81,7 @@ const CTCSection4 = () => {
                 rounded={"full"}
                 bg={"gray.500"}
                 color={"white"}
-                _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
+                _hover={{ transform: "scale(1.05)", boxShadow: "lg", bgColor:"teal.300" }}
               >
                 Company
               </Button>

@@ -40,6 +40,8 @@ import { saveAs } from 'file-saver';
 import axios from "axios";
 import moment from "moment";
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const downloadPDF = (data) => {
   const doc = new jsPDF();
   
@@ -54,7 +56,7 @@ const downloadPDF = (data) => {
       { 
         content: `${student.name}-Resume`, 
         styles: { textColor: [0, 0, 255] }, // Set the text color to blue
-        link: `http://3.7.169.233:5000/api/students/downloadResume/${student._id}`
+        link: `${apiUrl}/api/students/downloadResume/${student._id}`
       },
     ]),
     didDrawCell: (data) => {
@@ -114,7 +116,7 @@ const downloadExcel = async (data) => {
     const cell = worksheet.getCell(`F${index + 2}`);
     cell.value = {
       text: `${student.name}-Resume`,
-      hyperlink: `http://3.7.169.233:5000/api/students/downloadResume/${student._id}`
+      hyperlink: `${apiUrl}/api/students/downloadResume/${student._id}`
     };
     cell.font = { color: { argb: 'FF0000FF' }, underline: true }; // Blue color and underline
   });
@@ -142,7 +144,7 @@ const StudentPanel = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await axios.get("http://3.7.169.233:5000/api/resumes/getResumes");
+        const response = await axios.get(`${apiUrl}/api/resumes/getResumes`);
         setStudentData(response.data);
       } catch (error) {
         console.error("Error fetching student data:", error);
@@ -191,7 +193,7 @@ const StudentPanel = () => {
     const selectedIds = Object.keys(selectedStudents).filter(id => selectedStudents[id]);
     if (selectedIds.length > 0) {
       try {
-        await axios.post("http://3.7.169.233:5000/api/students/delete", { ids: selectedIds });
+        await axios.post(`${apiUrl}/api/students/delete`, { ids: selectedIds });
         setStudentData(prevData => prevData.filter(student => !selectedIds.includes(student._id)));
         setSelectedStudents({});
         setSelectAllAcrossPages(false);
@@ -207,12 +209,12 @@ const StudentPanel = () => {
     const fileType = resume.resumePath.split('.').pop();
     
     setResumeType(fileType);
-    setSelectedResume(`http://3.7.169.233:5000/api/students/viewResume/${studentId}`);
+    setSelectedResume(`${apiUrl}/api/students/viewResume/${studentId}`);
     onOpen();
   };
 
   const handleDownloadResume = (studentId) => {
-    window.open(`http://3.7.169.233:5000/api/students/downloadResume/${studentId}`, "_blank");
+    window.open(`${apiUrl}/api/students/downloadResume/${studentId}`, "_blank");
   };
 
   const indexOfLastStudent = currentPage * studentsPerPage;

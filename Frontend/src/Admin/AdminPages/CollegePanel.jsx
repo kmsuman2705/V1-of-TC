@@ -33,6 +33,8 @@ import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 
 const downloadPDF = (data) => {
   const doc = new jsPDF();
@@ -134,7 +136,7 @@ const CollegePanel = () => {
   useEffect(() => {
     const fetchCollegeData = async () => {
       try {
-        const response = await axios.get("http://3.7.169.233:5000/api/college/college-forms");
+        const response = await axios.get(`${apiUrl}/api/college/college-forms`);
         setCollegeData(response.data);
       } catch (error) {
         console.error("Error fetching college data:", error);
@@ -183,7 +185,7 @@ const CollegePanel = () => {
   const selectedIds = Object.keys(selectedColleges).filter(id => selectedColleges[id]);
   if (selectedIds.length > 0) {
     try {
-      await axios.delete("http://3.7.169.233:5000/api/college/delete", {
+      await axios.delete(`${apiUrl}/api/college/delete`, {
         data: { ids: selectedIds }, // Use `data` to send the payload in DELETE requests
       });
       setCollegeData(prevData => prevData.filter(college => !selectedIds.includes(college._id)));

@@ -20,7 +20,7 @@ export default function About() {
   const textSize = useBreakpointValue({ base: "sm", sm: "md", md: "md", lg: "lg", xl: "lg", "2xl": "2xl", "3xl": "5xl" });
   const videoSize = useBreakpointValue({ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "100%", "2xl": "100%", "3xl": "100%"});
   const pScreenX = useBreakpointValue({base: 3, sm: 4, md: 4, lg: 10, xl: 6, "2xl": 7, "3xl": 14}); 
- // const pscreenY = useBreakpointValue({base: 3, sm: 4, md: 12, lg: 12, xl: 12, "2xl": 0, "3xl": 7}); 
+  const pscreenY = useBreakpointValue({base: 3, sm: 4, md: 12, lg: 12, xl: 2, "2xl": 0, "3xl": 7}); 
 
   // Framer-motion variants for text animations
   const textVariants = {
@@ -36,7 +36,7 @@ export default function About() {
       maxW={{ base: "100%", lg: "1200px", xl: "1440px", "2xl": "2560px" }}
       mx={"auto"}
       px={pScreenX}
-     // py={pscreenY}
+      py={pscreenY}
       position={"relative"}
       overflow={"hidden"}
       bgColor={"#BEE3F8"}
@@ -76,7 +76,7 @@ export default function About() {
                     playsInline
                     style={{
                       width: videoSize,
-                      height: "auto",
+                      
                       borderRadius: "8px",
                       border: "2px solid transparent",
                       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -90,7 +90,7 @@ export default function About() {
       )}
       
       <Flex p={0} flex={1} align={"center"} justify={"center"} position={"relative"}>
-        <Stack spacing={6} w={"full"} maxW={{ base: "320px", sm: "375px", md: "425px", lg: "768px", xl: "1024px", "2xl": "1440px", "3xl" :"2560px"}}>
+        <Stack spacing={6} h={{base:"auto", xl:"80vh"}} w={"full"} maxW={{ base: "320px", sm: "375px", md: "425px", lg: "768px", xl: "1024px", "2xl": "1440px", "3xl" :"2560px"}}>
           <Heading
             as={motion.div}
             variants={textVariants}
@@ -104,7 +104,7 @@ export default function About() {
               _after={{
                 content: "''",
                 width: "full",
-                height: useBreakpointValue({ base: "20%", md: "30%" }),
+                height: useBreakpointValue({ base: "20%", md: "30%", }),
                 position: "absolute",
                 bottom: 1,
                 left: 0,

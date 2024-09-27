@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 const NotificationPanel = () => {
   const [notifications, setNotifications] = useState([]);
@@ -27,7 +28,7 @@ const NotificationPanel = () => {
     const fetchNotifications = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://3.7.169.233:5000/api/notifications', {
+        const response = await axios.get(`${apiUrl}/api/notifications`, {
           params: {
             searchTerm: searchTerm || undefined,
             filterType: filterType || undefined,
@@ -47,7 +48,7 @@ const NotificationPanel = () => {
   // Handle multiple notifications deletion
   const handleDeleteSelected = async () => {
     try {
-      await axios.delete('http://3.7.169.233:5000/api/notifications/delete', {
+      await axios.delete(`${apiUrl}/api/notifications/delete`, {
         data: { ids: Object.keys(selectedNotifications) },
       });
       setNotifications(notifications.filter(notification => !Object.keys(selectedNotifications).includes(notification._id)));
@@ -61,7 +62,7 @@ const NotificationPanel = () => {
   // Handle marking notifications as read
   const handleMarkAsRead = async () => {
     try {
-      await axios.put('http://3.7.169.233:5000/api/notifications/mark-as-read', {
+      await axios.put(`${apiUrl}/api/notifications/mark-as-read`, {
         ids: Object.keys(selectedNotifications),
       });
       setNotifications(notifications.map(notification =>

@@ -18,6 +18,8 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
+const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const avatars = [
   { name: "Ryan Florence", url: "https://bit.ly/ryan-florence" },
   { name: "Segun Adebayo", url: "https://bit.ly/sage-adebayo" },
@@ -86,13 +88,11 @@ export default function PostResume() {
     data.append("resume", values.resume);
 
     try {
-      //await axios.post("http://3.7.169.233:5000/api/resumes/submit", data, {
-
-     await axios.post("http://3.7.169.233:5000/api/resumes/submit", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+    await axios.post(`${apiUrl}/api/resumes/submit`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
       setMessage({ text: "Resume uploaded successfully!", type: "success" });
       actions.resetForm(); // Resets the form fields except file input
 

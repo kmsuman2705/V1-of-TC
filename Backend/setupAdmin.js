@@ -32,9 +32,7 @@ if (!mongoURI) {
 }
 
 mongoose
-  .connect(mongoURI, {
-   
-  })
+  .connect(mongoURI, {})
   .then(createAdmin)
   .catch((err) => {
     console.error("MongoDB connection error:", err);
