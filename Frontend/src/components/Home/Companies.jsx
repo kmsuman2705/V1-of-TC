@@ -1,111 +1,86 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Box, Flex, Heading, Text, keyframes, useBreakpointValue } from '@chakra-ui/react';
+import React from 'react';
+import { Box, Flex, Heading, Text, Image, useBreakpointValue } from '@chakra-ui/react';
+import Marquee from 'react-marquee-slider';
 
-// List of companies
+// Import logos from assets
+import arunEngLogo from '../../assets/images/company logo/arun.png';
+import arkaJainLogo from '../../assets/images/company logo/jgi.jpg';
+import jharkhandITLogo from '../../assets/images/company logo/jis.png';
+import hp from '../../assets/images/company logo/hp.jpg';
+import h from '../../assets/images/company logo/hitachi.jpeg';
+import emv from '../../assets/images/company logo/emversity.jpg';
+import winso from '../../assets/images/company logo/winso.png';
+import cms from '../../assets/images/company logo/cmss.jpg';
+import blue from '../../assets/images/company logo/bluecraft.jpg';
+import ak from '../../assets/images/company logo/ak.jpg';
+import jin from '../../assets/images/company logo/jindal.jpg';
+
+// List of companies with logos
 const companiesList = [
-  { name: "ARUN ENG & CO" },
-  { name: "Arka Jain" },
-  { name: "Jharkhand IT Solutions" },
-  { name: "Hitachi Payment Services" },
-  { name: "Hitachi Chennai" },
-  { name: "Emversity" },
-  { name: "Hitachi Mumbai" },
-  { name: "Hitachi North East" },
-  { name: "Hitachi Jaipur" },
-  { name: "Hitachi Assam" },
-  { name: "Winso Software Pvt Ltd" },
-  { name: "CMS" },
-  { name: "M/s Unique Engineer's" },
-  { name: "Blue Craft" },
-  { name: "A.K ENGINEERING CORPORATION" },
-  { name: "JINDAL ORRISA" }
+  { name: "ARUN ENG & CO", logo: arunEngLogo },
+  { name: "Arka Jain", logo: arkaJainLogo },
+  { name: "Jharkhand IT Solutions", logo: jharkhandITLogo },
+  { name: "Hitachi Payment Services", logo: hp },
+  { name: "Hitachi Chennai", logo: h },
+  { name: "Emversity", logo: emv },
+  { name: "Hitachi Mumbai", logo: h },
+  { name: "Hitachi North East", logo: h },
+  { name: "Hitachi Jaipur", logo: h },
+  { name: "Hitachi Assam", logo: h },
+  { name: "Winso Software Pvt Ltd", logo: winso },
+  { name: "CMS", logo: cms },
+  { name: "M/s Unique Engineer's" }, // No logo for this company
+  { name: "Blue Craft", logo: blue },
+  { name: "A.K ENGINEERING CORPORATION", logo: ak },
+  { name: "JINDAL ORRISA", logo: jin }
 ];
 
-// Duplicated list to ensure seamless scrolling
-const duplicatedList = [...companiesList, ...companiesList];
-
-const scrollAnimation = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }  // Move by half of the total width
-`;
-
 const Companies = () => {
-  const [isPaused, setIsPaused] = useState(false);  // State to control scrolling
-  const animationRef = useRef(null);
-
-  // Calculate the total width required for seamless scrolling
-  const containerWidth = duplicatedList.length * 405; // Adjust item width if necessary
-
-  // Pause animation when mouse enters and resume when mouse leaves
-  useEffect(() => {
-    if (isPaused) {
-      animationRef.current.style.animationPlayState = 'paused';
-    } else {
-      animationRef.current.style.animationPlayState = 'running';
-    }
-  }, [isPaused]);
-
   const headingFontSize = useBreakpointValue({ base: "2xl", sm: "3xl", md: "3xl", lg: "4xl", xl: "4xl", "2xl": "6xl", "3xl": "8xl" });
-  const textFontSize = useBreakpointValue({ base: "10px", sm: "11px", md: "sm", lg: "md", xl: "sm", "2xl": "2xl", "3xl": "2xl"  });
-  //const pScreenX = useBreakpointValue({base: 3, sm: 4, md: 4, lg: 12, xl: 6, "2xl": 7, "3xl": 14}); 
-  const pscreenY = useBreakpointValue({base: 5, sm: 10, md: 10, lg: 10, xl: 12, "2xl": 14, "3xl": 40}); 
-
+  const textFontSize = useBreakpointValue({ base: "10px", sm: "11px", md: "sm", lg: "md", xl: "sm", "2xl": "2xl", "3xl": "2xl" });
+  const pscreenY = useBreakpointValue({ base: 5, sm: 10, md: 10, lg: 10, xl: 12, "2xl": 14, "3xl": 40 });
 
   return (
-
-    
     <Box textAlign="center" py={pscreenY}>
-      <Flex justifyContent="center" alignItems="center" direction={{base:"column", xl:"row"}}>
-      <Heading as="h4" size="xl"  p={{base:"2","lg":"4", "3xl":"8"}}
-        fontSize={headingFontSize}
-        fontFamily={"ClashDisplay"}
-        color={"black"}  // Change to your desired color
-      >
-        Top Startups & MNC’s
-      </Heading>
-      <Heading as="h4" size="xl" 
-        fontSize={headingFontSize}
-        fontFamily={"ClashDisplay"}
-        
-        color={"blue.400"}  // Change to your desired color
-      >
-        that Hire from TalentConnect
-      </Heading>
-      </Flex>
-      <Box overflow="hidden" width="100%" mt={{base:"10",lg:"20"}}>
-        <Flex
-          ref={animationRef}
-          as="ul"
-          listStyleType="none"
-          width={`${containerWidth}px`}  // Set width based on duplicated list
-          animation={`${scrollAnimation} 60s linear infinite`}  // Smooth scrolling
-          whiteSpace="nowrap"
-          onMouseEnter={() => setIsPaused(true)}  // Stop scrolling when hovering
-          onMouseLeave={() => setIsPaused(false)}  // Resume scrolling when hover ends
+      <Flex justifyContent="center" alignItems="center" direction={{ base: "column", xl: "row" }}>
+        <Heading as="h4" size="xl" p={{ base: "2", lg: "4", "3xl": "8" }}
+          fontSize={headingFontSize}
+          fontFamily={"ClashDisplay"}
+          color={"black"}
         >
-          {duplicatedList.map((company, index) => (
-            <Box
-              as="li"
-              key={index}
-              mx="6"
-              display="inline-block"
-              p="4"
-              bg="white"             
-              borderRadius="md"
-              boxShadow="0 0 15px rgba(160, 32, 240, 0.6)"  // Shining shadow effect
-              transition="box-shadow 0.3s, border-color 0.3s"
-            >
-              <Text
-                fontSize={textFontSize}
-                fontWeight="bold"
-                color="orange.400"
-                fontFamily={"Poppins, sans-serif"}  // Professional font style
-              >
-                {company.name}
-              </Text>
-            </Box>
+          Top Startups & MNC’s
+        </Heading>
+        <Heading as="h4" size="xl"
+          fontSize={headingFontSize}
+          fontFamily={"ClashDisplay"}
+          color={"blue.400"}
+        >
+          that Hire from TalentConnect
+        </Heading>
+      </Flex>
+      <Box overflow="hidden" width="100%" mt={{ base: "10", lg: "20" }}>
+        <Marquee>
+           {companiesList.map((company, index) => (
+            <Box key={index} mx="6" display="inline-block" p="3">
+              <Flex alignItems="center" justifyContent="center">
+                {company.logo ? (
+                  <Image src={company.logo} alt={`${company.name} logo`} boxSize="50px" mr="3" />  // Display logo if exists
+                ) : (
+                  <Box boxSize="50px" mr="-6" />  // Empty box to maintain spacing for no logo
+                )}
+                <Text
+                  fontSize={textFontSize}
+                  fontWeight="bolder"
+                  color="orange.400"  // Professional color for company name
+                  fontFamily={"Poppins, sans-serif"}
+                  textAlign="center"
+                >
+                  {company.name}
+                </Text>
+              </Flex>
+              </Box>
           ))}
-        </Flex>
+        </Marquee>
       </Box>
     </Box>
   );
