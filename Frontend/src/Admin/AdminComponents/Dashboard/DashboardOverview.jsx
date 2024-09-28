@@ -3,7 +3,7 @@ import { Box, Grid, Flex, Text, Center } from '@chakra-ui/react';
 import { FaUserGraduate, FaUniversity, FaBuilding, FaBriefcase } from 'react-icons/fa';
 import { MdContactMail } from "react-icons/md";
 import CurrentDateTime from './CurrentDateTime';
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 const DashboardOverview = () => {
   const [collegeCount, setCollegeCount] = useState(0);

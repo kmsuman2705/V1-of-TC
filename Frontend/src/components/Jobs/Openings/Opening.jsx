@@ -5,7 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
 import Card from '../Card/Card.jsx';
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Opening() {
     

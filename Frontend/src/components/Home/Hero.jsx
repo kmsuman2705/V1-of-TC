@@ -96,7 +96,7 @@ export default function Hero() {
             fontWeight={700}
             lineHeight={1.1}
             fontSize={sizeHeading}
-
+            mt={{"2xl":"40"}}
             fontFamily= {'Almendra, serif'} // Apply the font family
             
             as={motion.div}

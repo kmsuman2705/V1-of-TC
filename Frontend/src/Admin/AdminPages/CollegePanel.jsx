@@ -33,7 +33,7 @@ import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 
 const downloadPDF = (data) => {

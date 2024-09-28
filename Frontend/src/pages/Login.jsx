@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 
 const backgroundImage = 'url(https://4kwallpapers.com/images/walls/thumbs_3t/18274.png)';
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');

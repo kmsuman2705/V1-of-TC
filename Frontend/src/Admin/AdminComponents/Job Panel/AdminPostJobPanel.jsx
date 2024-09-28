@@ -44,7 +44,7 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 {/*
 const handleExportPDF = (data) => {

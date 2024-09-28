@@ -8,7 +8,7 @@ import {
 import axios from 'axios';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 const NotificationPanel = () => {
   const [notifications, setNotifications] = useState([]);

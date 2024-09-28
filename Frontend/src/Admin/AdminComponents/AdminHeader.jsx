@@ -18,7 +18,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 const AdminHeader = ({ onOpenSidebar }) => {
   const { logout } = useContext(AuthContext);

@@ -8,7 +8,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { RiSpeakFill } from "react-icons/ri";
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+{/* console.log('API Base URL:', apiUrl); // Log the API URL to the console */}
 
 const validationSchema = Yup.object({
   name: Yup.string()

@@ -64,9 +64,9 @@ const Companies = () => {
             <Box key={index} mx="6" display="inline-block" p="3">
               <Flex alignItems="center" justifyContent="center">
                 {company.logo ? (
-                  <Image src={company.logo} alt={`${company.name} logo`} boxSize="50px" mr="3" />  // Display logo if exists
+                  <Image src={company.logo} alt={`${company.name || 'Company'} logo`} boxSize="50px" mr="3"/>  // Display logo if exists
                 ) : (
-                  <Box boxSize="50px" mr="-6" />  // Empty box to maintain spacing for no logo
+                  <Box boxSize="50px" />  // Empty box to maintain spacing for no logo
                 )}
                 <Text
                   fontSize={textFontSize}

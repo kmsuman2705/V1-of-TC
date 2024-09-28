@@ -27,7 +27,7 @@ import {
 import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from 'react-icons/md';
 import { BsPerson, BsInstagram, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 
-const apiUrl = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 // Validation schema
 const validationSchema = Yup.object({
